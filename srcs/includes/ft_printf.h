@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luca <lubenard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/19 12:38:17 by luca              #+#    #+#             */
-/*   Updated: 2019/01/22 00:23:35 by lubenard         ###   ########.fr       */
+/*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
+/*   Updated: 2019/01/22 00:32:56 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int		ft_printf(const char *str)
-{
-	ft_putstr(str);
-	return (0);
-}
+# include <unistd.h>
+# include <stdlib.h>
 
-int main()
-{
-	ft_printf("test");
-	return (0);
-}
+int		ft_printf(const char *str);
+void	ft_putstr(const char *str);
+
+#endif

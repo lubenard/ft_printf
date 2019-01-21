@@ -6,13 +6,14 @@
 #    By: jmoussu <jmoussu@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 17:01:46 by lubenard          #+#    #+#              #
-#    Updated: 2019/01/19 13:20:10 by luca             ###   ########.fr        #
+#    Updated: 2019/01/22 00:34:17 by lubenard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-SRC = srcs/ft_printf.c
+SRC = srcs/ft_printf.c \
+	  srcs/utils.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -23,7 +24,7 @@ GREEN_OK = "\033[0;32mDONE !\033[00m"
 all:  $(NAME)
 
 $(NAME): $(OBJ)
-	@clang -o $(NAME) $(CFLAGS) $(OBJ)
+	@clang -o $(NAME) $(CFLAGS) $(OBJ) -Isrcs/includes
 	@echo ft_printf ${GREEN_OK}
 
 %.o : %.c

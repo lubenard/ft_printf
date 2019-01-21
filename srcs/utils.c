@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luca <lubenard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/19 12:38:17 by luca              #+#    #+#             */
-/*   Updated: 2019/01/22 00:23:35 by lubenard         ###   ########.fr       */
+/*   Created: 2019/01/22 00:25:11 by lubenard          #+#    #+#             */
+/*   Updated: 2019/01/22 00:32:41 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
 
-int		ft_printf(const char *str)
+int		ft_strlen(const char *str)
 {
-	ft_putstr(str);
-	return (0);
+	int i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
 
-int main()
+void	ft_putstr(const char *str)
 {
-	ft_printf("test");
-	return (0);
+	write(1, str, ft_strlen(str));
 }
