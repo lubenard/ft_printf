@@ -6,7 +6,7 @@
 #    By: jmoussu <jmoussu@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 17:01:46 by lubenard          #+#    #+#              #
-#    Updated: 2019/01/22 00:34:17 by lubenard         ###   ########.fr        #
+#    Updated: 2019/01/22 20:47:40 by lubenard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,24 +19,22 @@ OBJ = $(SRC:.c=.o)
 
 CFLAGS = -Wall -Wextra -Werror
 
-GREEN_OK = "\033[0;32mDONE !\033[00m"
-
 all:  $(NAME)
 
 $(NAME): $(OBJ)
 	@clang -o $(NAME) $(CFLAGS) $(OBJ) -Isrcs/includes
-	@echo ft_printf ${GREEN_OK}
+	@echo -e "ft_printf \033[32mDONE !\033[0m"
 
 %.o : %.c
 	@clang -c $(CFLAGS) $< -o $@
 
 clean:
 	@rm -f $(OBJ)
-	@echo clean ft_printf ${GREEN_OK}
+	@echo -e "clean ft_printf \033[32mDONE !\033[0m"
 
 fclean: clean
 	@rm -f $(NAME)
 	@rm -rf fillit.dSYM
-	@echo fclean ft_printf ${GREEN_OK}
+	@echo -e "fclean ft_printf \033[32mDONE !\033[0m"
 
 re: fclean all
