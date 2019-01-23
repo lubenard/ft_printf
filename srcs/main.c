@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/23 18:46:50 by lubenard         ###   ########.fr       */
+/*   Created: 2019/01/23 16:40:07 by lubenard          #+#    #+#             */
+/*   Updated: 2019/01/23 18:17:55 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "includes/ft_printf.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
-# define MAX_INT64 (9223372036854775807LL)
-
-#include <stdio.h>
-
-typedef struct	s_word
+int main(int argc, char **argv)
 {
-	char			*word;
-	struct s_word	*next;
-}				t_word;
+	(void) argc;
+	(void) argv;
+	printf("VRAI PRINTF:\n");
+	printf("retour printf = %d\n", printf("test%d", 1536));
+	printf("%d, % d\n", 1, 2);
+	printf("pourcent d = %d pourcent i = %i\n", 123, 123);
+	printf("%c vs %c\n", 'a', 'b');
 
-int				ft_printf(const char *str, ...);
-void			ft_putstr(const char *str);
-int				ft_strcchr(const char *str, const char *to_found);
-char			*ft_itoa(int n);
-
-#endif
+	printf("MY PRINTF:\n");
+	ft_printf("Test\n", 15);
+	return (0);
+}
