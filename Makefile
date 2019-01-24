@@ -6,7 +6,7 @@
 #    By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 17:01:46 by lubenard          #+#    #+#              #
-#    Updated: 2019/01/23 18:44:36 by lubenard         ###   ########.fr        #
+#    Updated: 2019/01/24 18:02:16 by lubenard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,8 @@ NAME = libftprintf.a
 SRC = srcs/ft_printf.c \
 	  srcs/utils.c \
 	  srcs/lib/ft_itoa.c \
+	  srcs/lib/ft_strsub.c \
+	  srcs/parsing.c \
 	  srcs/main.c
 
 OBJ = $(SRC:.c=.o)

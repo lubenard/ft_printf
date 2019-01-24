@@ -6,7 +6,7 @@
 /*   By: luca <lubenard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/19 12:38:17 by luca              #+#    #+#             */
-/*   Updated: 2019/01/23 22:05:16 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/01/24 18:14:38 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,36 @@
 
 int		scanning(const char *str)
 {
-	int cnt;
 	int i;
 	int e;
+	int k;
 
-	i = 0;
-	cnt = 0;
+	k = 0;
 	e = 0;
+	i = 0;
 	while (str[i])
 	{
-		printf("Boucle char = %c, i = %d e = %d\n", str[i], i, e);
+		printf("char traite = %c , i = %d, e = %d, k = %d\n", str[i], i, e, k);
 		if (str[i] == '%')
 		{
-			printf("Boucle = %s\n",ft_strsub(str, e, i));
-			e = i;
+			printf("Detection = %s\n", ft_strsub(str, k, e));
+			k = i;
+			e = 0;
 		}
-		i++;
+		++i;
+		++e;
 	}
-	//printf("Boucle = %s\n",ft_strsub(str, e, i));
-	return (cnt);
+	return (0);
 }
 
 int		ft_printf(const char *str, ...)
 {
 	va_list ap;
+	char	*tab[] = {"test", "%d", "Ptdr"};
 
 	va_start(ap, str); // stdarg pour avoir des arguments a l'infinie
-	ft_putstr(ft_itoa(va_arg(ap, int))); //afficher un int par exemple
-	printf("str=%d c=%c\n", ft_strcchr(str, "%lu"), str[ft_strcchr(str, "%lu")]);
-	scanning(str);
-	ft_putstr(str);
+	//ft_putstr(ft_itoa(va_arg(ap, int))); //afficher un int par exemple
+	parsing(tab);
+	//scanning(str);
 	return (0);
 }

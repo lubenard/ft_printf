@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:07 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/23 21:57:45 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/01/24 14:38:06 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ int main(int argc, char **argv)
 	printf("%c vs %c\n", 'a', 'b');
 	printf("----------------------------------\n");
 	printf("MY PRINTF:\n");
-	ft_printf("Test%dlol%ptet", 15);
+	ft_printf("Test%dlol%c", 15);
 	return (0);
 }

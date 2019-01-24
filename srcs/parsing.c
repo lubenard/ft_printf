@@ -1,31 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/23 19:36:29 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/24 12:51:06 by lubenard         ###   ########.fr       */
+/*   Created: 2019/01/24 13:47:20 by lubenard          #+#    #+#             */
+/*   Updated: 2019/01/24 18:15:02 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "includes/ft_printf.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+t_word		*new_maillon()
 {
-	char	*ret;
-	size_t	i;
+	t_word *new_element;
 
+	if (!(new_element = (t_word *)malloc(sizeof(t_word))))
+		return (NULL);
+	//new_element->next = NULL;
+	return (new_element);
+}
+
+int			parsing(char **str)
+{
+	t_word *lkd_list;
+	//t_word *new_element;
+	int		i;
+	int		e;
+	
 	i = 0;
-	if (!s)
-		return (NULL);
-	if (!(ret = (char *)malloc(sizeof(char) * len)))
-		return (NULL);
-	while (i < len)
+	e = 0;
+	lkd_list = new_maillon();
+	while (str[i])
 	{
-		ret[i] = s[start + i];
+		printf("Element read: %s\n", str[i]);
 		i++;
 	}
-	return (ret);
+	return (0);
 }
