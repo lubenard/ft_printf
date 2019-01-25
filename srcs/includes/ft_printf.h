@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/24 18:01:38 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/01/25 10:43:41 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 typedef struct	s_word
 {
-	void			**content;
+	void			*content;
 	struct s_word	*next;
 }				t_word;
 
