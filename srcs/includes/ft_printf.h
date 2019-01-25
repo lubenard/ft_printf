@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/25 10:43:41 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/01/26 00:08:18 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,18 @@
 
 #include <stdio.h>
 
+typedef struct	s_parameter
+{
+	int		precision;
+	int		flags;
+	int		minimim_size;
+}				t_parameter;
+
 typedef struct	s_word
 {
 	void			*content;
+	int				to_remplace;
+	t_parameter		*parameter;
 	struct s_word	*next;
 }				t_word;
 
@@ -32,5 +41,7 @@ int				ft_strcchr(const char *str, const char *to_found);
 char			*ft_itoa(int n);
 char			*ft_strsub(char const *s, unsigned int start, size_t len);
 int				parsing(char **str);
+int				ft_strlen(const char *str);
+void			remplacage(t_word *lkd_list);
 
 #endif
