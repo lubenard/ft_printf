@@ -6,11 +6,11 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 13:47:20 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/26 00:07:33 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/01/26 14:16:37 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
+#include "ft_printf.h"
 
 t_word		*new_maillon()
 {
@@ -22,7 +22,7 @@ t_word		*new_maillon()
 	return (new_element);
 }
 
-int			parsing(char **str)
+int			parsing(char **str, va_list ap)
 {
 	t_word *lkd_list;
 	t_word *new_element;
@@ -49,7 +49,7 @@ int			parsing(char **str)
 		}
 		i++;
 	}
-	remplacage(tmp);
+	remplacage(tmp, ap);
 	while (tmp) //affichage liste chainée
 	{
 		void *test = tmp->content;

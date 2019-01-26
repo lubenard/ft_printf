@@ -6,11 +6,11 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:07 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/24 14:38:06 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/01/26 14:32:37 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
+#include "ft_printf.h"
 
 int main(int argc, char **argv)
 {
@@ -23,6 +23,6 @@ int main(int argc, char **argv)
 	printf("%c vs %c\n", 'a', 'b');
 	printf("----------------------------------\n");
 	printf("MY PRINTF:\n");
-	ft_printf("Test%dlol%c", 15);
+	ft_printf("Test%dlol%c", 'c');
 	return (0);
 }

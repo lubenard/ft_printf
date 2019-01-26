@@ -6,11 +6,11 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:25:11 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/22 21:56:59 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/01/26 14:30:03 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
+#include "ft_printf.h"
 
 int		ft_strcchr(const char *str, const char *to_found)
 {
@@ -43,4 +43,9 @@ int		ft_strlen(const char *str)
 void	ft_putstr(const char *str)
 {
 	write(1, str, ft_strlen(str));
+}
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
 }
