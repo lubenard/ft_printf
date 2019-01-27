@@ -6,7 +6,7 @@
 #    By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 17:01:46 by lubenard          #+#    #+#              #
-#    Updated: 2019/01/26 00:08:49 by lubenard         ###   ########.fr        #
+#    Updated: 2019/01/27 17:20:09 by lubenard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRC = srcs/ft_printf.c \
 	  srcs/lib/ft_strsub.c \
 	  srcs/parsing.c \
 	  srcs/rempl.c \
+	  srcs/flags/percent_c.c \
 	  srcs/main.c
 
 OBJ = $(SRC:.c=.o)

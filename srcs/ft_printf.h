@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/26 14:30:41 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/01/27 17:14:36 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,9 @@ int				parsing(char **str, va_list ap);
 int				ft_strlen(const char *str);
 void			remplacage(t_word *lkd_list, va_list ap);
 void			ft_putchar(char c);
+/*
+**Percentage conversion functions
+*/
+void			percent_c(t_word *lkd_list, va_list ap);
+
 #endif
