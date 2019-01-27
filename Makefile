@@ -6,7 +6,7 @@
 #    By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 17:01:46 by lubenard          #+#    #+#              #
-#    Updated: 2019/01/27 17:20:09 by lubenard         ###   ########.fr        #
+#    Updated: 2019/01/27 23:33:43 by lubenard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,12 @@ NAME = libftprintf.a
 SRC = srcs/ft_printf.c \
 	  srcs/utils.c \
 	  srcs/lib/ft_itoa.c \
+	  srcs/lib/ft_atoi.c \
 	  srcs/lib/ft_strsub.c \
 	  srcs/parsing.c \
 	  srcs/rempl.c \
 	  srcs/flags/percent_c.c \
+	  srcs/flags/percent_s.c \
 	  srcs/main.c
 
 OBJ = $(SRC:.c=.o)

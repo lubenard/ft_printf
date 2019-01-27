@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:07 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/26 14:32:37 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/01/27 23:35:26 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ int main(int argc, char **argv)
 	printf("%d, % d\n", 1, 2);
 	printf("pourcent d = %d pourcent i = %i\n", 123, 123);
 	printf("%c vs %c\n", 'a', 'b');
+	printf("%10s:\n", "help pls");
 	printf("----------------------------------\n");
 	printf("MY PRINTF:\n");
-	ft_printf("Test%dlol%c", 'c');
+	ft_printf("Test%slol%c","Yo les copains", 'c');
 	return (0);
 }
