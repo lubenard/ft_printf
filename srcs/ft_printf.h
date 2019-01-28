@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/27 23:34:18 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/01/28 16:07:10 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int				ft_strlen(const char *str);
 void			remplacage(t_word *lkd_list, va_list ap);
 void			ft_putchar(char c);
 int				ft_atoi(const char *str);
+char			*ft_strjoin(const char *s1, const char *s2);
+char			*ft_fill(char *str, char c, int length);
 /*
 **Percentage conversion functions
 */

@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   percent_c.c                                        :+:      :+:    :+:   */
+/*   ft_fill.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/27 16:57:06 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/28 15:48:02 by lubenard         ###   ########.fr       */
+/*   Created: 2019/01/28 12:41:57 by lubenard          #+#    #+#             */
+/*   Updated: 2019/01/28 16:07:38 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-char	return_pointer(int nbr)
+char	*ft_fill(char *s, char c, int length)
 {
-	char c;
+	int i;
 
-	c = nbr;
-	return (c);
+	i = 0;
+	if (!s || !c)
+		return (0);
+	while (i < length)
+		s[i++] = c;
+	return (s);
 }
 
-void	percent_c(t_word *lkd_list, va_list ap)
-{
-	char	to_remplace;
-	char	tmp[2];
-
-	to_remplace = return_pointer(va_arg(ap, int));
-	tmp[0] = to_remplace;
-	tmp[1] = '\0';
-	lkd_list->content = &tmp;
-}
