@@ -6,11 +6,11 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:07 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/28 15:51:29 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/01/29 17:37:57 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "srcs/ft_printf.h"
 
 int main(int argc, char **argv)
 {
@@ -22,9 +22,9 @@ int main(int argc, char **argv)
 	printf("pourcent d = %d pourcent i = %i\n", 123, 123);
 	printf("%c vs %c\n", 'a', 'b');
 	printf("%10s:\n", "help pls");
-	printf("'%20s'\n","Yo les copains");
+	printf("'%-20s'\n","Yo les copains");
 	printf("----------------------------------\n");
 	printf("MY PRINTF:\n");
-	ft_printf("Test%slol%c","Yo les copains", 'c');
+	ft_printf("Test%-20slol%c","Yo les copains", 'c');
 	return (0);
 }

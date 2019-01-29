@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 21:41:36 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/28 16:10:03 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/01/29 17:27:16 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,22 @@
 
 char	*add_space(char *str, char *to_remplace)
 {
-	int i;
-	char *sub;
-	int length;
-	char *to_join;
+	int		i;
+	char	*sub;
+	int		length;
+	char	*to_join;
+	int		minus;
 
 	i = 1;
+	minus = 1;
+	if (str[1] == '-')
+	{
+		++minus;
+		++i;
+	}
 	while (str[i] > 47 && str[i] < 58)
-		i++;
-	sub = ft_strsub(str, 1, i - 1);
+		++i;
+	sub = ft_strsub(str, minus, i - 1);
 	length = ft_atoi(sub);
 	free(sub);
 	if (ft_strlen(to_remplace) < length)
@@ -31,12 +38,12 @@ char	*add_space(char *str, char *to_remplace)
 			return (NULL);
 		to_join[length - ft_strlen(to_remplace)] = '\0';
 		to_join = ft_fill(to_join, ' ', length - ft_strlen(to_remplace));
-		to_remplace = ft_strjoin(to_join, to_remplace);
+		to_remplace = (i > 1) ? ft_strjoin(to_remplace, to_join) : ft_strjoin(to_join, to_remplace);
 	}
 	return (to_remplace);
 }
 
-void	percent_s(t_word *lkd_list, va_list ap)
+int		percent_s(t_word *lkd_list, va_list ap)
 {
 	char *to_remplace;
 	void *content;
@@ -46,10 +53,12 @@ void	percent_s(t_word *lkd_list, va_list ap)
 	content = lkd_list->content;
 	str = (char *)content;
 	if (str[1] == 's')
-		lkd_list->content = &to_remplace[0];
-	else if (str[1] > 47 && str[1] < 58)
+		lkd_list->content = to_remplace;
+	else
 	{
-		to_remplace = add_space(str, to_remplace);
-		lkd_list->content = &to_remplace[0];
+		if ((to_remplace = add_space(str, to_remplace)) == NULL)
+			return (-1);
+		lkd_list->content = to_remplace;
 	}
+	return (0);
 }

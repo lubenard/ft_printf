@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/28 16:07:10 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/01/29 17:25:58 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdarg.h>
 # define MAX_INT64 (9223372036854775807LL)
 
-#include <stdio.h>
+# include <stdio.h>
 
 typedef struct	s_parameter
 {
@@ -29,7 +29,7 @@ typedef struct	s_parameter
 
 typedef struct	s_word
 {
-	void			*content;
+	char			*content;
 	int				to_remplace;
 	t_parameter		*parameter;
 	struct s_word	*next;
@@ -50,6 +50,6 @@ char			*ft_fill(char *str, char c, int length);
 /*
 **Percentage conversion functions
 */
-void			percent_c(t_word *lkd_list, va_list ap);
-void			percent_s(t_word *lkd_list, va_list ap);
+int				percent_c(t_word *lkd_list, va_list ap);
+int				percent_s(t_word *lkd_list, va_list ap);
 #endif

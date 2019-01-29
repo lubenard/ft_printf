@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 13:47:20 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/28 15:46:59 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/01/29 16:45:44 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,7 @@ int			parsing(char **str, va_list ap)
 	remplacage(tmp, ap);
 	while (tmp) //affichage liste chainée
 	{
-		void *test = tmp->content;
-		printf("Loop affichage lkd_list->content: %s\n", ((char *)test));
+		printf("Loop affichage lkd_list->content: '%s'\n", tmp->content);
 		printf("Loop affichage lkd_list->to_remplace: %d\n", tmp->to_remplace);
 		printf("Loop affichage lkd_list->next %p\n", tmp->next);
 		printf("------------------------------------------------\n");
