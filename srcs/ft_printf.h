@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/30 16:23:20 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/01/30 18:51:53 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,10 @@
 
 # include <stdio.h>
 
-typedef struct	s_parameter
-{
-	int		precision;
-	int		flags;
-	int		minimim_size;
-}				t_parameter;
-
 typedef struct	s_word
 {
 	char			*content;
 	int				to_remplace;
-	t_parameter		*parameter;
 	struct s_word	*next;
 }				t_word;
 

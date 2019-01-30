@@ -6,7 +6,7 @@
 /*   By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 16:57:06 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/30 18:11:37 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/01/30 18:40:42 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int		percent_c(t_word *lkd_list, va_list ap)
 	lkd_list->content = to_remplace;
 	return (0);
 }
-
 
 int		percent_percent(t_word *lkd_list)
 {

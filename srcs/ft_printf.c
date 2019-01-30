@@ -6,7 +6,7 @@
 /*   By: luca <lubenard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/19 12:38:17 by luca              #+#    #+#             */
-/*   Updated: 2019/01/30 17:28:45 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/01/30 20:26:08 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		ft_printf(const char *str, ...)
 {
 	va_list ap;
-	char	*tab[] = {"test", "%-20s", "Ptdr", "%20c", "%x", "%%", "\0"};
+	char	*tab[] = {"Test", "%-20s", "Ptdr", "%20c", "%x", "%%", "\0"};
 
 	va_start(ap, str); // stdarg pour avoir des arguments a l'infinie
 	//ft_putstr(ft_itoa(va_arg(ap, int))); //afficher un int par exemple
