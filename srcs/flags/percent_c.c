@@ -6,7 +6,7 @@
 /*   By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 16:57:06 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/29 17:24:38 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/01/30 18:11:37 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,26 @@ char	return_pointer(int nbr)
 
 int		percent_c(t_word *lkd_list, va_list ap)
 {
-	char	to_remplace;
-	char	*tmp;
+	char	get_value;
+	char	*to_remplace;
 
-	if (!(tmp = (char *)malloc(sizeof(char))))
+	get_value = return_pointer(va_arg(ap, int));
+	if (!(to_remplace = (char *)malloc(sizeof(char))))
 		return (-1);
-	to_remplace = return_pointer(va_arg(ap, int));
-	tmp[0] = to_remplace;
-	tmp[1] = '\0';
-	lkd_list->content = tmp;
+	to_remplace[0] = get_value;
+	if (lkd_list->content[1] != 'c')
+		to_remplace = add_space(lkd_list->content, to_remplace);
+	lkd_list->content = to_remplace;
+	return (0);
+}
+
+
+int		percent_percent(t_word *lkd_list)
+{
+	char *to_remplace;
+	if (!(to_remplace = (char *)malloc(sizeof(char))))
+		return (-1);
+	to_remplace[0] = '%';
+	lkd_list->content = to_remplace;
 	return (0);
 }

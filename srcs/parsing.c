@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 13:47:20 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/29 16:45:44 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/01/30 16:18:12 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int			parsing(char **str, va_list ap)
 	tmp = lkd_list;
 	while (str[i][0])
 	{
-		printf("Element read: %s\n", str[i]);
+		printf("Element read: %s\n", str[i]); //temporaire
 		lkd_list->content = str[i];
 		lkd_list->to_remplace = 0;
 		if (str[i][0] == '%')
@@ -50,7 +50,7 @@ int			parsing(char **str, va_list ap)
 		i++;
 	}
 	remplacage(tmp, ap);
-	while (tmp) //affichage liste chainée
+	while (tmp) //affichage liste chainée temporaire
 	{
 		printf("Loop affichage lkd_list->content: '%s'\n", tmp->content);
 		printf("Loop affichage lkd_list->to_remplace: %d\n", tmp->to_remplace);
