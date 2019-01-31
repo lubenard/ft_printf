@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/30 22:36:23 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/01/31 10:57:46 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct	s_word
 int				ft_printf(const char *str, ...);
 int				ft_strcchr(const char *str, const char *to_found);
 int				parsing(char **str, va_list ap);
-void			remplacage(t_word *lkd_list, va_list ap);
+int				remplacage(t_word *lkd_list, va_list ap);
 /*
 ** Libft functions
 */
@@ -50,6 +50,7 @@ int				percent_c(t_word *lkd_list, va_list ap);
 int				percent_s(t_word *lkd_list, va_list ap);
 int				percent_x(t_word *lkd_list, va_list ap);
 int				percent_percent(t_word *lkd_list);
+int				percent_d(t_word *lkd_list, va_list ap);
 /*
 ** Options functions
 */
