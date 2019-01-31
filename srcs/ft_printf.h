@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/31 10:57:46 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/01/31 20:42:31 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,14 @@ int				remplacage(t_word *lkd_list, va_list ap);
 /*
 ** Libft functions
 */
-void			ft_putstr(const char *str);
 char			*ft_itoa(int n);
 char			*ft_strsub(char const *s, unsigned int start, size_t len);
 int				ft_strlen(const char *str);
-void			ft_putchar(char c);
 int				ft_atoi(const char *str);
 char			*ft_strjoin(const char *s1, const char *s2);
 char			*ft_fill(char *str, char c, int length);
 int				ft_strcmp(char const *s1, char const *s2);
+int				ft_strchr(char const *s, int c);
 /*
 ** Percentage conversion functions
 */
@@ -55,4 +54,5 @@ int				percent_d(t_word *lkd_list, va_list ap);
 ** Options functions
 */
 char			*add_space(char *str, char *to_remplace);
+char			*precision(char *content, char *to_remplace, int i);
 #endif
