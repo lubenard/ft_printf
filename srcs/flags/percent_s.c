@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 21:41:36 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/31 22:09:23 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/01/31 22:50:56 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int		percent_s(t_word *lkd_list, va_list ap)
 {
-	char *to_remplace;
-	int i;
+	char	*to_remplace;
+	int		i;
 
 	i = 0;
 	to_remplace = va_arg(ap, char *);

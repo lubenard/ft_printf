@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 14:58:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/31 22:08:43 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/01/31 22:42:36 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,8 @@ char	*add_space(char *str, char *to_remplace)
 		++i;
 	sub = ft_strsub(str, minus, i);
 	length = ft_atoi(sub);
-	printf("len = %d\n", length);
 	free(sub);
 	if (ft_strlen(to_remplace) < length)
 		to_remplace = join_strings(to_remplace, length, minus);
-	printf("'%s'\n",to_remplace);
 	return (to_remplace);
 }

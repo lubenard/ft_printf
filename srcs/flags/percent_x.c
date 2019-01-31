@@ -6,11 +6,34 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 11:23:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/30 20:24:27 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/01/31 22:49:25 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
+
+char	*rev(char *str)
+{
+	char	*rev_str;
+	int		i;
+	int		j;
+	int		len;
+
+	len = ft_strlen(str);
+	if (!(rev_str = (char *)malloc(sizeof(char) * len)))
+		return (NULL);
+	j = 0;
+	i = ft_strlen(str);
+	i--;
+	while (i >= 0)
+	{
+		rev_str[j] = str[i];
+		j++;
+		i--;
+	}
+	free(str);
+	return (rev_str);
+}
 
 char	*convert_into_hexa(int value)
 {
@@ -42,6 +65,8 @@ int		percent_x(t_word *lkd_list, va_list ap)
 
 	get_value = va_arg(ap, int);
 	to_remplace = convert_into_hexa(get_value);
+	printf("to_remplace = %s\n", to_remplace);
+	to_remplace = rev(to_remplace);
 	if (lkd_list->content[1] != 'x')
 		to_remplace = add_space(lkd_list->content, to_remplace);
 	lkd_list->content = to_remplace;

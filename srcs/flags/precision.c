@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:56:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/31 21:00:39 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/01/31 22:51:36 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*reduce_str(char *to_remplace, int length)
 {
-	int i;
-	char *copy;
+	int		i;
+	char	*copy;
 
 	i = 0;
 	if (!(copy = (char *)malloc(sizeof(char) * length)))
@@ -30,9 +30,9 @@ char	*reduce_str(char *to_remplace, int length)
 
 char	*precision(char *content, char *to_remplace, int i)
 {
-	char *sub;
-	int length;
-	int j;
+	char	*sub;
+	int		length;
+	int		j;
 
 	j = i;
 	length = 0;
