@@ -6,7 +6,7 @@
 /*   By: luca <lubenard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 23:33:55 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/31 12:37:03 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/01 15:46:05 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int		remplacage(t_word *lkd_list, va_list ap)
 	{
 		if (lkd_list->to_remplace == 1)
 		{
+			printf("Element read: %s\n", lkd_list->content);
 			if (lkd_list->content[ft_strlen(lkd_list->content) - 1] == 's')
 				percent_s(lkd_list, ap);
 			if (lkd_list->content[ft_strlen(lkd_list->content) - 1] == 'c')

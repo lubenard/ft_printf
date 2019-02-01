@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:56:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/01 03:40:43 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/01 12:14:26 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ char	*precision(char *content, char *to_remplace, int i, int mode)
 
 	j = i;
 	length = 0;
+	printf("Launched");
 	while (content[i] > 47 && content[i] < 58)
 		++i;
 	sub = ft_strsub(content, ++j, i);

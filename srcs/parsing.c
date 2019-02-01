@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 13:47:20 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/30 16:18:12 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/01 15:51:35 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int			parsing(char **str, va_list ap)
 	tmp = lkd_list;
 	while (str[i][0])
 	{
-		printf("Element read: %s\n", str[i]); //temporaire
 		lkd_list->content = str[i];
 		lkd_list->to_remplace = 0;
 		if (str[i][0] == '%')
