@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 11:23:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/31 22:49:25 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/01 03:42:11 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,14 @@ int		percent_x(t_word *lkd_list, va_list ap)
 {
 	char	*to_remplace;
 	int		get_value;
+	int		i;
 
+	i = 0;
 	get_value = va_arg(ap, int);
 	to_remplace = convert_into_hexa(get_value);
-	printf("to_remplace = %s\n", to_remplace);
 	to_remplace = rev(to_remplace);
+	if ((i = ft_strchr(lkd_list->content, '.')) != -1)
+		to_remplace = precision(lkd_list->content, to_remplace, i, 0);
 	if (lkd_list->content[1] != 'x')
 		to_remplace = add_space(lkd_list->content, to_remplace);
 	lkd_list->content = to_remplace;

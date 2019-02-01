@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:56:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/31 22:51:36 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/01 03:40:43 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*reduce_str(char *to_remplace, int length)
 	return (copy);
 }
 
-char	*precision(char *content, char *to_remplace, int i)
+char	*precision(char *content, char *to_remplace, int i, int mode)
 {
 	char	*sub;
 	int		length;
@@ -40,9 +40,19 @@ char	*precision(char *content, char *to_remplace, int i)
 		++i;
 	sub = ft_strsub(content, ++j, i);
 	length = ft_atoi(sub);
-	if (ft_strlen(to_remplace) <= length)
-		return (to_remplace);
-	else
-		to_remplace = reduce_str(to_remplace, length);
+	if (mode == 1)
+	{	
+		if (ft_strlen(to_remplace) <= length)
+			return (to_remplace);
+		else
+			to_remplace = reduce_str(to_remplace, length);
+	}
+	else if (mode == 0)
+	{
+		if (ft_strlen(to_remplace) >= length)
+			return (to_remplace);
+		else
+			to_remplace = join_strings(to_remplace, length, 1, '0');
+	}
 	return (to_remplace);
 }

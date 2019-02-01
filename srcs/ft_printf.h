@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/31 20:42:31 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/01 03:28:50 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int				ft_printf(const char *str, ...);
 int				ft_strcchr(const char *str, const char *to_found);
 int				parsing(char **str, va_list ap);
 int				remplacage(t_word *lkd_list, va_list ap);
+char			*join_strings(char *to_remplace, int length, int minus, char fill);
+
 /*
 ** Libft functions
 */
@@ -54,5 +56,5 @@ int				percent_d(t_word *lkd_list, va_list ap);
 ** Options functions
 */
 char			*add_space(char *str, char *to_remplace);
-char			*precision(char *content, char *to_remplace, int i);
+char			*precision(char *content, char *to_remplace, int i, int mode);
 #endif
