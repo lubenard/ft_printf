@@ -6,7 +6,7 @@
 #    By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 17:01:46 by lubenard          #+#    #+#              #
-#    Updated: 2019/01/31 17:21:12 by lubenard         ###   ########.fr        #
+#    Updated: 2019/02/04 17:58:52 by lubenard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRC = srcs/ft_printf.c \
 	  srcs/flags/percent_p.c \
 	  srcs/flags/add_space.c \
 	  srcs/flags/precision.c \
+	  srcs/flags/colors.c \
 	  main.c
 
 OBJ = $(SRC:.c=.o)

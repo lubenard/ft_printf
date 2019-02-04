@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:07 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/31 11:47:36 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/04 14:49:02 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ int main(int argc, char **argv)
 	printf("%x\n", 'c');
 	printf("----------------------------------\n");
 	printf("MY PRINTF:\n");
-	ft_printf("Test%-20sPtdr%20c%x%%","Yo les copains", 'c', 1000, 152);
+	ft_printf("%x", 1000);
 	return (0);
 }

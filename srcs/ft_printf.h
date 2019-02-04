@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/01 03:28:50 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/04 18:04:13 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int				ft_strcchr(const char *str, const char *to_found);
 int				parsing(char **str, va_list ap);
 int				remplacage(t_word *lkd_list, va_list ap);
 char			*join_strings(char *to_remplace, int length, int minus, char fill);
-
 /*
 ** Libft functions
 */
@@ -51,10 +50,11 @@ int				percent_c(t_word *lkd_list, va_list ap);
 int				percent_s(t_word *lkd_list, va_list ap);
 int				percent_x(t_word *lkd_list, va_list ap);
 int				percent_percent(t_word *lkd_list);
-int				percent_d(t_word *lkd_list, va_list ap);
+int				percent_di(t_word *lkd_list, va_list ap);
 /*
 ** Options functions
 */
-char			*add_space(char *str, char *to_remplace);
+char			*add_space(char *content, char *to_remplace);
 char			*precision(char *content, char *to_remplace, int i, int mode);
+int				set_colors(t_word *lkd_list);
 #endif

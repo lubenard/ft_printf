@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 13:47:20 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/01 15:51:35 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/04 18:10:14 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int			parsing(char **str, va_list ap)
 	{
 		lkd_list->content = str[i];
 		lkd_list->to_remplace = 0;
-		if (str[i][0] == '%')
+		if (str[i][0] == '%' || str[i][0] == '{')
 			lkd_list->to_remplace = 1;
 		if (str[i + 1][0])
 		{

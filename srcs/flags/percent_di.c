@@ -6,13 +6,13 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 20:01:12 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/01 16:03:30 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/04 15:47:32 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int		percent_d(t_word *lkd_list, va_list ap)
+int		percent_di(t_word *lkd_list, va_list ap)
 {
 	char	*to_remplace;
 	int		get_value;

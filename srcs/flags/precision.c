@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:56:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/01 12:14:26 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/04 15:44:18 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,15 @@ char	*precision(char *content, char *to_remplace, int i, int mode)
 	int		length;
 	int		j;
 
-	j = i;
+	j = i + 1;
 	length = 0;
-	printf("Launched");
+	++i;
 	while (content[i] > 47 && content[i] < 58)
+	{
+		printf("i = %d, str[i] = %c\n", i, content[i]);
 		++i;
-	sub = ft_strsub(content, ++j, i);
+	}
+	sub = ft_strsub(content, j, ++i);
 	length = ft_atoi(sub);
 	if (mode == 1)
 	{	
