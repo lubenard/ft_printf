@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:07 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/04 14:49:02 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/05 18:21:00 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main(int argc, char **argv)
 	(void) argc;
 	(void) argv;
 	int test1;
-	void *test2;
+	int *test2;
 
 	test1 = 120011;
 	test2 = &test1;
@@ -32,6 +32,7 @@ int main(int argc, char **argv)
 	printf("%x\n", 'c');
 	printf("----------------------------------\n");
 	printf("MY PRINTF:\n");
-	ft_printf("%x", 1000);
+	printf("value = %p\n", test2);
+	ft_printf("%x %p", 1000, test2);
 	return (0);
 }
