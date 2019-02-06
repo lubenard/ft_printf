@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 20:01:46 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/06 12:05:04 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/06 12:40:37 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,14 @@ int		percent_p(t_word *lkd_list, va_list ap)
 	void				*get_value;
 	char				*to_remplace;
 	unsigned long		value;
+	int					i;
 
 	get_value = va_arg(ap, void *);
 	value = (unsigned long)get_value;
-	to_remplace = ft_strjoin("0x", conv_in_hexa_ul(value));
+	to_remplace = conv_in_hexa_ul(value);
+	if ((i = ft_strchr(lkd_list->content, '.')) != -1)
+		to_remplace = precision(lkd_list->content, to_remplace, i, 0);
+	to_remplace = ft_strjoin("0x", to_remplace);
 	if (lkd_list->content[1] != 'p')
 		to_remplace = add_space(lkd_list->content, to_remplace);
 	lkd_list->content = to_remplace;

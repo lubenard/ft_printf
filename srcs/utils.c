@@ -6,11 +6,34 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:25:11 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/26 14:30:03 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/06 17:01:26 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+char	*rev(char *str)
+{
+	char	*rev_str;
+	int		i;
+	int		j;
+	int		len;
+
+	len = ft_strlen(str);
+	if (!(rev_str = (char *)malloc(sizeof(char) * len)))
+		return (NULL);
+	j = 0;
+	i = ft_strlen(str);
+	i--;
+	while (i >= 0)
+	{
+		rev_str[j] = str[i];
+		j++;
+		i--;
+	}
+	free(str);
+	return (rev_str);
+}
 
 int		ft_strcchr(const char *str, const char *to_found)
 {

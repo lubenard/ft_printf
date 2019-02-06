@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/06 11:39:19 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/06 17:11:09 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ int				percent_x(t_word *lkd_list, va_list ap);
 int				percent_percent(t_word *lkd_list);
 int				percent_di(t_word *lkd_list, va_list ap);
 int				percent_p(t_word *lkd_list, va_list ap);
+int				percent_o(t_word *lkd_list, va_list ap);
+int				percent_X(t_word *lkd_list, va_list ap);
 /*
 ** Options functions
 */

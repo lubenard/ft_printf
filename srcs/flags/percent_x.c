@@ -6,34 +6,11 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 11:23:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/06 11:36:35 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/06 17:41:33 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
-
-char	*rev(char *str)
-{
-	char	*rev_str;
-	int		i;
-	int		j;
-	int		len;
-
-	len = ft_strlen(str);
-	if (!(rev_str = (char *)malloc(sizeof(char) * len)))
-		return (NULL);
-	j = 0;
-	i = ft_strlen(str);
-	i--;
-	while (i >= 0)
-	{
-		rev_str[j] = str[i];
-		j++;
-		i--;
-	}
-	free(str);
-	return (rev_str);
-}
 
 char	*convert_into_hexa(int value)
 {
@@ -60,17 +37,46 @@ char	*convert_into_hexa(int value)
 
 int		percent_x(t_word *lkd_list, va_list ap)
 {
-	char	*to_remplace;
-	int		get_value;
-	int		i;
+	char			*to_remplace;
+	void			*get_value;
+	unsigned long	value;
+	int				i;
 
 	i = 0;
-	get_value = va_arg(ap, int);
-	to_remplace = convert_into_hexa(get_value);
+	get_value = va_arg(ap, void *);
+	value = (unsigned long)get_value;
+	to_remplace = convert_into_hexa(value);
 	if ((i = ft_strchr(lkd_list->content, '.')) != -1)
 		to_remplace = precision(lkd_list->content, to_remplace, i, 0);
 	if (lkd_list->content[1] != 'x')
 		to_remplace = add_space(lkd_list->content, to_remplace);
+	lkd_list->content = to_remplace;
+	return (0);
+}
+
+int		percent_X(t_word *lkd_list, va_list ap)
+{
+	char			*to_remplace;
+	void			*get_value;
+	int				i;
+	int				j;
+	unsigned long	value;
+
+	j = 0;
+	i = 0;
+	get_value = va_arg(ap, void *);
+	value = (unsigned long)get_value;
+	to_remplace = convert_into_hexa(value);
+	if ((i = ft_strchr(lkd_list->content, '.')) != -1)
+		to_remplace = precision(lkd_list->content, to_remplace, i, 0);
+	if (lkd_list->content[1] != 'x')
+		to_remplace = add_space(lkd_list->content, to_remplace);
+	while (to_remplace[j])
+	{
+		if (to_remplace[j] > 96 && to_remplace[j] < 123)
+			to_remplace[j] -= 32;
+		++j;
+	}
 	lkd_list->content = to_remplace;
 	return (0);
 }
