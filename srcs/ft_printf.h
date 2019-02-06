@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/05 18:23:41 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/06 11:39:19 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int				ft_strcchr(const char *str, const char *to_found);
 int				parsing(char **str, va_list ap);
 int				remplacage(t_word *lkd_list, va_list ap);
 char			*join_strings(char *to_remplace, int length, int minus, char fill);
-char				*convert_into_hexa(int value);
+char			*rev(char *str);
 /*
 ** Libft functions
 */

@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 20:01:46 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/05 18:27:50 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/06 12:05:04 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,40 @@
 ** https://repl.it/repls/ValidBestFlashdrives
 */
 
+char	*conv_in_hexa_ul(unsigned long value)
+{
+	char	*ret;
+	int		i;
+	int		tmp;
+
+	i = 0;
+	if (!(ret = (char *)malloc(sizeof(char) * 10)))
+		return (NULL);
+	while (value != 0)
+	{
+		tmp = 0;
+		tmp = value % 16;
+		if (tmp < 10)
+			ret[i] = tmp + 48;
+		else
+			ret[i] = tmp + 87;
+		++i;
+		value = value / 16;
+	}
+	return (rev(ret));
+}
+
 int		percent_p(t_word *lkd_list, va_list ap)
 {
-	long unsigned int	get_value;
+	void				*get_value;
 	char				*to_remplace;
+	unsigned long		value;
 
-	(void)lkd_list;
-	get_value = va_arg(ap, long unsigned);
-	to_remplace = convert_into_hexa(get_value);
-	printf("convered into hexa = '%s'\n" ,to_remplace);
+	get_value = va_arg(ap, void *);
+	value = (unsigned long)get_value;
+	to_remplace = ft_strjoin("0x", conv_in_hexa_ul(value));
+	if (lkd_list->content[1] != 'p')
+		to_remplace = add_space(lkd_list->content, to_remplace);
+	lkd_list->content = to_remplace;
 	return (0);
 }
