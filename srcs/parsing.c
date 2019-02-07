@@ -6,27 +6,28 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 13:47:20 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/04 18:10:14 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/07 16:49:39 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_word		*new_maillon()
+t_word		*new_maillon(void)
 {
-	t_word *new_element;
+	t_word	*new_element;
 
 	if (!(new_element = (t_word *)malloc(sizeof(t_word))))
 		return (NULL);
 	new_element->next = NULL;
+	new_element->fd = 1;
 	return (new_element);
 }
 
 int			parsing(char **str, va_list ap)
 {
-	t_word *lkd_list;
-	t_word *new_element;
-	t_word *tmp;
+	t_word	*lkd_list;
+	t_word	*new_element;
+	t_word	*tmp;
 	int		i;
 	int		e;
 

@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 11:23:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/06 17:41:33 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/07 11:01:16 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int		percent_x(t_word *lkd_list, va_list ap)
 	return (0);
 }
 
-int		percent_X(t_word *lkd_list, va_list ap)
+int		percent_x_maj(t_word *lkd_list, va_list ap)
 {
 	char			*to_remplace;
 	void			*get_value;

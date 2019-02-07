@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/06 17:11:09 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/07 16:49:07 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct	s_word
 {
 	char			*content;
 	int				to_remplace;
+	int				fd;
 	struct s_word	*next;
 }				t_word;
 
@@ -31,7 +32,7 @@ int				ft_printf(const char *str, ...);
 int				ft_strcchr(const char *str, const char *to_found);
 int				parsing(char **str, va_list ap);
 int				remplacage(t_word *lkd_list, va_list ap);
-char			*join_strings(char *to_remplace, int length, int minus, char fill);
+char			*join_str(char *to_remplace, int length, int minus, char fill);
 char			*rev(char *str);
 /*
 ** Libft functions
@@ -54,11 +55,12 @@ int				percent_percent(t_word *lkd_list);
 int				percent_di(t_word *lkd_list, va_list ap);
 int				percent_p(t_word *lkd_list, va_list ap);
 int				percent_o(t_word *lkd_list, va_list ap);
-int				percent_X(t_word *lkd_list, va_list ap);
+int				percent_x_maj(t_word *lkd_list, va_list ap);
+int				percent_u(t_word *lkd_list, va_list ap);
 /*
 ** Options functions
 */
 char			*add_space(char *content, char *to_remplace);
 char			*precision(char *content, char *to_remplace, int i, int mode);
-int				set_colors(t_word *lkd_list);
+int				brackets(t_word *lkd_list, va_list ap);
 #endif
