@@ -6,7 +6,7 @@
 /*   By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 15:56:24 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/07 16:50:06 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/08 11:31:27 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,17 @@
 
 int		change_fd(t_word *lkd_list, va_list ap)
 {
+	void			*get_value;
+
 	if (ft_strcmp(lkd_list->content, "{error}") == 0)
 		lkd_list->fd = 2;
 	if (ft_strcmp(lkd_list->content, "{std}") == 0)
 		lkd_list->fd = 1;
+	else
+	{
+		get_value = va_arg(ap, void *);
+		lkd_list->fd = (unsigned long)get_value;
+	}
 	return (0);
 }
 

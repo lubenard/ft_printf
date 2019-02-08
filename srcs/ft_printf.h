@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/07 16:49:07 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/08 10:36:54 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct	s_word
 
 int				ft_printf(const char *str, ...);
 int				ft_strcchr(const char *str, const char *to_found);
-int				parsing(char **str, va_list ap);
+int				parsing(char *str, va_list ap);
 int				remplacage(t_word *lkd_list, va_list ap);
 char			*join_str(char *to_remplace, int length, int minus, char fill);
 char			*rev(char *str);
