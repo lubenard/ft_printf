@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/08 10:36:54 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/08 18:10:34 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <stdlib.h>
 # include <stdarg.h>
 # define MAX_INT64 (9223372036854775807LL)
+# include <limits.h>
+
 
 # include <stdio.h>
 
@@ -45,6 +47,7 @@ char			*ft_strjoin(const char *s1, const char *s2);
 char			*ft_fill(char *str, char c, int length);
 int				ft_strcmp(char const *s1, char const *s2);
 int				ft_strchr(char const *s, int c);
+void			ft_putstr(t_word *lkd_list);
 /*
 ** Percentage conversion functions
 */

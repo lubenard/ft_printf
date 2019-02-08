@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:07 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/08 11:44:19 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/08 18:06:18 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,10 @@ int main(int argc, char **argv)
 	printf("'%-20s'\n","Yo les copains");
 	printf("'EUUHHHH = %x'\n", test1);
 	printf("%x\n", 'c');
+	printf("%u\n", -1);
 	printf("----------------------------------\n");
 	printf("MY PRINTF:\n");
 	printf("value = '%-15p'\n %lu\n", test2, (unsigned long)test2);
-	ft_printf("Test c marrant %p", 1000, test2, 1000, 1000);
+	//ft_printf("Test c marrant %p", 1000, test2, 1000, 1000);
 	return (0);
 }

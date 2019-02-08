@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 13:47:20 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/08 11:50:15 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/08 17:52:38 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,13 @@ int			parsing(char *str, va_list ap)
 		++i;
 	}
 	remplacage(tmp, ap);
-	while (tmp)
-	{
-		printf("Loop affichage lkd_list->content: '%s'\n", tmp->content);
-		printf("Loop affichage lkd_list->to_remplace: %d\n", tmp->to_remplace);
-		printf("Loop affichage lkd_list->next %p\n", tmp->next);
-		printf("------------------------------------------------\n");
-		tmp = tmp->next;
-	}
+//	while (tmp)
+//	{
+//		printf("Loop affichage lkd_list->content: '%s'\n", tmp->content);
+//		printf("Loop affichage lkd_list->to_remplace: %d\n", tmp->to_remplace);
+//		printf("Loop affichage lkd_list->next %p\n", tmp->next);
+//		printf("------------------------------------------------\n");
+//		tmp = tmp->next;
+//	}
 	return (0);
 }
