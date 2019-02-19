@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 13:47:20 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/08 17:52:38 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/19 18:21:39 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,32 @@
 
 char		*splitting(char *str)
 {
-	static int i;
-	int e;
-	char *ret;
+	static int	i = 0;
+	int			e;
 
 	e = 0;
+	printf("strlen de str = %d\n", ft_strlen(str));
+	printf("i = %d\n", i);
 	while (str[i])
 	{
-		while (str[i] != '%' && str[i] != '{')
-			++i;
-		printf("-----------\ne = %d\ni = %d\n-------------\n", e, i);
-		ret = ft_strsub(str, e, i);
+		if (str[i] != '%' && str[i] != '{')
+		{
+			printf("Je rentre dedans\n");
+			while (str[e] != '%' && str[e] != '{' && str[e] != '\0')
+				++e;
+			i += e;
+			return (ft_strsub(str, i - e, e));
+		}
+		else
+		{
+			printf("Je rentre ici\n");
+			while (ft_strchr("cspdiouxX", str[i + e]) == -1)
+				++e;
+			i += e + 1;
+			return (ft_strsub(str, i - e - 1, e + 1));
+		}
 	}
-	printf("ret = %s\n", ret);
-	return (ret);
+	return (NULL);
 }
 
 t_word		*new_maillon(void)
@@ -51,6 +63,7 @@ int			parsing(char *str, va_list ap)
 	int		i;
 	int		e;
 	char	*str2;
+	(void)ap;
 
 	i = 0;
 	e = 0;
@@ -69,14 +82,15 @@ int			parsing(char *str, va_list ap)
 		}
 		++i;
 	}
-	remplacage(tmp, ap);
-//	while (tmp)
-//	{
-//		printf("Loop affichage lkd_list->content: '%s'\n", tmp->content);
-//		printf("Loop affichage lkd_list->to_remplace: %d\n", tmp->to_remplace);
-//		printf("Loop affichage lkd_list->next %p\n", tmp->next);
-//		printf("------------------------------------------------\n");
-//		tmp = tmp->next;
-//	}
+	printf("Je passe par le parsing\n");
+//	remplacage(tmp, ap);
+	while (tmp)
+	{
+		printf("Loop affichage lkd_list->content: '%s'\n", tmp->content);
+		printf("Loop affichage lkd_list->to_remplace: %d\n", tmp->to_remplace);
+		printf("Loop affichage lkd_list->next %p\n", tmp->next);
+		printf("------------------------------------------------\n");
+		tmp = tmp->next;
+	}
 	return (0);
 }
