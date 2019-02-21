@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:25:11 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/21 17:07:07 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/21 17:58:46 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,13 @@ int		ft_strlen(const char *str)
 	return (i);
 }
 
-void	ft_putstr(char *str)
+int		ft_putstr(char *str)
 {
-	write(1, str, ft_strlen(str));
+	int		len;
+
+	len = ft_strlen(str);
+	write(1, str, len);
+	return (len);
 }
 
 void	ft_putchar(char c)

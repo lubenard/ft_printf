@@ -6,16 +6,14 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:07 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/21 17:38:01 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/21 17:54:13 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "srcs/ft_printf.h"
 
-int main(int argc, char **argv)
+int main(void)
 {
-	(void) argc;
-	(void) argv;
 	int test1;
 	int *test2;
 
@@ -35,6 +33,6 @@ int main(int argc, char **argv)
 	printf("MY PRINTF:\n");
 	printf("value = '%-15p'\n %lu\n", test2, (unsigned long)test2);
 	printf("laucnching my printf\n");
-	ft_printf("lol c'est %s marrant %d suce mes couilles\n", "testu", 30);
+	ft_printf("% d\n", -45);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 13:47:20 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/21 17:37:40 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/21 17:59:01 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,12 @@ int			parsing(const char *str, va_list ap)
 	t_word	*lkd_list;
 	t_word	*new_element;
 	t_word	*tmp;
+	int		total_length;
 	char	*str2;
 
 	lkd_list = new_maillon();
 	tmp = lkd_list;
+	total_length = 0;
 	while ((str2 = splitting(str)) != NULL)
 	{
 		lkd_list->content = str2;
@@ -65,7 +67,7 @@ int			parsing(const char *str, va_list ap)
 		new_element = new_maillon();
 		lkd_list->next = new_element;
 		if (lkd_list->content != NULL)
-			ft_putstr(lkd_list->content);
+			total_length += ft_putstr(lkd_list->content);
 		lkd_list = lkd_list->next;
 	}
 /*	while (tmp)
@@ -75,5 +77,5 @@ int			parsing(const char *str, va_list ap)
 		printf("------------------------------------------------\n");
 		tmp = tmp->next;
 	}*/
-	return (0);
+	return (total_length);
 }

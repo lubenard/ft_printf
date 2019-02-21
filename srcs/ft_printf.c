@@ -6,7 +6,7 @@
 /*   By: luca <lubenard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/19 12:38:17 by luca              #+#    #+#             */
-/*   Updated: 2019/02/21 15:22:41 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/21 17:59:57 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 int		ft_printf(const char *str, ...)
 {
 	va_list		ap;
+	int			ret;
 
+	ret = 0;
 	va_start(ap, str); // stdarg pour avoir des arguments a l'infinie
-	parsing(str, ap);
+	ret = parsing(str, ap);
 	va_end(ap);
-	return (0);
+	return (ret);
 }
