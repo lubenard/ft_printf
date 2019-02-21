@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/08 18:10:34 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/21 17:10:59 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,12 @@
 typedef struct	s_word
 {
 	char			*content;
-	int				to_remplace;
-	int				fd;
 	struct s_word	*next;
 }				t_word;
 
 int				ft_printf(const char *str, ...);
 int				ft_strcchr(const char *str, const char *to_found);
-int				parsing(char *str, va_list ap);
+int				parsing(const char *str, va_list ap);
 int				remplacage(t_word *lkd_list, va_list ap);
 char			*join_str(char *to_remplace, int length, int minus, char fill);
 char			*rev(char *str);
@@ -47,7 +45,7 @@ char			*ft_strjoin(const char *s1, const char *s2);
 char			*ft_fill(char *str, char c, int length);
 int				ft_strcmp(char const *s1, char const *s2);
 int				ft_strchr(char const *s, int c);
-void			ft_putstr(t_word *lkd_list);
+void			ft_putstr(char *str);
 /*
 ** Percentage conversion functions
 */
@@ -65,5 +63,5 @@ int				percent_u(t_word *lkd_list, va_list ap);
 */
 char			*add_space(char *content, char *to_remplace);
 char			*precision(char *content, char *to_remplace, int i, int mode);
-int				brackets(t_word *lkd_list, va_list ap);
+int				brackets(t_word *lkd_list);
 #endif

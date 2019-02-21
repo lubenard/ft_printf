@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:07 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/19 18:16:44 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/21 17:38:01 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ int main(int argc, char **argv)
 	printf("MY PRINTF:\n");
 	printf("value = '%-15p'\n %lu\n", test2, (unsigned long)test2);
 	printf("laucnching my printf\n");
-	ft_printf("lol c %s marrant", test2);
+	ft_printf("lol c'est %s marrant %d suce mes couilles\n", "testu", 30);
 	return (0);
 }
