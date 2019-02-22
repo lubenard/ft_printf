@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/21 17:58:41 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/22 17:09:35 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,14 @@ typedef struct	s_word
 	char			*content;
 	struct s_word	*next;
 }				t_word;
-
+/*
+** Printf functions
+*/
 int				ft_printf(const char *str, ...);
+int				ft_dprintf(int fd, char *str, ...);
+/*
+** Useful functions
+*/
 int				ft_strcchr(const char *str, const char *to_found);
 int				parsing(const char *str, va_list ap);
 int				remplacage(t_word *lkd_list, va_list ap);
@@ -37,6 +43,7 @@ char			*rev(char *str);
 /*
 ** Libft functions
 */
+char			*ft_strstr(const char *str, const char *to_search);
 char			*ft_itoa(int n);
 char			*ft_strsub(char const *s, unsigned int start, size_t len);
 int				ft_strlen(const char *str);

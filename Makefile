@@ -6,7 +6,7 @@
 #    By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 17:01:46 by lubenard          #+#    #+#              #
-#    Updated: 2019/02/07 14:53:59 by lubenard         ###   ########.fr        #
+#    Updated: 2019/02/22 16:52:18 by lubenard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRC = srcs/ft_printf.c \
 	  srcs/lib/ft_fill.c \
 	  srcs/lib/ft_strcmp.c \
 	  srcs/lib/ft_strchr.c \
+	  srcs/lib/ft_strstr.c \
 	  srcs/flags/percent_c.c \
 	  srcs/flags/percent_s.c \
 	  srcs/flags/percent_x.c \

@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:07 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/21 17:54:13 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/22 16:51:25 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ int main(void)
 	printf("MY PRINTF:\n");
 	printf("value = '%-15p'\n %lu\n", test2, (unsigned long)test2);
 	printf("laucnching my printf\n");
-	ft_printf("% d\n", -45);
+	ft_printf("%hhd\n", 42);
 	return (0);
 }
