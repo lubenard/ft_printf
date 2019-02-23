@@ -6,7 +6,7 @@
 #    By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 17:01:46 by lubenard          #+#    #+#              #
-#    Updated: 2019/02/22 16:52:18 by lubenard         ###   ########.fr        #
+#    Updated: 2019/02/23 11:28:42 by lubenard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,8 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
-	@rm -rf fillit.dSYM
+	@rm -rf ft_printf.dSYM
+	@rm ft_printf
 	@echo -e "fclean ft_printf \033[32mDONE !\033[0m"
 
 re: fclean all
