@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 13:47:20 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/21 17:59:01 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/23 08:01:08 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ t_word		*new_maillon(void)
 	return (new_element);
 }
 
-int			parsing(const char *str, va_list ap)
+int			parsing(const char *str, va_list ap, int fd)
 {
 	t_word	*lkd_list;
 	t_word	*new_element;
@@ -67,7 +67,8 @@ int			parsing(const char *str, va_list ap)
 		new_element = new_maillon();
 		lkd_list->next = new_element;
 		if (lkd_list->content != NULL)
-			total_length += ft_putstr(lkd_list->content);
+			total_length += (fd == 1) ? ft_putstr(1 , lkd_list->content)
+			: ft_putstr(fd, lkd_list->content);
 		lkd_list = lkd_list->next;
 	}
 /*	while (tmp)

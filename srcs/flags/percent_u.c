@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 14:38:58 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/08 18:13:38 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/23 08:46:37 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 int		percent_u(t_word *lkd_list, va_list ap)
 {
-	void		*get_value;
 	unsigned	value;
 	int			i;
 	char		*to_remplace;
 
 	i = 0;
-	get_value = va_arg(ap, void *);
-	value = (unsigned)get_value;
+	value = va_arg(ap, unsigned int);
 	to_remplace = ft_itoa(value);
 	if ((i = ft_strchr(lkd_list->content, '.')) != -1)
 		to_remplace = precision(lkd_list->content, to_remplace, i, 0);

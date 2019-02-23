@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 11:23:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/07 11:01:16 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/23 08:49:42 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,11 @@ char	*convert_into_hexa(int value)
 int		percent_x(t_word *lkd_list, va_list ap)
 {
 	char			*to_remplace;
-	void			*get_value;
 	unsigned long	value;
 	int				i;
 
 	i = 0;
-	get_value = va_arg(ap, void *);
-	value = (unsigned long)get_value;
+	value = va_arg(ap, unsigned long);
 	to_remplace = convert_into_hexa(value);
 	if ((i = ft_strchr(lkd_list->content, '.')) != -1)
 		to_remplace = precision(lkd_list->content, to_remplace, i, 0);
@@ -57,15 +55,13 @@ int		percent_x(t_word *lkd_list, va_list ap)
 int		percent_x_maj(t_word *lkd_list, va_list ap)
 {
 	char			*to_remplace;
-	void			*get_value;
 	int				i;
 	int				j;
 	unsigned long	value;
 
 	j = 0;
 	i = 0;
-	get_value = va_arg(ap, void *);
-	value = (unsigned long)get_value;
+	value = va_arg(ap, unsigned long);
 	to_remplace = convert_into_hexa(value);
 	if ((i = ft_strchr(lkd_list->content, '.')) != -1)
 		to_remplace = precision(lkd_list->content, to_remplace, i, 0);

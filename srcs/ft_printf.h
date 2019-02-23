@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/22 17:09:35 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/23 08:03:49 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ typedef struct	s_word
 ** Printf functions
 */
 int				ft_printf(const char *str, ...);
-int				ft_dprintf(int fd, char *str, ...);
+int				ft_dprintf(int fd, const char *str, ...);
 /*
 ** Useful functions
 */
 int				ft_strcchr(const char *str, const char *to_found);
-int				parsing(const char *str, va_list ap);
+int				parsing(const char *str, va_list ap, int option);
 int				remplacage(t_word *lkd_list, va_list ap);
 char			*join_str(char *to_remplace, int length, int minus, char fill);
 char			*rev(char *str);
@@ -52,7 +52,7 @@ char			*ft_strjoin(const char *s1, const char *s2);
 char			*ft_fill(char *str, char c, int length);
 int				ft_strcmp(char const *s1, char const *s2);
 int				ft_strchr(char const *s, int c);
-int				ft_putstr(char *str);
+int				ft_putstr(int fd, char *str);
 /*
 ** Percentage conversion functions
 */

@@ -6,8 +6,9 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:25:11 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/21 17:58:46 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/23 08:33:37 by lubenard         ###   ########.fr       */
 /*                                                                            */
+
 /* ************************************************************************** */
 
 #include "ft_printf.h"
@@ -63,12 +64,12 @@ int		ft_strlen(const char *str)
 	return (i);
 }
 
-int		ft_putstr(char *str)
+int		ft_putstr(int fd, char *str)
 {
 	int		len;
 
 	len = ft_strlen(str);
-	write(1, str, len);
+	write(fd, str, len);
 	return (len);
 }
 
