@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 13:47:20 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/23 08:01:08 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/23 11:09:48 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ char		*splitting(const char *str)
 			return (ft_strsub(str, i - e - 1, e + 1));
 		}
 	}
+	i = 0;
 	return (NULL);
 }
 

@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:07 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/23 08:31:27 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/23 11:10:16 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ int main(void)
 {
 	int test1;
 	int *test2;
+	char test3;
 
+	test3 = 10;
 	test1 = 120011;
 	test2 = &test1;
 	printf("VRAI PRINTF:\n");
@@ -29,11 +31,12 @@ int main(void)
 	printf("'EUUHHHH = %x'\n", test1);
 	printf("%x\n", 'c');
 	printf("%u\n", -1);
+	printf("%hhd\n", test3);
 	printf("----------------------------------\n");
 	printf("MY PRINTF:\n");
-	printf("value = '%-15p'\n %lu\n", test2, (unsigned long)test2);
-	printf("laucnching my printf\n");
 	ft_printf("%o\n", 1000);
+	ft_printf("%hhd\n", test3);
+	ft_printf("%hhd\n", test3);
 //	ft_dprintf(2, "%hhd\n", 42); //A regler
 	return (0);
 }
