@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:07 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/23 11:10:16 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/24 18:57:27 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,16 @@ int main(void)
 	printf("%x\n", 'c');
 	printf("%u\n", -1);
 	printf("%hhd\n", test3);
+	printf("%%\n");
+	printf("%c\n", '\0');
 	printf("----------------------------------\n");
 	printf("MY PRINTF:\n");
-	ft_printf("%o\n", 1000);
-	ft_printf("%hhd\n", test3);
-	ft_printf("%hhd\n", test3);
+	//ft_printf("test%\n");
+	//ft_printf("%o\n", 1000);
+	//ft_printf("%hhd\n", test3);
+	//ft_printf("%hhd\n", test3);
+	ft_printf("%%\n");
+	//ft_printf("%c\n", 'c');
 //	ft_dprintf(2, "%hhd\n", 42); //A regler
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/19 12:38:17 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/23 07:59:59 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/24 18:53:56 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int		ft_dprintf(int fd, const char *str, ...)
 {
 	va_list		ap;
 	int			ret;
-
 	ret = 0;
 	va_start(ap, str);
 	ret = parsing(str, ap, fd);

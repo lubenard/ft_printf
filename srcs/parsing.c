@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 13:47:20 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/23 11:09:48 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/24 19:09:16 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ char		*splitting(const char *str)
 		}
 		else
 		{
-			while (ft_strchr("cspdiouxX", str[i + e]) == -1 && str[i] != '}')
+			++i;
+			while (ft_strchr("cspdiouxX}%", str[i + e]) == -1)
 				++e;
 			i += e + 1;
 			return (ft_strsub(str, i - e - 1, e + 1));
@@ -56,6 +57,7 @@ int			parsing(const char *str, va_list ap, int fd)
 	t_word	*tmp;
 	int		total_length;
 	char	*str2;
+	(void)ap;
 
 	lkd_list = new_maillon();
 	tmp = lkd_list;
