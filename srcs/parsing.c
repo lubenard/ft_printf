@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 13:47:20 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/24 19:09:16 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/24 19:19:52 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char		*splitting(const char *str)
 			while (ft_strchr("cspdiouxX}%", str[i + e]) == -1)
 				++e;
 			i += e + 1;
-			return (ft_strsub(str, i - e - 1, e + 1));
+			return (ft_strsub(str, i - e - 2, e + 2));
 		}
 	}
 	i = 0;
