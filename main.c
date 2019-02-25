@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:07 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/25 20:28:43 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/25 21:01:42 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,11 @@ int main(void)
 	printf("%lli\n", test5);
 	printf("%o\n", 1000);
 	printf("%o\n", 0x1000);
+	printf("%u\n", 1000);
+//	printf("%u\n", 4294967295);
 	printf("%u\n", -1);
+	printf("%u\n", -100);
+	printf("%hu\n", 1100);
 	printf("----------------------------------\n");
 	printf("MY PRINTF:\n");
 	ft_printf("test printf\n");
@@ -57,6 +61,9 @@ int main(void)
 	ft_printf("%lli\n", test5);
 	ft_printf("%o\n", 1000);
 	ft_printf("%o\n", 0x1000);
+	ft_printf("%u\n", 1000);
+//	ft_printf("%u\n", 4294967295);
 	ft_printf("%u\n", -1);
+	ft_printf("%u\n", -100);
 	return (0);
 }
