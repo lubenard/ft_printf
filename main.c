@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:07 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/24 19:16:26 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/25 20:28:43 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,49 @@
 
 int main(void)
 {
-	int test1;
-	int *test2;
-	char test3;
+	int test1 = 1000000000;
+	short int test2 = 10000;
+	char test3 = 42;
+	long int test4 = 4000000000;
+	long long int test5 = 8000000000;
+	int *test6 = &test1;
 
-	test3 = 10;
-	test1 = 120011;
-	test2 = &test1;
 	printf("VRAI PRINTF:\n");
-	printf("retour printf = %d\n", printf("test%d", 1536));
-	printf("%d, % d\n", 1, 2);
-	printf("pourcent d = %d pourcent i = %i\n", 123, 123);
-	printf("%c vs %20c\n", 'a', 'b');
-	printf("%10s:\n", "help pls");
-	printf("'%-20s'\n","Yo les copains");
-	printf("'EUUHHHH = %x'\n", test1);
-	printf("%x\n", 'c');
-	printf("%u\n", -1);
+	printf("test printf\n");
+	printf("%c\n", 'k');
+	printf("%s\n", "POULOULOU");
+	printf("%p\n", test6);
+	printf("%d\n", test1);
+	printf("%i", test1);
+	printf("%hd\n", test2);
+	printf("%hi\n", test2);
 	printf("%hhd\n", test3);
-	printf("%%\n");
-	printf("%c\n", '\0');
+	printf("%hhi\n", test3);
+	printf("%ld\n", test4);
+	printf("%li\n",test4);
+	printf("%lld\n", test5);
+	printf("%lli\n", test5);
+	printf("%o\n", 1000);
+	printf("%o\n", 0x1000);
+	printf("%u\n", -1);
 	printf("----------------------------------\n");
 	printf("MY PRINTF:\n");
-	ft_printf("test%\n");
+	ft_printf("test printf\n");
+	ft_printf("%c\n", 'k');
+	ft_printf("%s\n", "POULOULOU");
+	ft_printf("%p\n", test6);
+	ft_printf("%d\n", test1);
+	ft_printf("%i\n", test1);
+	ft_printf("%hd\n", test2);
+	ft_printf("%hi\n", test2);
+	ft_printf("%hhd\n", test3);
+	ft_printf("%hhi\n", test3);
+	ft_printf("%ld\n", test4);
+	ft_printf("%li\n",test4);
+	ft_printf("%lld\n", test5);
+	ft_printf("%lli\n", test5);
 	ft_printf("%o\n", 1000);
-	ft_printf("%hhd\n", test3);
-	ft_printf("%hhd\n", test3);
-	ft_printf("%%\n");
-	ft_printf("%c\n", 'c');
-//	ft_dprintf(2, "%hhd\n", 42); //A regler
+	ft_printf("%o\n", 0x1000);
+	ft_printf("%u\n", -1);
 	return (0);
 }

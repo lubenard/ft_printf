@@ -6,7 +6,7 @@
 #    By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 17:01:46 by lubenard          #+#    #+#              #
-#    Updated: 2019/02/23 11:28:42 by lubenard         ###   ########.fr        #
+#    Updated: 2019/02/25 18:54:20 by lubenard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRC = srcs/ft_printf.c \
 	  srcs/parsing.c \
 	  srcs/rempl.c \
 	  srcs/lib/ft_itoa.c \
+	  srcs/lib/ft_itoa_long.c \
 	  srcs/lib/ft_atoi.c \
 	  srcs/lib/ft_strsub.c \
 	  srcs/lib/ft_strjoin.c \
