@@ -6,32 +6,29 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 14:43:35 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/23 08:44:11 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/26 17:57:17 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-unsigned int 		get_option_o(va_list ap, int option)
+unsigned long long		get_option_o(va_list ap, int option)
 {
-	unsigned int		get_value;
-
-	get_value = 0;
 	if (option == 1)
-		get_value = va_arg(ap, long int);
+		return(va_arg(ap, unsigned long));
 	else if (option == 2)
-		get_value = va_arg(ap, long long int);
+		return(va_arg(ap, unsigned long long));
 	else if (option == 3)
-		get_value = (short)va_arg(ap, int);
+		return((short)va_arg(ap, int));
 	else if (option == 4)
-		get_value = (char)va_arg(ap, int);
-	return (get_value);
+		return((char)va_arg(ap, int));
+	return (0);
 }
 
-char	*convert_in_octal(int value)
+char	*convert_in_octal(unsigned long long value)
 {
-	int		i;
-	int		octal_num;
+	unsigned long long		i;
+	unsigned long long		octal_num;
 
 	octal_num = 0;
 	i = 1;
@@ -41,12 +38,12 @@ char	*convert_in_octal(int value)
 		value /= 8;
 		i *= 10;
 	}
-	return (ft_itoa(octal_num));
+	return (ft_itoa_long(octal_num));
 }
 
 int		percent_o(t_word *lkd_list, va_list ap)
 {
-	unsigned int	value;
+	unsigned long long	value;
 
 	if (ft_strchr(lkd_list->content, 'l') != -1)
 		value = get_option_o(ap, 1);

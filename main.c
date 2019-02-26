@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:07 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/26 17:15:02 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/26 18:15:58 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ int main(void)
 	unsigned short test7 = 100;
 	unsigned long test8 = 4000000000;
 	unsigned long long test9 = 8000000000;
+	unsigned int test10 = 4294967295;
+	char *test11 = NULL;
+	char *test12 = 0x0;
 
 	printf("VRAI PRINTF:\n");
 	printf("-----Test normaux-----\n");
@@ -39,6 +42,8 @@ int main(void)
 	printf("%s", "JURE LE YA UN RETOUR LIGNE\n");
 	printf("-----Test %%p-----\n");
 	printf("%p\n", test6);
+	printf("%p\n", test11);
+	printf("%p\n", test12);
 	printf("-----Test %%d et %%i-----\n");
 	printf("%d\n", test1);
 	printf("%i", test1);
@@ -53,11 +58,19 @@ int main(void)
 	printf("-----Test %%o-----\n");
 	printf("%o\n", 1000);
 	printf("%o\n", 0x1000);
+	printf("%ho\n", test7);
+	printf("%hho\n", test3);
+	printf("%lo\n", test8);
+	printf("%llo\n", test9);
 	printf("-----Test %%u-----\n");
 	printf("%u\n", 1000);
-//	printf("%u\n", 4294967295);
+	printf("%u\n", test10);
 	printf("%u\n", -1);
 	printf("%u\n", -100);
+	printf("%hu\n", test7);
+	printf("%hhu\n", test3);
+	printf("%lu\n", test8);
+	printf("%llu\n", test9);
 	printf("-----Test %%x et %%X-----\n");
 	printf("%x\n", 1000);
 	printf("%hx\n", test7);
@@ -85,6 +98,8 @@ int main(void)
 	ft_printf("%s", "JURE LE YA UN RETOUR LIGNE\n");
 	ft_printf("-----Test %%p-----\n");
 	ft_printf("%p\n", test6);
+	ft_printf("%p\n", test11);
+	ft_printf("%p\n", test12);
 	ft_printf("-----Test %%d et %%i-----\n");
 	ft_printf("%d\n", test1);
 	ft_printf("%i\n", test1);
@@ -99,11 +114,19 @@ int main(void)
 	ft_printf("-----Test %%o-----\n");
 	ft_printf("%o\n", 1000);
 	ft_printf("%o\n", 0x1000);
+	ft_printf("%ho\n", test7);
+	ft_printf("%hho\n", test3);
+	ft_printf("%lo\n", test8);
+	ft_printf("%llo\n", test9);
 	ft_printf("-----Test %%u-----\n");
 	ft_printf("%u\n", 1000);
-//	ft_printf("%u\n", 4294967295);
+	ft_printf("%u\n", test10);
 	ft_printf("%u\n", -1);
 	ft_printf("%u\n", -100);
+	ft_printf("%hu\n", test7);
+	ft_printf("%hhu\n", test3);
+	ft_printf("%lu\n", test8);
+	ft_printf("%llu\n", test9);
 	ft_printf("-----Test %%x et %%X-----\n");
 	ft_printf("%x\n", 1000);
 	ft_printf("%hx\n", test7);

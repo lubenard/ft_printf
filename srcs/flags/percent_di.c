@@ -6,13 +6,13 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 20:01:12 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/25 20:30:11 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/26 17:53:46 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-long long int		get_option_d(va_list ap, int option)
+long long		get_option_d(va_list ap, int option)
 {
 	if (option == 1)
 		return(va_arg(ap, long long int));
