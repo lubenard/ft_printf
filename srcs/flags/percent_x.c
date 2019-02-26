@@ -6,17 +6,17 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 11:23:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/23 08:49:42 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/26 16:42:24 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-char	*convert_into_hexa(int value)
+char	*convert_into_hexa(unsigned long long value)
 {
 	char	*ret;
-	int		i;
-	int		tmp;
+	int					i;
+	long long int		tmp;
 
 	i = 0;
 	if (!(ret = (char *)malloc(sizeof(char) * 10)))
@@ -37,13 +37,11 @@ char	*convert_into_hexa(int value)
 
 int		percent_x(t_word *lkd_list, va_list ap)
 {
-	char			*to_remplace;
-	unsigned long	value;
-	int				i;
+	char				*to_remplace;
+	int					i;
 
 	i = 0;
-	value = va_arg(ap, unsigned long);
-	to_remplace = convert_into_hexa(value);
+	to_remplace = convert_into_hexa(va_arg(ap, unsigned long long));
 	if ((i = ft_strchr(lkd_list->content, '.')) != -1)
 		to_remplace = precision(lkd_list->content, to_remplace, i, 0);
 	if (lkd_list->content[1] != 'x')
@@ -54,15 +52,13 @@ int		percent_x(t_word *lkd_list, va_list ap)
 
 int		percent_x_maj(t_word *lkd_list, va_list ap)
 {
-	char			*to_remplace;
-	int				i;
-	int				j;
-	unsigned long	value;
+	char				*to_remplace;
+	int					i;
+	int					j;
 
 	j = 0;
 	i = 0;
-	value = va_arg(ap, unsigned long);
-	to_remplace = convert_into_hexa(value);
+	to_remplace = convert_into_hexa(va_arg(ap, unsigned long long));
 	if ((i = ft_strchr(lkd_list->content, '.')) != -1)
 		to_remplace = precision(lkd_list->content, to_remplace, i, 0);
 	if (lkd_list->content[1] != 'x')
