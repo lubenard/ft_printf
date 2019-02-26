@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:07 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/26 18:15:58 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/26 19:10:49 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,12 @@ int main(void)
 	printf("%p\n", test6);
 	printf("%p\n", test11);
 	printf("%p\n", test12);
+	printf("-----Test %%%%-----\n");
+	printf("%%\n");
 	printf("-----Test %%d et %%i-----\n");
 	printf("%d\n", test1);
 	printf("%i", test1);
+
 	printf("%hd\n", test2);
 	printf("%hi\n", test2);
 	printf("%hhd\n", test3);
@@ -82,6 +85,8 @@ int main(void)
 	printf("%hhX", test3);
 	printf("%lX\n", test8);
 	printf("%llX\n", test9);
+	printf("-----Test Minwidth-----\n");
+	printf("Pourcent d: '%10d'\n", 42);
 	printf("----------------------------------\n");
 	ft_printf("MY PRINTF:\n");
 	ft_printf("-----Test normaux-----\n");
@@ -100,6 +105,8 @@ int main(void)
 	ft_printf("%p\n", test6);
 	ft_printf("%p\n", test11);
 	ft_printf("%p\n", test12);
+	ft_printf("-----Test %%%%-----\n");
+	ft_printf("%%\n");
 	ft_printf("-----Test %%d et %%i-----\n");
 	ft_printf("%d\n", test1);
 	ft_printf("%i\n", test1);
@@ -138,5 +145,16 @@ int main(void)
 	ft_printf("%hhX", test3);
 	ft_printf("%lX\n", test8);
 	ft_printf("%llX\n", test9);
+	ft_printf("-----Test Minwidth-----\n");
+	ft_printf("Pourcent c: '%10c'\n", 'o');
+	ft_printf("Pourcent c: '%-10c'\n", 'o');
+	ft_printf("Pourcent s: '%10s'\n", "hihihi");
+	ft_printf("Pourcent s: '%-10s'\n", "hihihi");
+	ft_printf("Pourcent s: '%10s'\n", "hohohohohohohoho");
+	ft_printf("Pourcent s: '%-10s'\n", "hohohohohohohoho");
+	ft_printf("Pourcent p: '%20p'\n", test6);
+	ft_printf("Pourcent p: '%-20p'\n", test6);
+	ft_printf("Pourcent d: '%10d'\n", 42);
+	ft_printf("Pourcent d: '%-10d'\n", 42);
 	return (0);
 }
