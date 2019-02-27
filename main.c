@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:07 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/26 19:10:49 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/27 20:28:18 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int main(void)
 	printf("-----Test %%d et %%i-----\n");
 	printf("%d\n", test1);
 	printf("%i", test1);
-
 	printf("%hd\n", test2);
 	printf("%hi\n", test2);
 	printf("%hhd\n", test3);
@@ -86,7 +85,23 @@ int main(void)
 	printf("%lX\n", test8);
 	printf("%llX\n", test9);
 	printf("-----Test Minwidth-----\n");
-	printf("Pourcent d: '%10d'\n", 42);
+	printf("Pourcent c: '%10c'\n", 'o');
+	printf("Pourcent c: '%-10c'\n", 'o');
+	printf("Pourcent s: '%10s'\n", "hihihi");
+	printf("Pourcent s: '%-10s'\n", "hihihi");
+	printf("Pourcent s: '%10s'\n", "hohohohohohohoho");
+	printf("Pourcent s: '%-10s'\n", "hohohohohohohoho");
+	printf("Pourcent p: '%20p'\n", test6);
+	printf("Pourcent p: '%-20p'\n", test6);
+	printf("Pourcent di: '%10d'\n", 42);
+	printf("Pourcent di: '%-10d'\n", 42);
+	printf("Pourcent o: '%10o' \n", 1000);
+	printf("Pourcent o: '%-10o'\n", 1000);
+	printf("Pourcent u: '%10u'\n", 100);
+	printf("Pourcent u: '%-10u'\n", 100);
+	printf("Pourcent x: '%10x'\n", 1000);
+	printf("Pourcent X: '%10X'\n", 1000);
+	printf("Pourcent X: '%-10X'\n", 1000);
 	printf("----------------------------------\n");
 	ft_printf("MY PRINTF:\n");
 	ft_printf("-----Test normaux-----\n");
@@ -154,7 +169,24 @@ int main(void)
 	ft_printf("Pourcent s: '%-10s'\n", "hohohohohohohoho");
 	ft_printf("Pourcent p: '%20p'\n", test6);
 	ft_printf("Pourcent p: '%-20p'\n", test6);
-	ft_printf("Pourcent d: '%10d'\n", 42);
-	ft_printf("Pourcent d: '%-10d'\n", 42);
+	ft_printf("Pourcent di: '%10d'\n", 42);
+	ft_printf("Pourcent di: '%-10d'\n", 42);
+	ft_printf("Pourcent o: '%10o' \n", 1000);
+	ft_printf("Pourcent o: '%-10o'\n", 1000);
+	ft_printf("Pourcent u: '%10u'\n", 100);
+	ft_printf("Pourcent u: '%-10u'\n", 100);
+	ft_printf("Pourcent x: '%10x'\n", 1000);
+	ft_printf("Pourcent X: '%10X'\n", 1000);
+	ft_printf("Pourcent X: '%-10X'\n", 1000);
+	ft_printf("-----Test precision-----\n");
+	ft_printf("Pourcent c: '%.10c'\n", 'o');
+	ft_printf("Pourcent s: '%.10s'\n", "hihihi");
+	ft_printf("Pourcent s: '%.10s'\n", "hohohohohohohoho");
+	ft_printf("Pourcent p: '%.20p'\n", test6);
+	ft_printf("Pourcent di: '%.10d'\n", 42);
+	ft_printf("Pourcent o: '%.10o' \n", 1000);
+	ft_printf("Pourcent u: '%.10u'\n", 100);
+	ft_printf("Pourcent x: '%.10x'\n", 1000);
+	ft_printf("Pourcent X: '%.10X'\n", 1000);
 	return (0);
 }
