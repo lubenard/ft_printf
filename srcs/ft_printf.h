@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/28 19:42:35 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/01 00:16:47 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct	s_word
 {
 	char			*content;
 	struct s_word	*next;
+	short			is_malloc;
 }				t_word;
 /*
 ** Printf functions
