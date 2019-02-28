@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 13:47:20 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/24 19:19:52 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/28 19:56:55 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,11 @@ int			parsing(const char *str, va_list ap, int fd)
 {
 	t_word	*lkd_list;
 	t_word	*new_element;
-	t_word	*tmp;
 	int		total_length;
 	char	*str2;
 	(void)ap;
 
 	lkd_list = new_maillon();
-	tmp = lkd_list;
 	total_length = 0;
 	while ((str2 = splitting(str)) != NULL)
 	{
@@ -72,14 +70,10 @@ int			parsing(const char *str, va_list ap, int fd)
 		if (lkd_list->content != NULL)
 			total_length += (fd == 1) ? ft_putstr(1 , lkd_list->content)
 			: ft_putstr(fd, lkd_list->content);
+		free(lkd_list->content);
+		free(lkd_list);
 		lkd_list = lkd_list->next;
 	}
-/*	while (tmp)
-	{
-		printf("Loop affichage lkd_list->content: '%s'\n", tmp->content);
-		printf("Loop affichage lkd_list->next %p\n", tmp->next);
-		printf("------------------------------------------------\n");
-		tmp = tmp->next;
-	}*/
+	free(lkd_list);
 	return (total_length);
 }

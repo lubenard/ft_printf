@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:25:11 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/23 08:33:37 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/28 19:21:51 by lubenard         ###   ########.fr       */
 /*                                                                            */
 
 /* ************************************************************************** */
@@ -25,12 +25,12 @@ char	*rev(char *str)
 		return (NULL);
 	j = 0;
 	i = ft_strlen(str);
-	i--;
+	--i;
 	while (i >= 0)
 	{
 		rev_str[j] = str[i];
 		j++;
-		i--;
+		--i;
 	}
 	free(str);
 	return (rev_str);

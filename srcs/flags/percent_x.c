@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 11:23:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/26 16:42:24 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/28 19:59:57 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int		percent_x(t_word *lkd_list, va_list ap)
 		to_remplace = precision(lkd_list->content, to_remplace, i, 0);
 	if (lkd_list->content[1] != 'x')
 		to_remplace = add_space(lkd_list->content, to_remplace);
+	free(lkd_list->content);
 	lkd_list->content = to_remplace;
 	return (0);
 }
@@ -69,6 +70,7 @@ int		percent_x_maj(t_word *lkd_list, va_list ap)
 			to_remplace[j] -= 32;
 		++j;
 	}
+	free(lkd_list->content);
 	lkd_list->content = to_remplace;
 	return (0);
 }

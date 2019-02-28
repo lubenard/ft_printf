@@ -6,7 +6,7 @@
 /*   By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 16:57:06 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/01 03:08:47 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/28 18:47:36 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int		percent_c(t_word *lkd_list, va_list ap)
 	to_remplace[1] = '\0';
 	if (lkd_list->content[1] != 'c')
 		to_remplace = add_space(lkd_list->content, to_remplace);
+	free(lkd_list->content);
 	lkd_list->content = to_remplace;
 	return (0);
 }
@@ -44,6 +45,7 @@ int		percent_percent(t_word *lkd_list)
 		return (-1);
 	to_remplace[0] = '%';
 	to_remplace[1] = '\0';
+	free(lkd_list->content);
 	lkd_list->content = to_remplace;
 	return (0);
 }

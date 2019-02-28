@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:56:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/07 14:30:52 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/28 19:48:17 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,6 @@ char	*precision(char *content, char *to_remplace, int i, int mode)
 		else
 			to_remplace = join_str(to_remplace, length, 1, '0');
 	}
+	free(sub);
 	return (to_remplace);
 }

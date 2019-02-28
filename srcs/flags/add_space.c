@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 14:58:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/07 11:03:49 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/02/28 19:18:41 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ char	*join_str(char *to_remplace, int length, int minus, char fill)
 		to_remplace = ft_strjoin(to_remplace, to_join);
 	else
 		to_remplace = ft_strjoin(to_join, to_remplace);
+	free(to_join);
 	return (to_remplace);
 }
 
