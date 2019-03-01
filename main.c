@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:07 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/28 18:43:58 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/01 16:12:47 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int main(void)
 	printf("%%\n");
 	printf("-----Test %%d et %%i-----\n");
 	printf("%d\n", test1);
-	printf("%i", test1);
+	printf("%i\n", test1);
 	printf("%hd\n", test2);
 	printf("%hi\n", test2);
 	printf("%hhd\n", test3);

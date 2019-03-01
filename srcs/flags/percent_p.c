@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 20:01:46 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/01 00:50:16 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/01 16:07:58 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int		percent_p(t_word *lkd_list, va_list ap)
 	if (value == 0)
 	{
 		lkd_list->content = "(nil)";
+		lkd_list->is_malloc = 0;
 		return (0);
 	}
 	to_remplace = conv_in_hexa_ul(value);

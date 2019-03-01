@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 20:01:12 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/28 18:45:01 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/01 16:15:50 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,15 @@
 
 long long		get_option_d(va_list ap, int option)
 {
-	long long	var;
 
 	if (option == 1)
-		var = va_arg(ap, long long int);
+		return(va_arg(ap, long long int));
 	else if (option == 2)
-		var = va_arg(ap, int);
+		return(va_arg(ap, int));
 	else if (option == 3)
-		var = va_arg(ap, long int);
+		return(va_arg(ap, long int));
 	else if (option == 4)
-		var = va_arg(ap, int);
+		return(va_arg(ap, int));
 	return(0);
 }
 
@@ -32,7 +31,7 @@ int		percent_di(t_word *lkd_list, va_list ap)
 	char		*to_remplace;
 	int			i;
 
-	i = 0;;
+	i = 0;
 	if (ft_strstr(lkd_list->content, "ll") != NULL)
 		to_remplace = ft_itoa_long(get_option_d(ap, 1));
 	else if (ft_strstr(lkd_list->content, "hh") != NULL)

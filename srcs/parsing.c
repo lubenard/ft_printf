@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 13:47:20 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/01 00:33:50 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/01 16:17:00 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,11 @@ int			parsing(const char *str, va_list ap, int fd)
 			remplacage(lkd_list, ap);
 		new_element = new_maillon();
 		lkd_list->next = new_element;
+		if (lkd_list->content != NULL)
 		total_length += (fd == 1) ? ft_putstr(1 , lkd_list->content)
 			: ft_putstr(fd, lkd_list->content);
-		if (lkd_list->is_malloc == 1)
-			free(lkd_list->content);
+		//if (lkd_list->is_malloc == 1)
+		//	free(lkd_list->content);
 		free(lkd_list);
 		lkd_list = lkd_list->next;
 	}
