@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:07 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/01 16:12:47 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/02 17:31:19 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int main(void)
 	unsigned int test10 = 4294967295;
 	char *test11 = NULL;
 	char *test12 = 0x0;
+	int test13 = INT_MAX;
 
 	printf("VRAI PRINTF:\n");
 	printf("-----Test normaux-----\n");
@@ -36,6 +37,7 @@ int main(void)
 	printf("%c\n", 'k');
 	printf("%c\n", '\n');
 	printf("%c\n", '\0');
+	printf("test avec 0 : '%c'\n", 0);
 	printf("-----Test %%s-----\n");
 	printf("%s\n", "POULOULOU");
 	printf("%s\n", "\0");
@@ -49,6 +51,7 @@ int main(void)
 	printf("-----Test %%d et %%i-----\n");
 	printf("%d\n", test1);
 	printf("%i\n", test1);
+	printf("%d\n", test13);
 	printf("%hd\n", test2);
 	printf("%hi\n", test2);
 	printf("%hhd\n", test3);
@@ -114,6 +117,15 @@ int main(void)
 	printf("Pourcent x: '%.10x'\n", 1000);
 	printf("Pourcent X: '%.10X'\n", 1000);
 	printf("Pourcent pourcent : '%.10%'\n");
+	printf("-----Test +- #0-----\n");
+	printf("espace positif '% d'\n", 1000);
+	printf("espace negatif '% d'\n", -1000);
+	printf("plus positif '%+d'\n", 1000);
+	printf("plus negatif '%+d'\n", -1000);
+	printf("moins positif '%-d'\n", 1000);
+	printf("moins negatif '%-d'\n", -1000);
+	printf("zero positif '%0d'\n", 1000);
+	printf("zero negatif '%0d'\n", -1000);
 	printf("----------------------------------\n");
 	ft_printf("MY PRINTF:\n");
 	ft_printf("-----Test normaux-----\n");
@@ -124,6 +136,7 @@ int main(void)
 	ft_printf("%c\n", 'k');
 	ft_printf("%c\n", '\n');
 	ft_printf("%c\n", '\0');
+	ft_printf("test avec 0 '%c'\n", 0);
 	ft_printf("-----Test %%s-----\n");
 	ft_printf("%s\n", "POULOULOU");
 	ft_printf("%s\n", "\0");
@@ -137,6 +150,7 @@ int main(void)
 	ft_printf("-----Test %%d et %%i-----\n");
 	ft_printf("%d\n", test1);
 	ft_printf("%i\n", test1);
+	ft_printf("%d\n", test13);
 	ft_printf("%hd\n", test2);
 	ft_printf("%hi\n", test2);
 	ft_printf("%hhd\n", test3);
@@ -202,5 +216,14 @@ int main(void)
 	ft_printf("Pourcent x: '%.10x'\n", 1000);
 	ft_printf("Pourcent X: '%.10X'\n", 1000);
 	ft_printf("Pourcent pourcent : '%.10%'\n");
+	ft_printf("-----Test +- #0-----\n");
+	ft_printf("espace positif '% d'\n", 1000);
+	ft_printf("espace negatif '% d'\n", -1000);
+	ft_printf("plus positif '%+d'\n", 1000);
+	ft_printf("plus negatif '%+d'\n", -1000);
+	ft_printf("moins postif '%-d'\n", 1000);
+	ft_printf("moins negatif '%-d'\n", -1000);
+	ft_printf("zero positif '%0d'\n", 1000);
+	ft_printf("zero negatif '%0d'\n", -1000);
 	return (0);
 }

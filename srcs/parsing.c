@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 13:47:20 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/01 16:17:00 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/02 16:16:49 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,27 @@ t_word		*new_maillon(void)
 	return (new_element);
 }
 
+void		free_lkd_lst(t_word *lkd_list)
+{
+	while (lkd_list)
+	{
+		printf("je free ce maillon: '%s'\n", lkd_list->content);
+		free(lkd_list);
+		lkd_list = lkd_list->next;
+	}
+	printf("-------------------------\n");
+}
+
 int			parsing(const char *str, va_list ap, int fd)
 {
 	t_word	*lkd_list;
 	t_word	*new_element;
+	t_word	*tmp;
 	int		total_length;
 	char	*str2;
-	(void)ap;
 
 	lkd_list = new_maillon();
+	tmp = lkd_list;
 	total_length = 0;
 	while ((str2 = splitting(str)) != NULL)
 	{
@@ -71,11 +83,10 @@ int			parsing(const char *str, va_list ap, int fd)
 		if (lkd_list->content != NULL)
 		total_length += (fd == 1) ? ft_putstr(1 , lkd_list->content)
 			: ft_putstr(fd, lkd_list->content);
-		//if (lkd_list->is_malloc == 1)
-		//	free(lkd_list->content);
-		free(lkd_list);
+		if (lkd_list->is_malloc == 1)
+			free(lkd_list->content);
 		lkd_list = lkd_list->next;
 	}
-	free(lkd_list);
+	//free_lkd_lst(tmp);
 	return (total_length);
 }
