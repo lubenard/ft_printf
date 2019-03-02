@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:07 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/02 18:57:28 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/02 20:15:29 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,13 +125,11 @@ int main(void)
 	printf("espace negatif '% d'\n", -1000);
 	printf("plus positif '%+d'\n", 1000);
 	printf("plus negatif '%+d'\n", -1000);
-	printf("moins positif '%-d'\n", 1000);
-	printf("moins negatif '%-d'\n", -1000);
+	printf("moins positif '%-10d'\n", 1000);
+	printf("moins negatif '%-10d'\n", -1000);
 	printf("zero positif '%010d'\n", 1000);
 	printf("zero negatif '%010d'\n", -1000);
-	printf("O:\n");
-	printf("zero positif '%0o'\n", 1000);
-	printf("zero negatif '%0o'\n", -1000);
+	printf("zero negatif '%010.06d'\n", -1000);
 	printf("----------------------------------\n");
 	ft_printf("MY PRINTF:\n");
 	ft_printf("-----Test normaux-----\n");
@@ -228,9 +226,11 @@ int main(void)
 	ft_printf("espace negatif '% d'\n", -1000);
 	ft_printf("plus positif '%+d'\n", 1000);
 	ft_printf("plus negatif '%+d'\n", -1000);
-	ft_printf("moins postif '%-d'\n", 1000);
-	ft_printf("moins negatif '%-d'\n", -1000);
+	ft_printf("moins postif '%-10d'\n", 1000);
+	ft_printf("moins negatif '%-10d'\n", -1000);
 	ft_printf("zero positif '%010d'\n", 1000);
 	ft_printf("zero negatif '%010d'\n", -1000);
+	ft_printf("zero negatif '%-010d'\n", -1000);
+	ft_printf("zero negatif '%10.06d'\n", -1000);
 	return (0);
 }

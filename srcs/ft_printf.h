@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/01 00:16:47 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/02 20:30:47 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int				parsing(const char *str, va_list ap, int option);
 int				remplacage(t_word *lkd_list, va_list ap);
 char			*join_str(char *to_remplace, int length, int minus, char fill);
 char			*rev(char *str);
+char			*join_str_neg(char *to_remplace, int length);
 /*
 ** Libft functions
 */

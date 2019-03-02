@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 14:58:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/02 19:30:53 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/02 20:25:42 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,11 @@ char	*add_space(char *str, char *to_remplace)
 		++i;
 	sub = ft_strsub(str, minus, i);
 	length = ft_atoi(sub);
-	if (to_remplace[0] == '-' && sub[0] ==  '0')
+	if (to_remplace[0] == '-' && sub[0] ==  '0'
+	&& ft_strchr(str, '-') == -1 && ft_strchr(str, '.') != -1)
 		to_remplace = join_str_neg(to_remplace, length);
-	else if (sub[0] == '0')
+	else if (sub[0] == '0' && ft_strchr(str, '-') == -1
+	&& ft_strchr(str, '.') != -1)
 		to_remplace = join_str(to_remplace, length, minus, '0');
 	if (ft_strlen(to_remplace) < length)
 		to_remplace = join_str(to_remplace, length, minus, ' ');
