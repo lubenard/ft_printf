@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 14:58:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/28 19:18:41 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/02 19:30:53 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,29 @@ char	*join_str(char *to_remplace, int length, int minus, char fill)
 	return (to_remplace);
 }
 
+char	*join_str_neg(char *to_remplace, int length)
+{
+	int		length_remplace;
+	char	*to_join;
+	short	i;
+
+	i = 1;
+	length_remplace = ft_strlen(to_remplace);
+	if (!(to_join = (char *)malloc(sizeof(char) * length - length_remplace)))
+		return (NULL);
+	to_join[length - length_remplace] = '\0';
+	to_join[0] = '-';
+	while (i < length - length_remplace)
+	{
+		to_join[i] = '0';
+		++i;
+	}
+	to_remplace[0] = '0';
+	to_remplace = ft_strjoin(to_join, to_remplace);
+	free(to_join);
+	return (to_remplace);
+}
+
 char	*add_space(char *str, char *to_remplace)
 {
 	int		i;
@@ -48,8 +71,12 @@ char	*add_space(char *str, char *to_remplace)
 		++i;
 	sub = ft_strsub(str, minus, i);
 	length = ft_atoi(sub);
-	free(sub);
+	if (to_remplace[0] == '-' && sub[0] ==  '0')
+		to_remplace = join_str_neg(to_remplace, length);
+	else if (sub[0] == '0')
+		to_remplace = join_str(to_remplace, length, minus, '0');
 	if (ft_strlen(to_remplace) < length)
 		to_remplace = join_str(to_remplace, length, minus, ' ');
+	free(sub);
 	return (to_remplace);
 }

@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:07 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/02 17:31:19 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/02 18:57:28 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,8 @@ int main(void)
 	printf("Pourcent p: '%-20p'\n", test6);
 	printf("Pourcent di: '%10d'\n", 42);
 	printf("Pourcent di: '%-10d'\n", 42);
+	printf("Pourcent di: '%10d'\n", -1000);
+	printf("Pourcent di: '%-10d'\n", -1000);
 	printf("Pourcent o: '%10o' \n", 1000);
 	printf("Pourcent o: '%-10o'\n", 1000);
 	printf("Pourcent u: '%10u'\n", 100);
@@ -118,14 +120,18 @@ int main(void)
 	printf("Pourcent X: '%.10X'\n", 1000);
 	printf("Pourcent pourcent : '%.10%'\n");
 	printf("-----Test +- #0-----\n");
+	printf("D:\n");
 	printf("espace positif '% d'\n", 1000);
 	printf("espace negatif '% d'\n", -1000);
 	printf("plus positif '%+d'\n", 1000);
 	printf("plus negatif '%+d'\n", -1000);
 	printf("moins positif '%-d'\n", 1000);
 	printf("moins negatif '%-d'\n", -1000);
-	printf("zero positif '%0d'\n", 1000);
-	printf("zero negatif '%0d'\n", -1000);
+	printf("zero positif '%010d'\n", 1000);
+	printf("zero negatif '%010d'\n", -1000);
+	printf("O:\n");
+	printf("zero positif '%0o'\n", 1000);
+	printf("zero negatif '%0o'\n", -1000);
 	printf("----------------------------------\n");
 	ft_printf("MY PRINTF:\n");
 	ft_printf("-----Test normaux-----\n");
@@ -217,13 +223,14 @@ int main(void)
 	ft_printf("Pourcent X: '%.10X'\n", 1000);
 	ft_printf("Pourcent pourcent : '%.10%'\n");
 	ft_printf("-----Test +- #0-----\n");
+	ft_printf("D:\n");
 	ft_printf("espace positif '% d'\n", 1000);
 	ft_printf("espace negatif '% d'\n", -1000);
 	ft_printf("plus positif '%+d'\n", 1000);
 	ft_printf("plus negatif '%+d'\n", -1000);
 	ft_printf("moins postif '%-d'\n", 1000);
 	ft_printf("moins negatif '%-d'\n", -1000);
-	ft_printf("zero positif '%0d'\n", 1000);
-	ft_printf("zero negatif '%0d'\n", -1000);
+	ft_printf("zero positif '%010d'\n", 1000);
+	ft_printf("zero negatif '%010d'\n", -1000);
 	return (0);
 }
