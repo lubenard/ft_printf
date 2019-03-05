@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 19:36:29 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/19 17:58:18 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/05 18:56:33 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,11 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	if (!(ret = (char *)malloc(sizeof(char) * len + 1)))
 		return (NULL);
-	//printf("content received = %s len to extract = %lu\n", s, len);
 	while (i < len)
 	{
 		ret[i] = s[start + i];
 		++i;
 	}
 	ret[len] = '\0';
-	//printf("RETOUR FINAL '%s'\n", ret);
 	return (ret);
 }

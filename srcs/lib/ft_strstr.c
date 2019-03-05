@@ -6,13 +6,13 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 15:32:32 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/22 15:34:56 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/05 18:55:55 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-char		*ft_strstr(char const *str, char const *to_find)	
+char		*ft_strstr(char const *str, char const *to_find)
 {
 	int i;
 	int j;
@@ -35,4 +35,3 @@ char		*ft_strstr(char const *str, char const *to_find)
 		return (0);
 	return (0);
 }
-

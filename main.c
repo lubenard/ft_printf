@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:07 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/02 20:15:29 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/04 16:34:27 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,7 @@ int main(void)
 	ft_printf("MY PRINTF:\n");
 	ft_printf("-----Test normaux-----\n");
 	ft_printf("test printf\n");
-//	ft_printf("\0");
+	ft_printf("\0");
 	ft_printf("");
 	ft_printf("-----Test %%c-----\n");
 	ft_printf("%c\n", 'k');

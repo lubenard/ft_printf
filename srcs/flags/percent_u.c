@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 14:38:58 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/28 18:49:19 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/04 12:11:25 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@ unsigned long long		get_option_u(va_list ap, int option)
 
 unsigned int		negative_number(unsigned int nbr)
 {
-	if (nbr < 0)
-		return(UINT_MAX - nbr);
-	else if (nbr > UINT_MAX)
+	if (nbr > UINT_MAX)
 		return(UINT_MAX);
 	return(nbr);
 }

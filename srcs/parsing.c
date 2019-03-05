@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 13:47:20 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/02 16:16:49 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/05 18:53:47 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ t_word		*new_maillon(void)
 
 	if (!(new_element = (t_word *)malloc(sizeof(t_word))))
 		return (NULL);
+	new_element->content = NULL;
 	new_element->is_malloc = 1;
 	new_element->next = NULL;
 	return (new_element);
@@ -53,13 +54,16 @@ t_word		*new_maillon(void)
 
 void		free_lkd_lst(t_word *lkd_list)
 {
+	t_word *tmp;
+
 	while (lkd_list)
 	{
-		printf("je free ce maillon: '%s'\n", lkd_list->content);
-		free(lkd_list);
+		tmp = lkd_list;
 		lkd_list = lkd_list->next;
+		if (tmp->is_malloc == 1)
+			free(tmp->content);
+		free(tmp);
 	}
-	printf("-------------------------\n");
 }
 
 int			parsing(const char *str, va_list ap, int fd)
@@ -81,12 +85,10 @@ int			parsing(const char *str, va_list ap, int fd)
 		new_element = new_maillon();
 		lkd_list->next = new_element;
 		if (lkd_list->content != NULL)
-		total_length += (fd == 1) ? ft_putstr(1 , lkd_list->content)
+			total_length += (fd == 1) ? ft_putstr(1, lkd_list->content)
 			: ft_putstr(fd, lkd_list->content);
-		if (lkd_list->is_malloc == 1)
-			free(lkd_list->content);
 		lkd_list = lkd_list->next;
 	}
-	//free_lkd_lst(tmp);
+	free_lkd_lst(tmp);
 	return (total_length);
 }
