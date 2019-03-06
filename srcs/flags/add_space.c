@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 14:58:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/02 20:25:42 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/06 21:34:38 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,7 @@ char	*join_str_neg(char *to_remplace, int length)
 	to_join[length - length_remplace] = '\0';
 	to_join[0] = '-';
 	while (i < length - length_remplace)
-	{
-		to_join[i] = '0';
-		++i;
-	}
+		to_join[i++] = '0';
 	to_remplace[0] = '0';
 	to_remplace = ft_strjoin(to_join, to_remplace);
 	free(to_join);
