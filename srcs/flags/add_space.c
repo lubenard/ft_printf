@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 14:58:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/06 21:34:38 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/07 00:02:32 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*join_str(char *to_remplace, int length, int minus, char fill)
 	char	*to_join;
 
 	length_remplace = ft_strlen(to_remplace);
-	if (!(to_join = (char *)malloc(sizeof(char) * length - length_remplace)))
+	if (!(to_join = (char *)malloc(sizeof(char) * length - length_remplace + 1)))
 		return (NULL);
 	to_join[length - length_remplace] = '\0';
 	to_join = ft_fill(to_join, fill, length - length_remplace);
@@ -38,7 +38,7 @@ char	*join_str_neg(char *to_remplace, int length)
 
 	i = 1;
 	length_remplace = ft_strlen(to_remplace);
-	if (!(to_join = (char *)malloc(sizeof(char) * length - length_remplace)))
+	if (!(to_join = (char *)malloc(sizeof(char) * length - length_remplace + 1)))
 		return (NULL);
 	to_join[length - length_remplace] = '\0';
 	to_join[0] = '-';

@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 20:01:12 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/06 18:56:57 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/06 21:52:40 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,17 +47,17 @@ int		percent_di(t_word *lkd_list, va_list ap)
 	else if (ft_strchr(lkd_list->content, 'h') != -1)
 		to_remplace = ft_itoa((short)get_option_d(ap, 4));
 	else
-	to_remplace = ft_itoa(va_arg(ap, int));
+		to_remplace = ft_itoa(va_arg(ap, int));
 
-	if (ft_strchr(lkd_list->content, ' ') != -1 && to_remplace[0] != '-'
-		&& prec == NULL && spaces == NULL)
+	if (ft_strchr(lkd_list->content, ' ') != -1 && to_remplace[0] != '-')
 		tmp = ft_strjoin(" ", to_remplace);
-	else if (ft_strchr(lkd_list->content, '+') != -1 && to_remplace[0] != '-'
-		&& prec == NULL && spaces == NULL)
+	else if (ft_strchr(lkd_list->content, '+') != -1 && to_remplace[0] != '-')
 		tmp = ft_strjoin("+", to_remplace);
 
 	if ((i = ft_strchr(lkd_list->content, '.')) != -1)
 		prec = precision(lkd_list->content, to_remplace, i, 0);
+	else if ((i = ft_strchr(lkd_list->content, '.')) != -1)
+		prec = precision(lkd_list->content, tmp, i, 0);
 
 	if (lkd_list->content[1] != 'd' && prec == NULL)
 		spaces = add_space(lkd_list->content, to_remplace);
@@ -72,9 +72,14 @@ int		percent_di(t_word *lkd_list, va_list ap)
 		lkd_list->content = tmp;
 	}
 	else if (spaces != NULL)
+	{
 		lkd_list->content = spaces;
+	}
 	else if (prec != NULL)
+	{
+		free(to_remplace);
 		lkd_list->content = prec;
+	}
 	else
 		lkd_list->content = to_remplace;
 	return (0);

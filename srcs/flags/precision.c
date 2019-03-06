@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:56:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/02 20:54:29 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/07 00:23:29 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,30 +33,38 @@ char	*precision(char *content, char *to_remplace, int i, int mode)
 	char	*sub;
 	int		length;
 	int		j;
+	char	*tmp;
 
 	j = i + 1;
 	length = 0;
 	++i;
+	tmp = NULL;
 	while (content[i] > 47 && content[i] < 58)
 		++i;
-	sub = ft_strsub(content, j, ++i);
+	sub = ft_strsub(content, j, i); //++i
 	length = ft_atoi(sub);
 	if (mode == 1)
 	{
 		if (ft_strlen(to_remplace) <= length)
+		{
+			free(sub);
 			return (to_remplace);
+		}
 		else
 			to_remplace = reduce_str(to_remplace, length);
 	}
 	else if (mode == 0)
 	{
 		if (ft_strlen(to_remplace) >= length)
+		{
+			free(sub);
 			return (to_remplace);
+		}
 		else if (ft_strchr(to_remplace, '-') != -1)
-			to_remplace = join_str_neg(to_remplace, ++length);
+			tmp = join_str_neg(to_remplace, ++length);
 		else
-			to_remplace = join_str(to_remplace, length, 1, '0');
+			tmp = join_str(to_remplace, length, 1, '0');
 	}
 	free(sub);
-	return (to_remplace);
+	return (tmp);
 }

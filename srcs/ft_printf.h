@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/06 17:14:41 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/06 23:44:56 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # define MAX_INT64 (9223372036854775807LL)
 # include <limits.h>
 
-
+#include <string.h>
 #include <stdio.h>
 
 typedef struct	s_word

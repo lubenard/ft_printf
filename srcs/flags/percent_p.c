@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 20:01:46 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/05 18:52:10 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/06 22:14:07 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int		percent_p(t_word *lkd_list, va_list ap)
 	value = va_arg(ap, unsigned long);
 	if (value == 0)
 	{
+		free(lkd_list->content);
 		lkd_list->content = "0x0";
 		lkd_list->is_malloc = 0;
 		return (0);
