@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:25:11 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/05 18:54:10 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/06 18:57:11 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ int		ft_strlen(const char *str)
 	int i;
 
 	i = 0;
-	while (str[i])
-		i++;
+	while (str[i] != '\0')
+		++i;
 	return (i);
 }
 

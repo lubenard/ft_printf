@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 18:36:28 by lubenard          #+#    #+#             */
-/*   Updated: 2019/01/26 13:12:53 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/06 18:26:49 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static char			*ft_result(char *result, long int nbr, int n)
 {
 	if (n < 0)
-		result		[1] = nbr + '0';
+		result[1] = nbr + '0';
 	else
 		result[0] = nbr + '0';
 	return (result);

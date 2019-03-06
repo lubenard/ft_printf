@@ -6,7 +6,7 @@
 #    By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 17:01:46 by lubenard          #+#    #+#              #
-#    Updated: 2019/03/05 17:42:39 by lubenard         ###   ########.fr        #
+#    Updated: 2019/03/06 18:58:09 by lubenard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,30 +35,34 @@ SRC = srcs/ft_printf.c \
 	  srcs/flags/add_space.c \
 	  srcs/flags/precision.c \
 	  srcs/flags/brackets.c \
-	  main.c
 
 OBJ = $(SRC:.c=.o)
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -c -Wall -Wextra -Werror -g3
 
 all:  $(NAME)
 
 $(NAME): $(OBJ)
-	@ar rcs $(NAME) $(OBJ)
-	@gcc -o ft_printf main.c libftprintf.a
-	@echo -e "ft_printf \033[32mDONE !\033[0m"
+	@printf "\033[33mCompilation de $(NAME)...\033[0m"
+	@ar rc $(NAME) $(OBJ)
+	@gcc -g3 -o ft_printf main.c libftprintf.a
+	@printf "\033[32m[✓]\033[0m\n"
 
 %.o : %.c
-	@clang -c $(CFLAGS) $< -o $@
+	@printf "\033[36mCompilation de $<...\033[0m"
+	@clang $(CFLAGS) $< -o $@
+	@printf "\033[32m[✓]\033[0m\n"
 
 clean:
+	@printf "\033[31mFclean du projet...\033[0m"
 	@rm -f $(OBJ)
-	@echo -e "clean ft_printf \033[32mDONE !\033[0m"
+	@printf "\033[32m[✓]\033[0m\n"
 
 fclean: clean
+	@printf "\033[31mFclean du projet...\033[0m"
 	@rm -f $(NAME)
 	@rm -rf ft_printf.dSYM
 	@rm ft_printf
-	@echo -e "fclean ft_printf \033[32mDONE !\033[0m"
+	@printf "\033[32m[✓]\033[0m\n"
 
 re: fclean all
