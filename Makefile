@@ -6,7 +6,7 @@
 #    By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 17:01:46 by lubenard          #+#    #+#              #
-#    Updated: 2019/03/07 15:24:25 by lubenard         ###   ########.fr        #
+#    Updated: 2019/03/07 16:39:06 by lubenard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,14 +46,14 @@ OBJ = $(SRC:.c=.o)
 
 CC = clang
 
-CFLAGS = -c -Wall -Wextra -Werror
+CFLAGS = -g3 -c -Wall -Wextra -Werror
 
 all:  $(NAME)
 
 $(NAME): $(OBJ)
 	@printf "\033[33mCompilation de $(NAME)...\033[0m"
-	@ar rcs $(NAME) $(OBJ)
-	@$(CC) -o ft_printf main2.c libftprintf.a
+	@ar rc $(NAME) $(OBJ)
+	@$(CC) -g3 -o ft_printf main2.c libftprintf.a
 	@printf "\033[32m[✓]\033[0m\n"
 
 %.o : %.c
