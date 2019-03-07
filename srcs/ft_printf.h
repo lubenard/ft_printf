@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/07 14:34:02 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/07 15:23:58 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ char			*ft_strstr(const char *str, const char *to_search);
 char			*ft_itoa(int n);
 char			*ft_itoa_long(long long int n);
 char			*ft_itoa_ulong(unsigned long long n);
+char			*ft_stoa(short n);
 char			*ft_strsub(char const *s, unsigned int start, size_t len);
 int				ft_strlen(const char *str);
 int				ft_atoi(const char *str);
