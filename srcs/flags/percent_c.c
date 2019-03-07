@@ -6,30 +6,20 @@
 /*   By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 16:57:06 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/06 21:38:29 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/07 02:33:15 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-char	return_pointer(int nbr)
-{
-	char c;
-
-	c = nbr;
-	return (c);
-}
-
 int		percent_c(t_word *lkd_list, va_list ap)
 {
-	char	get_value;
 	char	*to_remplace;
 	char	*tmp;
 
-	get_value = return_pointer(va_arg(ap, int));
 	if (!(to_remplace = (char *)malloc(sizeof(char) * 2)))
 		return (-1);
-	to_remplace[0] = get_value;
+	to_remplace[0] = (char)va_arg(ap, int);
 	to_remplace[1] = '\0';
 	if (lkd_list->content[1] != 'c')
 	{

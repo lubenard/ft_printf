@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 14:58:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/07 00:02:32 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/07 02:29:08 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ char	*join_str(char *to_remplace, int length, int minus, char fill)
 {
 	int		length_remplace;
 	char	*to_join;
+	char	*tmp;
 
 	length_remplace = ft_strlen(to_remplace);
 	if (!(to_join = (char *)malloc(sizeof(char) * length - length_remplace + 1)))
@@ -23,11 +24,11 @@ char	*join_str(char *to_remplace, int length, int minus, char fill)
 	to_join[length - length_remplace] = '\0';
 	to_join = ft_fill(to_join, fill, length - length_remplace);
 	if (minus > 1)
-		to_remplace = ft_strjoin(to_remplace, to_join);
+		tmp = ft_strjoin(to_remplace, to_join);
 	else
-		to_remplace = ft_strjoin(to_join, to_remplace);
+		tmp = ft_strjoin(to_join, to_remplace);
 	free(to_join);
-	return (to_remplace);
+	return (tmp);
 }
 
 char	*join_str_neg(char *to_remplace, int length)
@@ -56,9 +57,11 @@ char	*add_space(char *str, char *to_remplace)
 	char	*sub;
 	int		length;
 	int		minus;
+	char	*tmp;
 
 	i = 1;
 	minus = 1;
+	tmp = NULL;
 	if (str[1] == '-')
 	{
 		++minus;
@@ -75,7 +78,11 @@ char	*add_space(char *str, char *to_remplace)
 	&& ft_strchr(str, '.') != -1)
 		to_remplace = join_str(to_remplace, length, minus, '0');
 	if (ft_strlen(to_remplace) < length)
-		to_remplace = join_str(to_remplace, length, minus, ' ');
+		tmp = join_str(to_remplace, length, minus, ' ');
+	else
+		tmp = strdup(to_remplace);
 	free(sub);
+	if (tmp != NULL)
+		return(tmp);
 	return (to_remplace);
 }

@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:56:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/07 00:23:29 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/07 01:20:49 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*reduce_str(char *to_remplace, int length)
 	while (i < length)
 	{
 		copy[i] = to_remplace[i];
-		i++;
+		++i;
 	}
 	return (copy);
 }
@@ -48,10 +48,10 @@ char	*precision(char *content, char *to_remplace, int i, int mode)
 		if (ft_strlen(to_remplace) <= length)
 		{
 			free(sub);
-			return (to_remplace);
+			return (strdup(to_remplace)); //to fix
 		}
 		else
-			to_remplace = reduce_str(to_remplace, length);
+			tmp = reduce_str(to_remplace, length);
 	}
 	else if (mode == 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 20:01:12 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/06 21:52:40 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/07 02:24:03 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ int		percent_di(t_word *lkd_list, va_list ap)
 	else if ((i = ft_strchr(lkd_list->content, '.')) != -1)
 		prec = precision(lkd_list->content, tmp, i, 0);
 
-	if (lkd_list->content[1] != 'd' && prec == NULL)
+	if (lkd_list->content[1] > 47 && lkd_list->content[1] < 58 && prec == NULL)
 		spaces = add_space(lkd_list->content, to_remplace);
-	else if (lkd_list->content[1] != 'd' && prec != NULL)
+	else if (lkd_list->content[1] > 47 && lkd_list->content[1] < 58 && prec != NULL)
 		spaces = add_space(lkd_list->content, prec);
 
 	free(lkd_list->content);
@@ -69,10 +69,14 @@ int		percent_di(t_word *lkd_list, va_list ap)
 	{
 		if (spaces != NULL)
 			free(spaces);
+		free(to_remplace);
 		lkd_list->content = tmp;
 	}
 	else if (spaces != NULL)
 	{
+		if (prec != NULL)
+			free(prec);
+		free(to_remplace);
 		lkd_list->content = spaces;
 	}
 	else if (prec != NULL)

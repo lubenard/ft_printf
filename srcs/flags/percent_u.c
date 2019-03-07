@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 14:38:58 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/04 12:11:25 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/07 02:26:18 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,12 @@ int		percent_u(t_word *lkd_list, va_list ap)
 	unsigned long long		value;
 	int						i;
 	char					*to_remplace;
+	char					*prec;
+	char					*spaces;
 
 	i = 0;
+	prec = NULL;
+	spaces = NULL;
 	if (ft_strchr(lkd_list->content, 'l') != -1)
 		value = get_option_u(ap, 1);
 	else if (ft_strstr(lkd_list->content, "ll") != 0)
@@ -51,13 +55,25 @@ int		percent_u(t_word *lkd_list, va_list ap)
 		value = negative_number(va_arg(ap, unsigned int));
 	to_remplace = ft_itoa_long(value);
 	if ((i = ft_strchr(lkd_list->content, '.')) != -1)
-		to_remplace = precision(lkd_list->content, to_remplace, i, 0);
-	if (lkd_list->content[1] != 'u')
-	{
-		if ((to_remplace = add_space(lkd_list->content, to_remplace)) == NULL)
-			return (-1);
-	}
+		prec = precision(lkd_list->content, to_remplace, i, 0);
+	if (lkd_list->content[1] > 47 && lkd_list->content[1] < 58 && prec == NULL)
+		spaces = add_space(lkd_list->content, to_remplace);
+	else if (lkd_list->content[1] > 47 && lkd_list->content[1] < 58 && prec != NULL)
+		spaces = add_space(lkd_list->content, prec);
 	free(lkd_list->content);
-	lkd_list->content = to_remplace;
+	if (spaces != NULL)
+	{
+		if (prec != NULL)
+			free(prec);
+		free(to_remplace);
+		lkd_list->content = spaces;
+	}
+	else if (prec != NULL)
+	{
+		free(to_remplace);
+		lkd_list->content = prec;
+	}
+	else
+		lkd_list->content = to_remplace;
 	return (0);
 }

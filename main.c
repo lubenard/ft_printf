@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:07 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/06 22:35:09 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/07 02:30:43 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -214,7 +214,7 @@ int main(void)
 //	ft_printf("Pourcent c: '%.10c'\n", 'o');
 	ft_printf("Pourcent s: '%.10s'\n", "hohohohohohohoho");
 //	ft_printf("Pourcent p: '%.20p'\n", test6);
-	ft_printf("Pourcent di: '%.10d'\n", 42);
+	ft_printf("Pourcent d: '%.10d'\n", 42);
 	ft_printf("Pourcent o: '%.10o' \n", 1000);
 	ft_printf("Pourcent u: '%.10u'\n", 100);
 	ft_printf("Pourcent x: '%.10x'\n", 1000);
