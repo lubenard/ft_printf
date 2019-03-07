@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 14:58:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/07 07:06:35 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/07 07:33:49 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,14 @@ char	*ret_add_space(char *to_remplace, int length, char *sub, int minus)
 	if (ft_strlen(to_remplace) < length)
 		tmp = join_str(to_remplace, length, minus, ' ');
 	else
-		tmp = strdup(to_remplace);
+		tmp = ft_strdup(to_remplace);
 	if (to_remplace != NULL)
 		free(to_remplace);
 	return (tmp);
 }
 
-char	*ret_add_space2(char *to_remplace, int length, char *sub, int minus)
+char	*ret_add_space2(char *to_remplace, int length,
+		char *sub, int minus)
 {
 	char	*tmp;
 
@@ -77,7 +78,7 @@ char	*ret_add_space2(char *to_remplace, int length, char *sub, int minus)
 	if (ft_strlen(to_remplace) < length)
 		tmp = join_str(to_remplace, length, minus, ' ');
 	else
-		tmp = strdup(to_remplace);
+		tmp = ft_strdup(to_remplace);
 	return (tmp);
 }
 
@@ -93,10 +94,8 @@ char	*add_space(char *str, char *to_remplace)
 	i = 1;
 	minus = 1;
 	if (str[1] == '-')
-	{
 		++minus;
-		++i;
-	}
+	i = minus;
 	while (str[i] > 47 && str[i] < 58)
 		++i;
 	sub = ft_strsub(str, minus, i);
@@ -104,10 +103,9 @@ char	*add_space(char *str, char *to_remplace)
 	if (to_remplace[0] == '-' && sub[0] == '0'
 	&& ft_strchr(str, '-') == -1 && ft_strchr(str, '.') == -1)
 		tmp = join_str_neg(to_remplace, length);
-	else if (to_remplace[0] != '0'  && sub[0] == '0' && ft_strchr(str, '-') == -1
+	else if (to_remplace[0] != '0' && sub[0] == '0' && ft_strchr(str, '-') == -1
 	&& ft_strchr(str, '.') == -1)
 		tmp = join_str(to_remplace, length, minus, '0');
-	if (tmp != NULL)
-		return (ret_add_space(tmp, length, sub, minus));
-	return(ret_add_space2(to_remplace, length, sub, minus));
+	return ((tmp != NULL) ? ret_add_space(tmp, length, sub, minus)
+			: ret_add_space2(to_remplace, length, sub, minus));
 }

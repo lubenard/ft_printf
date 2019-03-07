@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/07 06:29:34 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/07 14:34:02 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,6 @@
 # include <stdarg.h>
 # define MAX_INT64 (9223372036854775807LL)
 # include <limits.h>
-
-#include <string.h>
-#include <stdio.h>
 
 typedef struct	s_word
 {
@@ -57,6 +54,13 @@ int				ft_strcmp(char const *s1, char const *s2);
 int				ft_strchr(char const *s, int c);
 int				ft_putstr(int fd, char *str);
 int				ft_isdigit(int c);
+char			*ft_strdup(char const *s);
+char			*ft_strnew(int n);
+/*
+** Convertions
+*/
+char			*convert_into_hexa(unsigned long value);
+char			*conv_in_hexa_p(unsigned long value);
 /*
 ** Percentage conversion functions
 */

@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:56:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/07 05:21:13 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/07 07:31:38 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*mode_1(char *to_remplace, int length, char *sub, char *tmp)
 	if (ft_strlen(to_remplace) <= length)
 	{
 		free(sub);
-		return (strdup(to_remplace));
+		return (ft_strdup(to_remplace));
 	}
 	else
 		tmp = reduce_str(to_remplace, length);

@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 18:36:28 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/25 19:41:40 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/07 13:57:36 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char				*ft_itoa_long(long long int n)
 	neg = 0;
 	i = 0;
 	neg = (nbr < 0) ? -1 : 0;
-	if (!(result = (char *)malloc(sizeof(char) * ft_len(n) + 1 - neg)))
+	if (!(result = (char *)malloc(sizeof(char) * (ft_len(n) + 1 - neg))))
 		return (NULL);
 	if (nbr < 0)
 	{

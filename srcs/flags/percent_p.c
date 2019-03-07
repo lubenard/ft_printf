@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 20:01:46 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/07 04:23:38 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/07 14:32:09 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,32 +18,6 @@
 ** Then add 0x before
 ** https://repl.it/repls/ValidBestFlashdrives
 */
-
-char	*conv_in_hexa_ul(unsigned long value)
-{
-	char	*ret;
-	int		i;
-	int		tmp;
-
-	i = 0;
-	if (!(ret = (char *)malloc(sizeof(char) * 12)))
-		return (NULL);
-	while (value != 0)
-	{
-		tmp = 0;
-		tmp = value % 16;
-		if (tmp < 10)
-			ret[i] = tmp + 48;
-		else
-			ret[i] = tmp + 87;
-		++i;
-		value = value / 16;
-	}
-	ret[i] = 'x';
-	ret[++i] = '0';
-	return (rev(ret));
-}
-
 void	free_elem_p(char *to_remplace, char *prec, char *spaces)
 {
 	if (prec != NULL || spaces != NULL)
@@ -89,7 +63,7 @@ int		percent_p(t_word *lkd_list, va_list ap)
 	value = va_arg(ap, unsigned long);
 	if (null_arg(value, lkd_list) == 0)
 		return (0);
-	to_remplace = conv_in_hexa_ul(value);
+	to_remplace = conv_in_hexa_p(value);
 	if ((i = ft_strchr(lkd_list->content, '.')) != -1)
 		prec = precision(lkd_list->content, to_remplace, i, 0);
 	if ((ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-')
