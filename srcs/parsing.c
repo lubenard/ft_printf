@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 13:47:20 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/05 18:53:47 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/07 06:42:43 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ int			parsing(const char *str, va_list ap, int fd)
 		if (lkd_list->content != NULL)
 			total_length += (fd == 1) ? ft_putstr(1, lkd_list->content)
 			: ft_putstr(fd, lkd_list->content);
+		if (lkd_list->content[0] == '\0')
+			total_length++;
 		lkd_list = lkd_list->next;
 	}
 	free_lkd_lst(tmp);

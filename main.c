@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:07 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/07 02:30:43 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/07 06:58:04 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -226,11 +226,15 @@ int main(void)
 	ft_printf("espace negatif '% d'\n", -1000);
 	ft_printf("plus positif '%+d'\n", 1000);
 	ft_printf("plus negatif '%+d'\n", -1000);
-	ft_printf("moins postif '%-10d'\n", 1000);
+	ft_printf("moins positif '%-10d'\n", 1000);
 	ft_printf("moins negatif '%-10d'\n", -1000);
 	ft_printf("zero positif '%010d'\n", 1000);
 	ft_printf("zero negatif '%010d'\n", -1000);
 	ft_printf("zero negatif '%-010d'\n", -1000);
 	ft_printf("zero negatif '%10.06d'\n", -1000);
+	printf("VALEURS DE RETOUR de \\0 = %d\n", printf("%c", '\0'));
+
+	printf("VALEURS DE RETOUR de \\0 = %d\n", ft_printf("%c", '\0'));
+
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/07 04:32:53 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/07 06:29:34 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ typedef struct	s_word
 ** Printf functions
 */
 int				ft_printf(const char *str, ...);
-int				ft_dprintf(int fd, const char *str, ...);
 /*
 ** Useful functions
 */
