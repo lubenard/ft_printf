@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 14:58:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/07 06:57:43 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/07 07:06:35 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,21 @@ char	*ret_add_space(char *to_remplace, int length, char *sub, int minus)
 		tmp = join_str(to_remplace, length, minus, ' ');
 	else
 		tmp = strdup(to_remplace);
-	//free(to_remplace);
+	if (to_remplace != NULL)
+		free(to_remplace);
+	return (tmp);
+}
+
+char	*ret_add_space2(char *to_remplace, int length, char *sub, int minus)
+{
+	char	*tmp;
+
+	free(sub);
+	tmp = NULL;
+	if (ft_strlen(to_remplace) < length)
+		tmp = join_str(to_remplace, length, minus, ' ');
+	else
+		tmp = strdup(to_remplace);
 	return (tmp);
 }
 
@@ -73,7 +87,9 @@ char	*add_space(char *str, char *to_remplace)
 	char	*sub;
 	int		length;
 	int		minus;
+	char	*tmp;
 
+	tmp = NULL;
 	i = 1;
 	minus = 1;
 	if (str[1] == '-')
@@ -87,9 +103,11 @@ char	*add_space(char *str, char *to_remplace)
 	length = ft_atoi(sub);
 	if (to_remplace[0] == '-' && sub[0] == '0'
 	&& ft_strchr(str, '-') == -1 && ft_strchr(str, '.') == -1)
-		to_remplace = join_str_neg(to_remplace, length);
+		tmp = join_str_neg(to_remplace, length);
 	else if (to_remplace[0] != '0'  && sub[0] == '0' && ft_strchr(str, '-') == -1
 	&& ft_strchr(str, '.') == -1)
-		to_remplace = join_str(to_remplace, length, minus, '0');
-	return (ret_add_space(to_remplace, length, sub, minus));
+		tmp = join_str(to_remplace, length, minus, '0');
+	if (tmp != NULL)
+		return (ret_add_space(tmp, length, sub, minus));
+	return(ret_add_space2(to_remplace, length, sub, minus));
 }
