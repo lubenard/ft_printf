@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/06 23:44:56 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/07 02:57:01 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ char			*ft_fill(char *str, char c, int length);
 int				ft_strcmp(char const *s1, char const *s2);
 int				ft_strchr(char const *s, int c);
 int				ft_putstr(int fd, char *str);
+int				ft_isdigit(int c);
 /*
 ** Percentage conversion functions
 */

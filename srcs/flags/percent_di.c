@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 20:01:12 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/07 02:24:03 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/07 03:37:23 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,22 +48,18 @@ int		percent_di(t_word *lkd_list, va_list ap)
 		to_remplace = ft_itoa((short)get_option_d(ap, 4));
 	else
 		to_remplace = ft_itoa(va_arg(ap, int));
-
 	if (ft_strchr(lkd_list->content, ' ') != -1 && to_remplace[0] != '-')
 		tmp = ft_strjoin(" ", to_remplace);
 	else if (ft_strchr(lkd_list->content, '+') != -1 && to_remplace[0] != '-')
 		tmp = ft_strjoin("+", to_remplace);
-
 	if ((i = ft_strchr(lkd_list->content, '.')) != -1)
 		prec = precision(lkd_list->content, to_remplace, i, 0);
 	else if ((i = ft_strchr(lkd_list->content, '.')) != -1)
 		prec = precision(lkd_list->content, tmp, i, 0);
-
-	if (lkd_list->content[1] > 47 && lkd_list->content[1] < 58 && prec == NULL)
+	if ((ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-') && prec == NULL)
 		spaces = add_space(lkd_list->content, to_remplace);
-	else if (lkd_list->content[1] > 47 && lkd_list->content[1] < 58 && prec != NULL)
+	else if ((ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-') && prec != NULL)
 		spaces = add_space(lkd_list->content, prec);
-
 	free(lkd_list->content);
 	if (tmp != NULL)
 	{

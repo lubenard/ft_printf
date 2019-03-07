@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main2.c                                            :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/06 18:42:29 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/07 03:32:02 by lubenard         ###   ########.fr       */
+/*   Created: 2019/03/07 02:54:22 by lubenard          #+#    #+#             */
+/*   Updated: 2019/03/07 02:54:48 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "srcs/ft_printf.h"
+#include "../ft_printf.h"
 
-int main(void)
+int		ft_isdigit(int c)
 {
-	//printf("'%.13x'\n", 1000);
-	//ft_printf("'%.13x'\n", 1000);
-	//printf("'%.13s'\n", "HIHI");
-//	ft_printf("'%.13s'\n", "HIHI");
-//	printf("'%.2s'\n", "HIHI");
-//	ft_printf("'%.2s'\n", "HIHI");
-//	ft_printf("Pourcent s: '%10s'\n", "hihihi");
-	printf("'%11c'\n", 'c');
-	ft_printf("'%11c'\n", 's');
+	if (c >= 48 && c <= 57)
+		return (1);
 	return (0);
 }

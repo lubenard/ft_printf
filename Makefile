@@ -6,7 +6,7 @@
 #    By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 17:01:46 by lubenard          #+#    #+#              #
-#    Updated: 2019/03/07 01:57:19 by lubenard         ###   ########.fr        #
+#    Updated: 2019/03/07 03:32:48 by lubenard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRC = srcs/ft_printf.c \
 	  srcs/lib/ft_strcmp.c \
 	  srcs/lib/ft_strchr.c \
 	  srcs/lib/ft_strstr.c \
+	  srcs/lib/ft_isdigit.c \
 	  srcs/flags/percent_c.c \
 	  srcs/flags/percent_s.c \
 	  srcs/flags/percent_x.c \
@@ -38,6 +39,8 @@ SRC = srcs/ft_printf.c \
 
 OBJ = $(SRC:.c=.o)
 
+CC = clang
+
 CFLAGS = -c -Wall -Wextra -Werror -g3
 
 all:  $(NAME)
@@ -45,12 +48,12 @@ all:  $(NAME)
 $(NAME): $(OBJ)
 	@printf "\033[33mCompilation de $(NAME)...\033[0m"
 	@ar rc $(NAME) $(OBJ)
-	@gcc -g3 -o ft_printf main.c libftprintf.a
+	@$(CC) -g3 -o ft_printf main.c libftprintf.a
 	@printf "\033[32m[✓]\033[0m\n"
 
 %.o : %.c
 	@printf "\033[36mCompilation de $<...\033[0m"
-	@clang $(CFLAGS) $< -o $@
+	@$(CC) $(CFLAGS) $< -o $@
 	@printf "\033[32m[✓]\033[0m\n"
 
 clean:

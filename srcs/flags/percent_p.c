@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 20:01:46 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/06 22:14:07 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/07 03:35:13 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,9 @@ int		percent_p(t_word *lkd_list, va_list ap)
 	to_remplace = conv_in_hexa_ul(value);
 	if ((i = ft_strchr(lkd_list->content, '.')) != -1)
 		prec = precision(lkd_list->content, to_remplace, i, 0);
-	if (lkd_list->content[1] != 'p' && prec == NULL)
+	if ((ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-') && prec == NULL)
 		spaces = add_space(lkd_list->content, to_remplace);
-	else if (lkd_list->content[1] != 'p' && prec != NULL)
+	else if ((ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-') && prec != NULL)
 		spaces = add_space(lkd_list->content, prec);
 	handle_return(lkd_list, prec, to_remplace, spaces);
 	free_elem_p(to_remplace, prec, spaces);

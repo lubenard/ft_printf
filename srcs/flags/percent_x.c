@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 11:23:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/07 00:41:07 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/07 03:41:01 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,9 @@ char	*percent_x(t_word *lkd_list, va_list ap, short option)
 	to_remplace = convert_into_hexa(va_arg(ap, unsigned long long));
 	if ((i = ft_strchr(lkd_list->content, '.')) != -1)
 		prec = precision(lkd_list->content, to_remplace, i, 0);
-	if (lkd_list->content[1] > 48 && lkd_list->content[1] < 58 && prec == NULL)
+	if ((ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-') && prec == NULL)
 		spaces = add_space(lkd_list->content, to_remplace);
-	else if (lkd_list->content[1] > 48 && lkd_list->content[1] < 58 && prec != NULL)
+	else if ((ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-') && prec != NULL)
 		spaces = add_space(lkd_list->content, prec);
 	free(lkd_list->content);
 	if (option == 1)

@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 14:38:58 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/07 02:26:18 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/07 03:39:27 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ int		percent_u(t_word *lkd_list, va_list ap)
 	to_remplace = ft_itoa_long(value);
 	if ((i = ft_strchr(lkd_list->content, '.')) != -1)
 		prec = precision(lkd_list->content, to_remplace, i, 0);
-	if (lkd_list->content[1] > 47 && lkd_list->content[1] < 58 && prec == NULL)
+	if ((ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-') && prec == NULL)
 		spaces = add_space(lkd_list->content, to_remplace);
-	else if (lkd_list->content[1] > 47 && lkd_list->content[1] < 58 && prec != NULL)
+	else if ((ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-') && prec != NULL)
 		spaces = add_space(lkd_list->content, prec);
 	free(lkd_list->content);
 	if (spaces != NULL)
