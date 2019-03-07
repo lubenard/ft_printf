@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 20:01:46 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/07 03:35:13 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/07 04:23:38 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,18 @@ void	handle_return(t_word *lkd_list, char *prec,
 		lkd_list->content = to_remplace;
 }
 
+int		null_arg(int value, t_word *lkd_list)
+{
+	if (value == 0)
+	{
+		free(lkd_list->content);
+		lkd_list->content = "0x0";
+		lkd_list->is_malloc = 0;
+		return (0);
+	}
+	return (1);
+}
+
 int		percent_p(t_word *lkd_list, va_list ap)
 {
 	char				*to_remplace;
@@ -75,19 +87,16 @@ int		percent_p(t_word *lkd_list, va_list ap)
 	prec = NULL;
 	spaces = NULL;
 	value = va_arg(ap, unsigned long);
-	if (value == 0)
-	{
-		free(lkd_list->content);
-		lkd_list->content = "0x0";
-		lkd_list->is_malloc = 0;
+	if (null_arg(value, lkd_list) == 0)
 		return (0);
-	}
 	to_remplace = conv_in_hexa_ul(value);
 	if ((i = ft_strchr(lkd_list->content, '.')) != -1)
 		prec = precision(lkd_list->content, to_remplace, i, 0);
-	if ((ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-') && prec == NULL)
+	if ((ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-')
+			&& prec == NULL)
 		spaces = add_space(lkd_list->content, to_remplace);
-	else if ((ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-') && prec != NULL)
+	else if ((ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-')
+			&& prec != NULL)
 		spaces = add_space(lkd_list->content, prec);
 	handle_return(lkd_list, prec, to_remplace, spaces);
 	free_elem_p(to_remplace, prec, spaces);

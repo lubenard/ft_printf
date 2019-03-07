@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:56:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/07 01:20:49 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/07 05:21:13 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,34 @@ char	*reduce_str(char *to_remplace, int length)
 	return (copy);
 }
 
+char	*mode_1(char *to_remplace, int length, char *sub, char *tmp)
+{
+	if (ft_strlen(to_remplace) <= length)
+	{
+		free(sub);
+		return (strdup(to_remplace));
+	}
+	else
+		tmp = reduce_str(to_remplace, length);
+	free(sub);
+	return (tmp);
+}
+
+char	*mode_0(char *to_remplace, int length, char *sub, char *tmp)
+{
+	if (ft_strlen(to_remplace) >= length)
+	{
+		free(sub);
+		return (to_remplace);
+	}
+	else if (ft_strchr(to_remplace, '-') != -1)
+		tmp = join_str_neg(to_remplace, ++length);
+	else
+		tmp = join_str(to_remplace, length, 1, '0');
+	free(sub);
+	return (tmp);
+}
+
 char	*precision(char *content, char *to_remplace, int i, int mode)
 {
 	char	*sub;
@@ -41,30 +69,11 @@ char	*precision(char *content, char *to_remplace, int i, int mode)
 	tmp = NULL;
 	while (content[i] > 47 && content[i] < 58)
 		++i;
-	sub = ft_strsub(content, j, i); //++i
+	sub = ft_strsub(content, j, i);
 	length = ft_atoi(sub);
 	if (mode == 1)
-	{
-		if (ft_strlen(to_remplace) <= length)
-		{
-			free(sub);
-			return (strdup(to_remplace)); //to fix
-		}
-		else
-			tmp = reduce_str(to_remplace, length);
-	}
+		return (mode_1(to_remplace, length, sub, tmp));
 	else if (mode == 0)
-	{
-		if (ft_strlen(to_remplace) >= length)
-		{
-			free(sub);
-			return (to_remplace);
-		}
-		else if (ft_strchr(to_remplace, '-') != -1)
-			tmp = join_str_neg(to_remplace, ++length);
-		else
-			tmp = join_str(to_remplace, length, 1, '0');
-	}
-	free(sub);
+		return (mode_0(to_remplace, length, sub, tmp));
 	return (tmp);
 }
