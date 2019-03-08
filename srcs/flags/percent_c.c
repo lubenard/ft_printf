@@ -6,7 +6,7 @@
 /*   By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 16:57:06 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/07 10:49:46 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/08 17:54:23 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		percent_percent(t_word *lkd_list)
 
 	tmp = NULL;
 	if (!(to_remplace = (char *)malloc(sizeof(char) * 2)))
-		return (-1);
+	return (-1);
 	to_remplace[0] = '%';
 	to_remplace[1] = '\0';
 	if (ft_isdigit(lkd_list->content[1])

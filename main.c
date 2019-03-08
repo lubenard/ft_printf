@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:07 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/07 06:58:04 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/08 17:55:46 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main(void)
 	char *test12 = 0x0;
 	int test13 = INT_MAX;
 
-	printf("VRAI PRINTF:\n");
+/*	printf("VRAI PRINTF:\n");
 	printf("-----Test normaux-----\n");
 	printf("test printf\n");
 //	printf("\0");
@@ -130,7 +130,7 @@ int main(void)
 	printf("zero positif '%010d'\n", 1000);
 	printf("zero negatif '%010d'\n", -1000);
 	printf("zero negatif '%010.06d'\n", -1000);
-	printf("----------------------------------\n");
+	printf("----------------------------------\n");*/
 	ft_printf("MY PRINTF:\n");
 	ft_printf("-----Test normaux-----\n");
 	ft_printf("test printf\n");
@@ -190,7 +190,7 @@ int main(void)
 	ft_printf("%hhX", test3);
 	ft_printf("%lX\n", test8);
 	ft_printf("%llX\n", test9);
-	ft_printf("-----Test Minwidth-----\n");
+	/*ft_printf("-----Test Minwidth-----\n");
 	ft_printf("Pourcent c: '%10c'\n", 'o');
 	ft_printf("Pourcent c: '%-10c'\n", 'o');
 	ft_printf("Pourcent s: '%10s'\n", "hihihi");
@@ -235,6 +235,6 @@ int main(void)
 	printf("VALEURS DE RETOUR de \\0 = %d\n", printf("%c", '\0'));
 
 	printf("VALEURS DE RETOUR de \\0 = %d\n", ft_printf("%c", '\0'));
-
+*/
 	return (0);
 }

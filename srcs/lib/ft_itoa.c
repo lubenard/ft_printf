@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 18:36:28 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/06 18:26:49 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/08 17:57:47 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ char				*ft_itoa(int n)
 	neg = 0;
 	i = 0;
 	neg = (nbr < 0) ? -1 : 0;
-	if (!(result = (char *)malloc(sizeof(char) * ft_len(n) + 1 - neg)))
+	printf(">>>>>>>>>>>>>ft_len = %d\n", ft_len(n)+1 -neg);
+	if (!(result = (char *)malloc(sizeof(char) * (ft_len(n) + 1 - neg))))
 		return (NULL);
 	if (nbr < 0)
 	{
@@ -66,6 +67,7 @@ char				*ft_itoa(int n)
 		nbr = nbr / 10;
 		i++;
 	}
+	printf(">>>>>>>>>>>>>>>>>>>backslash a %d\n", ft_len(n) + 1);
 	result[ft_len(n) + 1] = '\0';
 	return (ft_result(result, nbr, n));
 }
