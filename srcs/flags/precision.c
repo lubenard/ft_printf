@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:56:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/11 15:17:19 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/11 17:24:35 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	*mode_0(char *to_remplace, int length, char *sub)
 	if (ft_strlen(to_remplace) >= length)
 	{
 		free(sub);
-		return (to_remplace);
+		return (ft_strdup(to_remplace));
 	}
 	else if (ft_strchr(to_remplace, '-') != -1)
 		tmp = join_str_neg(to_remplace, ++length);

@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 18:36:28 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/11 11:13:03 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/11 17:13:24 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ char						*ft_stoa(short n)
 	result = ft_strnew((size_t)ft_len(nbr) + neg);
 	if (nbr < 0)
 	{
+		i = -1;
 		nbr = -nbr;
 		result[0] = '-';
 		++i;

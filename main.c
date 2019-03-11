@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:07 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/11 16:05:59 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/11 17:14:35 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int main(void)
 	printf("%hX\n", test7);
 	printf("%hhX", test3);
 	printf("%lX\n", test8);
-	printf("%llX\n", test9);*
+	printf("%llX\n", test9);*/
 	printf("-----Test Minwidth-----\n");
 	printf("Pourcent c: '%10c'\n", 'o');
 	printf("Pourcent c: '%-10c'\n", 'o');
@@ -113,7 +113,7 @@ int main(void)
 //	printf("Pourcent c: '%.10c'\n", 'o');
 	printf("Pourcent s: '%.10s'\n", "hohohohohohohoho");
 //	printf("Pourcent p: '%.20p'\n", test6);
-	printf("Pourcent di: '%.10d'\n", 42);
+	printf("Pourcent d: '%.10d'\n", 42);
 	printf("Pourcent o: '%.10o' \n", 1000);
 	printf("Pourcent u: '%.10u'\n", 100);
 	printf("Pourcent x: '%.10x'\n", 1000);
@@ -130,9 +130,9 @@ int main(void)
 	printf("zero positif '%010d'\n", 1000);
 	printf("zero negatif '%010d'\n", -1000);
 	printf("zero negatif '%010.06d'\n", -1000);
-	printf("----------------------------------\n");*/
+	printf("----------------------------------\n");
 	ft_printf("MY PRINTF:\n");
-	ft_printf("-----Test normaux-----\n");
+/*	ft_printf("-----Test normaux-----\n");
 	ft_printf("test printf\n");
 	ft_printf("\0");
 	ft_printf("");
@@ -190,7 +190,7 @@ int main(void)
 	ft_printf("%hhX", test3);
 	ft_printf("%lX\n", test8);
 	ft_printf("%llX\n", test9);
-	ft_printf("-----Test Minwidth-----\n");
+*/	ft_printf("-----Test Minwidth-----\n");
 	ft_printf("Pourcent c: '%10c'\n", 'o');
 	ft_printf("Pourcent c: '%-10c'\n", 'o');
 	ft_printf("Pourcent s: '%10s'\n", "hihihi");
@@ -201,6 +201,8 @@ int main(void)
 	ft_printf("Pourcent p: '%-20p'\n", test6);
 	ft_printf("Pourcent di: '%10d'\n", 42);
 	ft_printf("Pourcent di: '%-10d'\n", 42);
+	ft_printf("Pourcent di: '%10d'\n", -1000);
+	ft_printf("Pourcent di: '%-10d'\n", -1000);
 	ft_printf("Pourcent o: '%10o' \n", 1000);
 	ft_printf("Pourcent o: '%-10o'\n", 1000);
 	ft_printf("Pourcent u: '%10u'\n", 100);

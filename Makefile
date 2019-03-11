@@ -6,7 +6,7 @@
 #    By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 17:01:46 by lubenard          #+#    #+#              #
-#    Updated: 2019/03/11 15:59:53 by lubenard         ###   ########.fr        #
+#    Updated: 2019/03/11 17:19:05 by lubenard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ all:  $(NAME)
 $(NAME): $(OBJ)
 	@printf "\033[33mCompilation de $(NAME)...\033[0m"
 	@ar rc $(NAME) $(OBJ)
-	@$(CC) -g3 -o ft_printf main.c libftprintf.a
+	@$(CC) -g3 -o ft_printf main2.c libftprintf.a
 	@printf "\033[32m[✓]\033[0m\n"
 
 %.o : %.c

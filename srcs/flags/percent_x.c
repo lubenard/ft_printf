@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 11:23:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/11 16:02:26 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/11 17:53:01 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,13 @@ char		*get_option_x(va_list ap, t_word *lkd_list)
 
 char	*handle_return_x(char *to_remplace, char *spaces, char *prec)
 {
-	if (spaces != NULL)
+	if (spaces != NULL || prec != NULL)
 	{
 		free(to_remplace);
-		return (spaces);
-	}
-	else if (prec != NULL)
-	{
-		free(to_remplace);
-		return (prec);
+		if (spaces != NULL)
+			return (spaces);
+		else if (prec != NULL)
+			return (prec);
 	}
 	return (to_remplace);
 }
