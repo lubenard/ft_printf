@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:25:11 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/08 17:50:26 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/11 14:23:47 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 char	*rev(char *str)
 {
 	char	*rev_str;
-	int		i;
 	int		j;
 	int		len;
 
@@ -23,13 +22,12 @@ char	*rev(char *str)
 	if (!(rev_str = (char *)malloc(sizeof(char) * len + 1)))
 		return (NULL);
 	j = 0;
-	i = ft_strlen(str);
-	--i;
-	while (i >= 0)
+	--len;
+	while (len >= 0)
 	{
-		rev_str[j] = str[i];
+		rev_str[j] = str[len];
 		j++;
-		--i;
+		--len;
 	}
 	free(str);
 	return (rev_str);

@@ -6,57 +6,59 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 18:36:28 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/07 04:30:55 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/11 11:15:08 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static char			*ft_result(char *result, long long int nbr, long long int n)
+inline static int		ft_len(int long n)
 {
-	if (n < 0)
-		result[1] = nbr + '0';
-	else
-		result[0] = nbr + '0';
-	return (result);
-}
+	int i;
 
-static int			ft_len(long long n)
-{
-	long int	nbr;
-	int			i;
-
-	nbr = n;
 	i = 0;
-	if (nbr < 0)
-		nbr = nbr * -1;
-	while (nbr / 10 > 9)
+	if (n == 0)
+		return (1);
+	if (n < 0)
+		n = -n;
+	while (n != 0)
 	{
-		i++;
-		nbr = nbr / 10;
+		++i;
+		n /= 10;
 	}
-	if (n < 0)
-		return (i + 2);
-	else
-		return (i + 1);
+	return (i);
 }
 
-char				*ft_itoa_ulong(unsigned long long n)
+inline static char*		nzero(char *str)
 {
-	unsigned long long	nbr;
-	int					i;
-	char				*result;
+	str[0] = '0';
+	return (str);
+}
+
+char						*ft_itoa_ulong(unsigned long long n)
+{
+	long int nbr;
+	int neg;
+	int i;
+	char* result;
 
 	nbr = n;
 	i = 0;
-	if (!(result = (char *)malloc(sizeof(char) * ft_len(n) + 1)))
-		return (NULL);
-	while ((ft_len(n) - i) > 0 && n != 0 && nbr > 9)
+	neg = (nbr < 0) ? 1 : 0;
+	result = ft_strnew((size_t)ft_len(nbr) + neg);
+	if (nbr < 0)
 	{
-		result[ft_len(n) - i] = (nbr % 10) + '0';
-		nbr = nbr / 10;
+		nbr = -nbr;
+		result[0] = '-';
 		++i;
 	}
-	result[ft_len(n) + 1] = '\0';
-	return (ft_result(result, nbr, n));
+	if (n == 0)
+		return (nzero(result));
+	while (nbr != 0)
+	{
+		result[ft_len(n) - i + neg - 1] = (nbr % 10) + '0';
+		nbr /= 10;
+		++i;
+	}
+	return (result);
 }
