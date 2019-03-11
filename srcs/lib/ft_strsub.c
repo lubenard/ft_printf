@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 19:36:29 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/11 14:19:44 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/11 15:04:50 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 		++i;
 	}
 	//printf("<<<<<<<<< %zu\n", i + 1);
-	ret[i + 1] = '\0';
+	ret[i] = '\0';
 	return (ret);
 }

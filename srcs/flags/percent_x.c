@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 11:23:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/07 14:24:24 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/11 16:02:26 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char		*get_option_x(va_list ap, t_word *lkd_list)
 		return (convert_into_hexa(va_arg(ap, unsigned int)));
 }
 
-char	*handle_return_x(char *to_remplace, char *spaces, char *prec, t_word *lkd_list)
+char	*handle_return_x(char *to_remplace, char *spaces, char *prec)
 {
 	if (spaces != NULL)
 	{
@@ -35,7 +35,6 @@ char	*handle_return_x(char *to_remplace, char *spaces, char *prec, t_word *lkd_l
 	}
 	else if (prec != NULL)
 	{
-		lkd_list->is_malloc = 0;
 		free(to_remplace);
 		return (prec);
 	}
@@ -63,8 +62,8 @@ char	*percent_x(t_word *lkd_list, va_list ap, short option)
 		spaces = add_space(lkd_list->content, prec);
 	free(lkd_list->content);
 	if (option == 1)
-		return (handle_return_x(to_remplace, spaces, prec, lkd_list));
-	lkd_list->content = handle_return_x(to_remplace, spaces, prec, lkd_list);
+		return (handle_return_x(to_remplace, spaces, prec));
+	lkd_list->content = handle_return_x(to_remplace, spaces, prec);
 	return (NULL);
 }
 

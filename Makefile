@@ -6,7 +6,7 @@
 #    By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 17:01:46 by lubenard          #+#    #+#              #
-#    Updated: 2019/03/08 17:15:07 by lubenard         ###   ########.fr        #
+#    Updated: 2019/03/11 15:59:53 by lubenard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,7 +70,7 @@ fclean: clean
 	@printf "\033[31mFclean du projet...\033[0m"
 	@rm -f $(NAME)
 	@rm -rf ft_printf.dSYM
-	@rm ft_printf
+	@rm -f ft_printf
 	@printf "\033[32m[✓]\033[0m\n"
 
 re: fclean all

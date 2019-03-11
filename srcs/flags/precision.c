@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:56:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/11 14:32:34 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/11 15:17:19 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ char	*mode_1(char *to_remplace, int length, char *sub)
 {
 	char *tmp;
 
+	tmp = NULL;
 	if (ft_strlen(to_remplace) <= length)
 	{
 		free(sub);
@@ -48,6 +49,7 @@ char	*mode_0(char *to_remplace, int length, char *sub)
 {
 	char *tmp;
 
+	tmp = NULL;
 	if (ft_strlen(to_remplace) >= length)
 	{
 		free(sub);
@@ -74,7 +76,6 @@ char	*precision(char *content, char *to_remplace, int i, int mode)
 	k = i;
 	while (content[i] > 47 && content[i] < 58)
 		++i;
-	printf("content = %s, j = %d, i = %d content de [%d] = %c \n", content,j,i, j, content[j]);
 	sub = ft_strsub(content, j, i-k);
 	length = ft_atoi(sub);
 	if (mode == 1)

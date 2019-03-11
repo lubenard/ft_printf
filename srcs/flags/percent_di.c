@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 20:01:12 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/08 16:10:15 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/11 16:01:48 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,12 @@ int			handle_ret_di(t_percent_di struct_di, t_word *lkd_list,
 	{
 		if (struct_di.prec != NULL)
 			free(struct_di.prec);
-		//free(to_remplace);
+		free(to_remplace);
 		lkd_list->content = struct_di.spaces;
 	}
 	else if (struct_di.prec != NULL)
 	{
 		free(to_remplace);
-		lkd_list->is_malloc = 0;
 		lkd_list->content = struct_di.prec;
 	}
 	else
@@ -71,31 +70,18 @@ int			percent_di(t_word *lkd_list, va_list ap)
 		struct_di.tmp = ft_strjoin(" ", to_remplace);
 	else if (ft_strchr(lkd_list->content, '+') != -1 && to_remplace[0] != '-')
 		struct_di.tmp = ft_strjoin("+", to_remplace);
-
-	//printf("struct_di.tmp = %s\n", struct_di.tmp);
-
 	if ((i = ft_strchr(lkd_list->content, '.')) != -1 && struct_di.tmp != NULL)
 		struct_di.prec = precision(lkd_list->content, struct_di.tmp, i, 0);
 	else if ((i = ft_strchr(lkd_list->content, '.')) != -1)
 		struct_di.prec = precision(lkd_list->content, to_remplace, i, 0);
-
-	//printf("struct_di.prec = %s\n", struct_di.prec);
-
-//	printf("is digit %d lkd_list->content = %c \n", ft_isdigit(lkd_list->content[1]), lkd_list->content[1]);
 	if ((ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-' || lkd_list->content[1] == '+')
 		&& struct_di.prec == NULL)
-	{
-		printf("je rentre la\n");
 		struct_di.spaces = add_space(lkd_list->content, to_remplace);
-	}
 	else if ((ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-')
 		&& struct_di.prec != NULL)
 		struct_di.spaces = add_space(lkd_list->content, struct_di.prec);
 	else if ((ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-')
 		&& struct_di.tmp != NULL)
 		struct_di.spaces = add_space(lkd_list->content, struct_di.tmp);
-
-//	printf("struct_di.spaces = '%s'\n", struct_di.spaces);
-
 	return (handle_ret_di(struct_di, lkd_list, to_remplace));
 }

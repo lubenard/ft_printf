@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 18:36:28 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/11 11:09:39 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/11 14:59:33 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ inline static int		ft_len(int long n)
 	return (i);
 }
 
-inline static char*		nzero(char *str)
+inline static char*			nzero(char *str)
 {
 	str[0] = '0';
 	return (str);

@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 11:39:56 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/11 13:03:02 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/11 15:41:02 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*convert_into_hexa(unsigned long value)
 {
 	char			*ret;
 	int				i;
-	long long	tmp;
+	long long		tmp;
 
 	i = 0;
 	if (!(ret = (char *)malloc(sizeof(char) * 10)))
@@ -65,4 +65,3 @@ char	*convert_into_hexa(unsigned long value)
 	ret[i] = '\0';
 	return (rev(ret));
 }
-

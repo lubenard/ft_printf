@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 14:58:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/08 16:07:39 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/11 15:26:21 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ char	*join_str(char *to_remplace, int length, int minus, char fill)
 	char	*to_join;
 	char	*tmp;
 
+	tmp = NULL;
 	length_remplace = ft_strlen(to_remplace);
 	if (!(to_join = (char *)malloc(sizeof(char) * length - length_remplace \
 					+ 1)))
@@ -108,7 +109,6 @@ char	*add_space(char *str, char *to_remplace)
 	else if (to_remplace[0] != '0' && sub[0] == '0' && ft_strchr(str, '-') == -1
 	&& ft_strchr(str, '.') == -1)
 		tmp = join_str(to_remplace, length, minus, '0');
-	//printf("zbeub '%s' '%s' length = '%d' sub = '%s'\n", to_remplace, tmp, length, sub);
 	return ((tmp != NULL) ? ret_add_space(tmp, length, sub, minus)
 			: ret_add_space2(to_remplace, length, sub, minus));
 }

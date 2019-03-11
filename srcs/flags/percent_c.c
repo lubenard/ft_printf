@@ -6,7 +6,7 @@
 /*   By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 16:57:06 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/08 17:54:23 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/11 15:01:55 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int		percent_c(t_word *lkd_list, va_list ap)
 	{
 		tmp = ft_strdup(to_remplace);
 		free(to_remplace);
-		lkd_list->is_malloc = 1;
 		to_remplace = add_space(lkd_list->content, tmp);
 		free(tmp);
 	}
@@ -51,7 +50,6 @@ int		percent_percent(t_word *lkd_list)
 	{
 		tmp = ft_strdup(to_remplace);
 		free(to_remplace);
-		lkd_list->is_malloc = 1;
 		to_remplace = add_space(lkd_list->content, tmp);
 		free(tmp);
 	}
