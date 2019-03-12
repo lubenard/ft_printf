@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:25:11 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/11 15:34:50 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/12 16:09:02 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*rev(char *str)
 	int		len;
 
 	len = ft_strlen(str);
-	if (!(rev_str = (char *)malloc(sizeof(char) * len + 1)))
+	if (!(rev_str = (char *)malloc(sizeof(char) * len)))
 		return (NULL);
 	j = 0;
 	--len;

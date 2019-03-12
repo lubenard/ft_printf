@@ -6,7 +6,7 @@
 /*   By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 18:42:29 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/11 17:57:36 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/12 18:12:01 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int main(void)
 {
-	ft_printf("%llx", LLONG_MAX);
+	ft_printf("%.2s is a string", "");
 	return (0);
 }

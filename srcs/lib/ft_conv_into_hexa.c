@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 11:39:56 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/11 18:02:14 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/12 17:33:09 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*conv_in_hexa_p(unsigned long value)
 	int		tmp;
 
 	i = 0;
-	if (!(ret = (char *)malloc(sizeof(char) * 12)))
+	if (!(ret = (char *)malloc(sizeof(char) * 19)))
 		return (NULL);
 	while (value != 0)
 	{
@@ -44,7 +44,7 @@ char	*convert_into_hexa(unsigned long value)
 	long long		tmp;
 
 	i = 0;
-	if (!(ret = (char *)malloc(sizeof(char) * 10)))
+	if (!(ret = (char *)malloc(sizeof(char) * 17)))
 		return (NULL);
 	if (value == 0)
 	{
