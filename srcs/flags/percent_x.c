@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 11:23:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/12 17:41:33 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/19 15:28:26 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,14 @@ char	*percent_x(t_word *lkd_list, va_list ap, short option)
 	int		i;
 	char	*prec;
 	char	*spaces;
+	int		sharp;
+	char	*sharp_str;
 
+	sharp = ft_strchr(lkd_list->content, '#');
 	i = 0;
 	prec = NULL;
 	spaces = NULL;
+	sharp_str = NULL;
 	to_remplace = get_option_x(ap, lkd_list);
 	if ((i = ft_strchr(lkd_list->content, '.')) != -1)
 		prec = precision(lkd_list->content, to_remplace, i, 0);

@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 20:01:12 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/11 17:02:49 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/19 17:03:05 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ char		*get_option_d(va_list ap, t_word *lkd_list)
 	if (ft_strstr(lkd_list->content, "ll") != NULL)
 		return (ft_itoa_long(va_arg(ap, long long int)));
 	else if (ft_strstr(lkd_list->content, "hh") != NULL)
-		return (ft_stoa((short)va_arg(ap, int)));
+		return (ft_sstoa((short)va_arg(ap, int)));
 	else if (ft_strchr(lkd_list->content, 'l') != -1)
 		return (ft_itoa_long(va_arg(ap, long int)));
+	else if (ft_strchr(lkd_list->content, 'h') != -1)
+		return (ft_stoa((short)va_arg(ap, int)));
 	else
 		return (ft_itoa(va_arg(ap, int)));
 }
@@ -64,10 +66,10 @@ int			percent_di(t_word *lkd_list, va_list ap)
 	struct_di.prec = NULL;
 	struct_di.tmp = NULL;
 	to_remplace = get_option_d(ap, lkd_list);
-	if (ft_strchr(lkd_list->content, ' ') != -1 && to_remplace[0] != '-')
-		struct_di.tmp = ft_strjoin(" ", to_remplace);
-	else if (ft_strchr(lkd_list->content, '+') != -1 && to_remplace[0] != '-')
+	if (ft_strchr(lkd_list->content, '+') != -1 && to_remplace[0] != '-')
 		struct_di.tmp = ft_strjoin("+", to_remplace);
+	else if (ft_strchr(lkd_list->content, ' ') != -1 && to_remplace[0] != '-')
+		struct_di.tmp = ft_strjoin(" ", to_remplace);
 	if ((i = ft_strchr(lkd_list->content, '.')) != -1 && struct_di.tmp != NULL)
 		struct_di.prec = precision(lkd_list->content, struct_di.tmp, i, 0);
 	else if ((i = ft_strchr(lkd_list->content, '.')) != -1)
