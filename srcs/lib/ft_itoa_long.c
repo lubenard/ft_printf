@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 18:36:28 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/19 18:28:28 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/20 11:13:34 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ inline static char*		nzero_long_long(char *str)
 	return (str);
 }
 
-long long					correct_values_long(long long n)
+/*long long					correct_values_long(long long n)
 {
 	unsigned long long p;
 
@@ -45,7 +45,7 @@ long long					correct_values_long(long long n)
 	else if (n < LLONG_MAX - 1)
 		return (LLONG_MAX -((n * -1) - LLONG_MAX - 2));
 	return (n);
-}
+}*/
 
 char						*ft_itoa_long(long long n)
 {
@@ -54,7 +54,7 @@ char						*ft_itoa_long(long long n)
 	int i;
 	char* result;
 
-	n = correct_values_long(n);
+//	n = correct_values_long(n);
 	nbr = n;
 	i = 0;
 	neg = (nbr < 0) ? 1 : 0;

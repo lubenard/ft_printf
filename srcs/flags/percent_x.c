@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 11:23:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/19 15:28:26 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/20 17:51:04 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,31 +37,9 @@ char	*handle_return_x(t_word *lkd_list, char *to_remplace, char *spaces, char *p
 	{
 		free(to_remplace);
 		if (spaces != NULL)
-		{
-			if (sharp != -1 && ft_strcmp(spaces, "0") != 0)
-			{
-				tmp = ft_strjoin("0x", spaces);
-				free(spaces);
-				return (tmp);
-			}
 			return (spaces);
-		}
 		else if (prec != NULL)
-		{
-			if (sharp != -1 && ft_strcmp(prec, "0") != 0)
-			{
-				tmp = ft_strjoin("0x", prec);
-				free(prec);
-				return (tmp);
-			}
 			return (prec);
-		}
-	}
-	if (sharp != -1 && ft_strcmp(to_remplace, "0") != 0)
-	{
-		tmp = ft_strjoin("0x", to_remplace);
-		free(to_remplace);
-		return (tmp);
 	}
 	return (to_remplace);
 }
@@ -73,21 +51,26 @@ char	*percent_x(t_word *lkd_list, va_list ap, short option)
 	char	*prec;
 	char	*spaces;
 	int		sharp;
-	char	*sharp_str;
 
 	sharp = ft_strchr(lkd_list->content, '#');
 	i = 0;
 	prec = NULL;
 	spaces = NULL;
-	sharp_str = NULL;
 	to_remplace = get_option_x(ap, lkd_list);
 	if ((i = ft_strchr(lkd_list->content, '.')) != -1)
 		prec = precision(lkd_list->content, to_remplace, i, 0);
-	if ((ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-')
-			&& prec == NULL)
+	if (sharp != -1 && prec == NULL && ft_strcmp(to_remplace, "0") != 0)
+	{
+		prec = ft_strjoin("0x", to_remplace);
+	}
+	else if (sharp != -1 && prec != NULL && ft_strcmp(prec, "0") != 0)
+	{
+		free(prec);
+		prec = ft_strjoin("0x", prec);
+	}
+	if ((ft_isdigit(lkd_list->content[1]) || ft_isdigit(lkd_list->content[2]) || lkd_list->content[1] == '-' || lkd_list->content[2] == '-') && prec == NULL)
 		spaces = add_space(lkd_list->content, to_remplace);
-	else if ((ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-')
-			&& prec != NULL)
+	else if ((ft_isdigit(lkd_list->content[1]) || ft_isdigit(lkd_list->content[2]) || lkd_list->content[1] == '-' || lkd_list->content[2] == '-') && prec != NULL)
 		spaces = add_space(lkd_list->content, prec);
 	free(lkd_list->content);
 	if (option == 1)

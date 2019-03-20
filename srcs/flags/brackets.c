@@ -6,7 +6,7 @@
 /*   By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 15:56:24 by lubenard          #+#    #+#             */
-/*   Updated: 2019/02/23 08:03:00 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/20 18:02:18 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int		brackets(t_word *lkd_list)
 {
+	lkd_list->is_malloc = 0;
 	if (ft_strcmp(lkd_list->content, "{black}") == 0)
 		lkd_list->content = "\033[30m";
 	else if (ft_strcmp(lkd_list->content, "{red}") == 0)

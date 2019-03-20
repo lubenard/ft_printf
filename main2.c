@@ -6,7 +6,7 @@
 /*   By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 18:42:29 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/19 17:42:14 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/20 18:00:21 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int main(void)
 {
-	ft_printf("%lld", -9223372036854775808);
+	printf("vrai printf '%s'\n", NULL);
+	ft_printf("my printf '%s'\n", NULL);
 	return (0);
 }
