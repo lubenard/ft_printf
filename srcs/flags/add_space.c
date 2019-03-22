@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 14:58:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/20 17:41:42 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/22 15:56:55 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,15 @@ char	*ret_add_space(char *to_remplace, int length, char *sub, int minus)
 	free(sub);
 	tmp = NULL;
 	if (ft_strlen(to_remplace) < length)
+	{
+		printf("Bruh 3\n");
 		tmp = join_str(to_remplace, length, minus, ' ');
+	}
 	else
+	{
+		printf("Bruh 2\n");
 		tmp = ft_strdup(to_remplace);
+	}
 	if (to_remplace != NULL)
 		free(to_remplace);
 	return (tmp);
@@ -76,38 +82,63 @@ char	*ret_add_space2(char *to_remplace, int length,
 	free(sub);
 	tmp = NULL;
 	if (ft_strlen(to_remplace) < length)
+	{
+		printf("Et la ?\n");
 		tmp = join_str(to_remplace, length, minus, ' ');
+	}
 	else
+	{
+		printf("Bruh 1\n");
 		tmp = ft_strdup(to_remplace);
+	}
 	return (tmp);
+}
+
+char	*extract_number(char *str)
+{
+	int		i;
+	int		e;
+	char	*ret;
+
+	e = 0;
+	i = 0;
+	while (!ft_isdigit(str[i]) && str[i] != '-')
+		++i;
+	e = i;
+	if (str[e] == '-')
+		++e;
+	while (ft_isdigit(str[e]))
+		++e;
+	ret = ft_strsub(str, i, e);
+	return (ret);
 }
 
 char	*add_space(char *str, char *to_remplace)
 {
-	int		i;
 	char	*sub;
 	int		length;
 	int		minus;
 	char	*tmp;
 
 	tmp = NULL;
-	i = 1;
 	minus = 1;
 	if (str[1] == '-')
 		++minus;
-	i = minus;
-	if (str[1] == ' ' || str[1] == '+')
-		++i;
-	while (str[i] > 47 && str[i] < 58)
-		++i;
-	sub = ft_strsub(str, minus, i);
+	sub = extract_number(str);
 	length = ft_atoi(sub);
+	printf("length %s\nlenght = %d\n", sub, length);
 	if (to_remplace[0] == '-' && sub[0] == '0'
 	&& ft_strchr(str, '-') == -1 && ft_strchr(str, '.') == -1)
+	{
+		printf("Je rentre ici\n");
 			tmp = join_str_neg(to_remplace, length);
+	}
 	else if (to_remplace[0] != '0' && sub[0] == '0' && ft_strchr(str, '-') == -1
 	&& ft_strchr(str, '.') == -1)
+	{
+		printf("Je rentre la\n");
 		tmp = join_str(to_remplace, length, minus, '0');
+	}
 	return ((tmp != NULL) ? ret_add_space(tmp, length, sub, minus)
 			: ret_add_space2(to_remplace, length, sub, minus));
 }

@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 11:23:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/20 17:51:04 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/22 14:47:31 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,16 @@ char	*percent_x(t_word *lkd_list, va_list ap, short option)
 		prec = ft_strjoin("0x", prec);
 	}
 	if ((ft_isdigit(lkd_list->content[1]) || ft_isdigit(lkd_list->content[2]) || lkd_list->content[1] == '-' || lkd_list->content[2] == '-') && prec == NULL)
+	{
+//		printf("Je rentre pas ici\n");
 		spaces = add_space(lkd_list->content, to_remplace);
+	}
 	else if ((ft_isdigit(lkd_list->content[1]) || ft_isdigit(lkd_list->content[2]) || lkd_list->content[1] == '-' || lkd_list->content[2] == '-') && prec != NULL)
+	{
+//		printf("ici non plus\n");
 		spaces = add_space(lkd_list->content, prec);
-	free(lkd_list->content);
+	}
+		free(lkd_list->content);
 	if (option == 1)
 		return (handle_return_x(lkd_list, to_remplace, spaces, prec));
 	lkd_list->content = handle_return_x(lkd_list, to_remplace, spaces, prec);
