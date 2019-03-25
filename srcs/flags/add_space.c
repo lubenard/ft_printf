@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 14:58:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/22 15:56:55 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/25 17:35:32 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,15 @@ char	*join_str(char *to_remplace, int length, int minus, char fill)
 	to_join[length - length_remplace] = '\0';
 	to_join = ft_fill(to_join, fill, length - length_remplace);
 	if (minus > 1)
+	{
+		printf("Hello les amigos\n");
 		tmp = ft_strjoin(to_remplace, to_join);
+	}
 	else
+	{
+		printf("c'est la remontadaaaaa\n");
 		tmp = ft_strjoin(to_join, to_remplace);
+	}
 	free(to_join);
 	return (tmp);
 }
@@ -81,6 +87,7 @@ char	*ret_add_space2(char *to_remplace, int length,
 
 	free(sub);
 	tmp = NULL;
+	printf("%d vs %d\n", ft_strlen(to_remplace), length);
 	if (ft_strlen(to_remplace) < length)
 	{
 		printf("Et la ?\n");
@@ -126,12 +133,13 @@ char	*add_space(char *str, char *to_remplace)
 		++minus;
 	sub = extract_number(str);
 	length = ft_atoi(sub);
-	printf("length %s\nlenght = %d\n", sub, length);
+	printf("length %s\nlenght = %d, to_remplace = %s\n", sub, length, to_remplace);
+	printf("%c %c %d %d\n", to_remplace[0], sub[0], ft_strchr(str, '-'), ft_strchr(str, '.'));
 	if (to_remplace[0] == '-' && sub[0] == '0'
 	&& ft_strchr(str, '-') == -1 && ft_strchr(str, '.') == -1)
 	{
 		printf("Je rentre ici\n");
-			tmp = join_str_neg(to_remplace, length);
+		tmp = join_str_neg(to_remplace, length);
 	}
 	else if (to_remplace[0] != '0' && sub[0] == '0' && ft_strchr(str, '-') == -1
 	&& ft_strchr(str, '.') == -1)
