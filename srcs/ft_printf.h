@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/20 17:41:38 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/26 23:13:16 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,21 @@
 
 #include <stdio.h>
 
+typedef struct	s_option
+{
+	short			prec;
+	short			minwidth;
+	short			plus;
+	short			minus;
+	short			sharp;
+	short			zero;
+}				t_option;
+
 typedef struct	s_word
 {
 	char			*content;
-	int				prec;
-	int				minwidth;
 	short			is_malloc;
+	t_option		*options;
 	struct s_word	*next;
 }				t_word;
 /*
@@ -42,6 +51,8 @@ int				remplacage(t_word *lkd_list, va_list ap);
 char			*join_str(char *to_remplace, int length, int minus, char fill);
 char			*rev(char *str);
 char			*join_str_neg(char *to_remplace, int length);
+char			*add_zero_x(char *content, char *to_remplace, char *prec, char *spaces);
+
 /*
 ** Libft functions
 */

@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 11:23:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/26 12:15:50 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/26 23:15:26 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,8 @@ char	*percent_x(t_word *lkd_list, va_list ap, short option)
 	int		i;
 	char	*prec;
 	char	*spaces;
-	int		sharp;
+	char	*zero_x;
 
-	sharp = ft_strchr(lkd_list->content, '#');
 	i = 0;
 	prec = NULL;
 	spaces = NULL;
@@ -60,33 +59,13 @@ char	*percent_x(t_word *lkd_list, va_list ap, short option)
 	if ((i = ft_strchr(lkd_list->content, '.')) != -1)
 		prec = precision(lkd_list->content, to_remplace, i, 0);
 	if ((ft_isdigit(lkd_list->content[1]) || ft_isdigit(lkd_list->content[2]) || lkd_list->content[1] == '-' || lkd_list->content[2] == '-') && prec == NULL)
-	{
-		printf("Je rentre pas ici\n");
 		spaces = add_space(lkd_list->content, to_remplace);
-	}
 	else if ((ft_isdigit(lkd_list->content[1]) || ft_isdigit(lkd_list->content[2]) || lkd_list->content[1] == '-' || lkd_list->content[2] == '-') && prec != NULL)
-	{
-		printf("ici non plus\n");
 		spaces = add_space(lkd_list->content, prec);
-	}
-	if (sharp != -1 && spaces != NULL && ft_strcmp(spaces, "0") != 0)
-	{
-		prec = ft_strjoin("0x", spaces);
-	}
-	else if (sharp != -1 && prec == NULL && ft_strcmp(to_remplace, "0") != 0)
-	{
-		prec = ft_strjoin("0x", to_remplace);
-	}
-	else if (sharp != -1 && prec != NULL && ft_strcmp(prec, "0") != 0)
-	{
-		free(prec);
-		prec = ft_strjoin("0x", prec);
-	}
+	zero_x = add_zero_x(lkd_list->content, to_remplace, prec, spaces);
 	free(lkd_list->content);
 	if (option == 1)
 		return (handle_return_x(lkd_list, to_remplace, spaces, prec));
 	lkd_list->content = handle_return_x(lkd_list, to_remplace, spaces, prec);
 	return (NULL);
 }
-
-

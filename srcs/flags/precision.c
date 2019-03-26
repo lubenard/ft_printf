@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:56:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/20 17:40:57 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/26 19:40:32 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ char	*mode_0(char *to_remplace, int length, char *sub)
 	else if (ft_strchr(to_remplace, '-') != -1)
 		tmp = join_str_neg(to_remplace, ++length);
 	else
-		tmp = join_str(to_remplace, length, 1, '0');
+		tmp = join_str(to_remplace, length, 0, '0');
 	free(sub);
 	return (tmp);
 }
