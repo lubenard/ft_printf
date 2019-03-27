@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:56:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/26 19:40:32 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/27 18:36:21 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,13 @@ char	*reduce_str(char *to_remplace, int length)
 	char	*copy;
 
 	i = 0;
-	if (!(copy = (char *)malloc(sizeof(char) * (length + 1))))
+	if (!(copy = ft_strnew(length)))
 		return (NULL);
 	while (i < length)
 	{
 		copy[i] = to_remplace[i];
 		++i;
 	}
-	copy[i] = '\0';
 	return (copy);
 }
 
