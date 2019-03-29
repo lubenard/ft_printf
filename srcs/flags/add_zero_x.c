@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/26 22:32:14 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/27 18:43:34 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/29 13:44:40 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,11 @@ int		check_spaces(char *str)
 	int i;
 
 	i = 0;
-	if (str[i++] == ' ')
-		return (-1);
+	while (str[i])
+	{
+		if (str[i++] == ' ')
+			return (-1);
+	}
 	return (0);
 }
 
@@ -34,9 +37,10 @@ char	*insert_spaces(char *str)
 		str[i] = '0';
 		str[i + 1] = 'x';
 	}
-	if (str[ft_strlen(str)] == ' ')
+	if (str[ft_strlen(str) - 1] == ' ')
 	{
-		str[ft_strlen(str)] = '\0';
+		str = ft_strjoin("0x", str);
+		str[ft_strlen(str) - 1] = '\0';
 		str[ft_strlen(str) - 1] = '\0';
 	}
 	return (str);

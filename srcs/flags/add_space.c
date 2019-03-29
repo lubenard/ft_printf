@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 14:58:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/27 18:54:37 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/29 11:14:01 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*join_str(char *to_remplace, int length, int minus, char fill)
 	length_remplace = ft_strlen(to_remplace);
 	if (length - length_remplace < 0)
 		length *= -1;
-	if (!(to_join = ft_strnew(length - length_remplace - 1)))
+	if (!(to_join = ft_strnew(length - length_remplace)))
 		return (NULL);
 	to_join = ft_fill(to_join, fill, length - length_remplace);
 	if (minus == 1)

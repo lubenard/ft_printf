@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 14:43:35 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/20 16:18:08 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/29 11:41:33 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ char					*convert_in_octal(unsigned long long value)
 int						handle_return_o(t_word *lkd_list, char *prec,
 		char *spaces, char *to_remplace)
 {
+
 	free(lkd_list->content);
 	if (spaces != NULL)
 	{

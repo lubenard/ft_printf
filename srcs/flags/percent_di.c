@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 20:01:12 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/26 22:19:26 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/03/29 12:05:57 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 char		*get_option_d(va_list ap, t_word *lkd_list)
 {
 	if (ft_strstr(lkd_list->content, "ll") != NULL)
-		return (ft_itoa_long(va_arg(ap, long long int)));
+		return (ft_itoa_long(va_arg(ap, long long)));
 	else if (ft_strstr(lkd_list->content, "hh") != NULL)
 		return (ft_sstoa((short)va_arg(ap, int)));
 	else if (ft_strchr(lkd_list->content, 'l') != -1)
