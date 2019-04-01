@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/01 17:00:51 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/01 17:58:06 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,11 @@
 
 #include <stdio.h>
 
-typedef struct	s_option
-{
-	short			prec;
-	short			minwidth;
-	short			plus;
-	short			minus;
-	short			sharp;
-	short			zero;
-}				t_option;
-
 typedef struct	s_word
 {
 	char			*content;
 	short			is_malloc;
-	t_option		*options;
+	long			manual_len;
 	struct s_word	*next;
 }				t_word;
 /*
@@ -73,7 +63,7 @@ char			*ft_strjoin(const char *s1, const char *s2);
 char			*ft_fill(char *str, char c, int length);
 int				ft_strcmp(char const *s1, char const *s2);
 int				ft_strchr(char const *s, int c);
-int				ft_putstr(int fd, char *str);
+int				ft_putstr(int fd, t_word *lkd_list);
 int				ft_isdigit(int c);
 char			*ft_strdup(char const *s);
 char			*ft_strnew(int n);

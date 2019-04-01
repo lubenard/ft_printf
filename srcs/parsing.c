@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 13:47:20 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/20 17:59:49 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/01 17:58:23 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ t_word		*new_maillon(void)
 		return (NULL);
 	new_element->content = NULL;
 	new_element->is_malloc = 1;
+	new_element->manual_len = -1;
 	new_element->next = NULL;
 	return (new_element);
 }
@@ -85,8 +86,8 @@ int			parsing(const char *str, va_list ap, int fd)
 		new_element = new_maillon();
 		lkd_list->next = new_element;
 		if (lkd_list->content != NULL)
-			total_length += (fd == 1) ? ft_putstr(1, lkd_list->content)
-			: ft_putstr(fd, lkd_list->content);
+			total_length += (fd == 1) ? ft_putstr(1, lkd_list)
+			: ft_putstr(fd, lkd_list);
 		lkd_list = lkd_list->next;
 	}
 	free_lkd_lst(tmp);

@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:25:11 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/27 18:47:22 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/01 17:57:37 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,13 @@ int		ft_strlen(const char *str)
 	return (i);
 }
 
-int		ft_putstr(int fd, char *str)
+int		ft_putstr(int fd, t_word *lkd_list)
 {
 	int		len;
 
-	len = ft_strlen(str);
-	write(fd, str, len);
+	len = ft_strlen(lkd_list->content);
+	write(fd, lkd_list->content, len);
+	if (lkd_list->manual_len != -1)
+		return (lkd_list->manual_len);
 	return (len);
 }

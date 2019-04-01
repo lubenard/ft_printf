@@ -6,7 +6,7 @@
 /*   By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 18:42:29 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/01 16:43:35 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/01 17:51:47 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,10 @@ int main(void)
 	printf("vrai printf '%#-08x'\n", 42);
 	ft_printf("mien printf '%#-08x'\n", 42);*/
 
-	printf("'@moulitest: '%#.x' '%#.0x''\n", 0, 0);
-	ft_printf("'@moulitest: '%#.x' '%#.0x''\n", 0, 0);
+	//printf("'@moulitest: '%#.x' '%#.0x''\n", 0, 0);
+	//ft_printf("'@moulitest: '%#.x' '%#.0x''\n", 0, 0);
+	printf("%lu\n", -42);
+	ft_printf("%lu\n", -42);
 	//printf("Vrai %.0o\n", 0);
 	//ft_printf("Mien %.0o\n", 0);
 
