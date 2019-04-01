@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 11:23:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/27 16:39:14 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/01 16:59:44 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,24 @@ char	*handle_return_x(t_word *lkd_list, char *to_remplace, char *spaces, char *p
 	return (to_remplace);
 }
 
+int		detect_prec(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '.')
+		{
+			if (!ft_isdigit(str[i + 1]))
+				return (-1);
+		}
+		++i;
+	}
+	return (0);
+}
+
+
 char	*percent_x(t_word *lkd_list, va_list ap, short option)
 {
 	char	*to_remplace;
@@ -56,6 +74,12 @@ char	*percent_x(t_word *lkd_list, va_list ap, short option)
 	prec = NULL;
 	spaces = NULL;
 	to_remplace = get_option_x(ap, lkd_list);
+	if (ft_strcmp(to_remplace, "0") == 0 && (ft_strstr(lkd_list->content, ".0") ||  detect_prec(lkd_list->content) == -1))
+	{
+		lkd_list->is_malloc = 0;
+		lkd_list->content = "";
+		return (0);
+	}
 	if ((i = ft_strchr(lkd_list->content, '.')) != -1)
 		prec = precision(lkd_list->content, to_remplace, i, 0);
 	if ((ft_isdigit(lkd_list->content[1]) || ft_isdigit(lkd_list->content[2]) || lkd_list->content[1] == '-' || lkd_list->content[2] == '-') && prec == NULL)
@@ -67,7 +91,5 @@ char	*percent_x(t_word *lkd_list, va_list ap, short option)
 	if (option == 1)
 		return (zero_x);
 	lkd_list->content = zero_x;
-	//	return (handle_return_x(lkd_list, to_remplace, spaces, prec));
-	//lkd_list->content = handle_return_x(lkd_list, to_remplace, spaces, prec);
 	return (NULL);
 }

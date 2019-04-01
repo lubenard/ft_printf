@@ -6,11 +6,30 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/26 22:32:14 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/29 13:44:40 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/01 15:04:39 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
+
+char	*change_minus(char *str)
+{
+	int i;
+	char tmp;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '-' && i > 0 && str[i] != ' ')
+		{
+			tmp = str[0];
+			str[0] = '-';
+			str[i] = tmp;
+		}
+	++i;
+	}
+	return (str);
+}
 
 int		check_spaces(char *str)
 {
@@ -22,6 +41,8 @@ int		check_spaces(char *str)
 		if (str[i++] == ' ')
 			return (-1);
 	}
+	if (str[0] == '0' && str[1] == '0')
+		return (-1);
 	return (0);
 }
 
@@ -37,11 +58,16 @@ char	*insert_spaces(char *str)
 		str[i] = '0';
 		str[i + 1] = 'x';
 	}
-	if (str[ft_strlen(str) - 1] == ' ')
+	else if (str[ft_strlen(str) - 1] == ' ')
 	{
 		str = ft_strjoin("0x", str);
 		str[ft_strlen(str) - 1] = '\0';
 		str[ft_strlen(str) - 1] = '\0';
+	}
+	else if (str[0] == '0' && str[1] == '0')
+	{
+		str[0] = '0';
+		str[1] = 'x';
 	}
 	return (str);
 }

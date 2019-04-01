@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 20:01:12 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/29 12:05:57 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/01 15:47:48 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char		*get_option_d(va_list ap, t_word *lkd_list)
 	if (ft_strstr(lkd_list->content, "ll") != NULL)
 		return (ft_itoa_long(va_arg(ap, long long)));
 	else if (ft_strstr(lkd_list->content, "hh") != NULL)
-		return (ft_sstoa((short)va_arg(ap, int)));
+		return (ft_sstoa((unsigned char)va_arg(ap, int)));
 	else if (ft_strchr(lkd_list->content, 'l') != -1)
 		return (ft_itoa_long(va_arg(ap, long int)));
 	else if (ft_strchr(lkd_list->content, 'h') != -1)
@@ -36,22 +36,22 @@ int			handle_ret_di(t_percent_di struct_di, t_word *lkd_list,
 		if (struct_di.spaces != NULL)
 			free(struct_di.spaces);
 		free(to_remplace);
-		lkd_list->content = struct_di.tmp;
+		lkd_list->content = change_minus(struct_di.tmp);
 	}
 	else if (struct_di.spaces != NULL)
 	{
 		if (struct_di.prec != NULL)
 			free(struct_di.prec);
 		free(to_remplace);
-		lkd_list->content = struct_di.spaces;
+		lkd_list->content = change_minus(struct_di.spaces);
 	}
 	else if (struct_di.prec != NULL)
 	{
 		free(to_remplace);
-		lkd_list->content = struct_di.prec;
+		lkd_list->content = change_minus(struct_di.prec);
 	}
 	else
-		lkd_list->content = to_remplace;
+		lkd_list->content = change_minus(to_remplace);
 	return (0);
 }
 

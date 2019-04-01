@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 14:38:58 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/29 12:45:15 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/01 15:49:13 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ unsigned int		negative_number(unsigned int nbr)
 
 unsigned long long	get_option_u(va_list ap, t_word *lkd_list)
 {
-	if (ft_strchr(lkd_list->content, 'l') != -1)
-		return (va_arg(ap, unsigned long));
-	else if (ft_strstr(lkd_list->content, "ll") != 0)
+	if (ft_strstr(lkd_list->content, "ll") != 0)
 		return (va_arg(ap, unsigned long long));
+	else if (ft_strstr(lkd_list->content, "hh") != 0)
+		return ((unsigned char)va_arg(ap, int));
+	else if (ft_strchr(lkd_list->content, 'l') != -1)
+		return (va_arg(ap, unsigned long));
 	else if (ft_strchr(lkd_list->content, 'h') != -1)
 		return ((short)va_arg(ap, int));
-	else if (ft_strstr(lkd_list->content, "hh") != 0)
-		return ((char)va_arg(ap, int));
 	return (negative_number(va_arg(ap, unsigned int)));
 }
 

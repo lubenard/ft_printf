@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 14:43:35 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/29 11:41:33 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/01 17:01:35 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ unsigned long long		get_option_o(va_list ap, t_word *lkd_list)
 	if (ft_strstr(lkd_list->content, "ll") != NULL)
 		return (va_arg(ap, unsigned long long));
 	else if (ft_strstr(lkd_list->content, "hh") != NULL)
-		return ((short)va_arg(ap, unsigned int));
+		return ((unsigned char)va_arg(ap, unsigned int));
 	else if (ft_strchr(lkd_list->content, 'l') != -1)
 		return (va_arg(ap, unsigned long));
 	else if (ft_strchr(lkd_list->content, 'h') != -1)
@@ -78,7 +78,10 @@ int						percent_o(t_word *lkd_list, va_list ap)
 	if (value == 0)
 	{
 		lkd_list->is_malloc = 0;
-		lkd_list->content = "0\0";
+		if (ft_strstr(lkd_list->content, ".0") || detect_prec(lkd_list->content) == -1)
+			lkd_list->content = "";
+		else
+			lkd_list->content = "0\0";
 		return (0);
 	}
 	to_remplace = convert_in_octal(value);
