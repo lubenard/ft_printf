@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 14:43:35 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/01 18:01:06 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/02 23:49:16 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ char					*convert_in_octal(unsigned long long value)
 int						handle_return_o(t_word *lkd_list, char *prec,
 		char *spaces, char *to_remplace)
 {
-
 	free(lkd_list->content);
 	if (spaces != NULL)
 	{
@@ -78,7 +77,8 @@ int						percent_o(t_word *lkd_list, va_list ap)
 	if (value == 0)
 	{
 		lkd_list->is_malloc = 0;
-		if (ft_strstr(lkd_list->content, ".0") || detect_prec(lkd_list->content) == -1)
+		if (ft_strstr(lkd_list->content, ".0")
+		|| detect_prec(lkd_list->content, 0) == -1)
 			lkd_list->content = "";
 		else
 			lkd_list->content = "0\0";

@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 21:41:36 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/20 16:19:55 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/02 23:19:11 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ int		percent_s(t_word *lkd_list, va_list ap)
 	spaces = NULL;
 	lkd_list->is_malloc = 0;
 	to_remplace = va_arg(ap, char *);
-	if (to_remplace == NULL)
+	if (!to_remplace)
 	{
 		lkd_list->is_malloc = 0;
 		lkd_list->content = "(null)";
-		return(0);
+		return (0);
 	}
 	if ((i = ft_strchr(lkd_list->content, '.')) != -1)
 		prec = precision(lkd_list->content, to_remplace, i, 1);

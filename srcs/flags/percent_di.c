@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 20:01:12 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/02 16:26:43 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/02 23:45:18 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,9 @@ int			percent_di(t_word *lkd_list, va_list ap)
 	struct_di.prec = NULL;
 	struct_di.tmp = NULL;
 	to_remplace = get_option_d(ap, lkd_list);
-	if (ft_strcmp(to_remplace, "0") == 0 && (ft_strstr(lkd_list->content, ".0") ||  detect_prec(lkd_list->content) == -1))
+	if (ft_strcmp(to_remplace, "0") == 0
+	&& (ft_strstr(lkd_list->content, ".0")
+	|| detect_prec(lkd_list->content, 0) == -1))
 	{
 		lkd_list->is_malloc = 0;
 		lkd_list->content = "";
@@ -80,7 +82,8 @@ int			percent_di(t_word *lkd_list, va_list ap)
 		struct_di.prec = precision(lkd_list->content, struct_di.tmp, i, 0);
 	else if ((i = ft_strchr(lkd_list->content, '.')) != -1)
 		struct_di.prec = precision(lkd_list->content, to_remplace, i, 0);
-	if ((ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-' || lkd_list->content[1] == '+')
+	if ((ft_isdigit(lkd_list->content[1]) ||
+	lkd_list->content[1] == '-' || lkd_list->content[1] == '+')
 		&& struct_di.prec == NULL)
 		struct_di.spaces = add_space(lkd_list->content, to_remplace);
 	else if ((ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-')

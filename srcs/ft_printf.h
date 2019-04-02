@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/02 15:10:14 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/02 23:44:59 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char			*rev(char *str);
 char			*join_str_neg(char *to_remplace, int length);
 char			*add_zero_x(char *content, char *to_remplace, char *prec, char *spaces);
 char	*change_minus(char *str);
-int		detect_prec(char *str);
+int		detect_prec(char *str, int mode);
 char			*nzero(char *str);
 
 

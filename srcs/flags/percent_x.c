@@ -6,13 +6,13 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 11:23:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/02 21:52:34 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/02 23:52:18 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-char		*get_option_x(va_list ap, t_word *lkd_list)
+char	*get_option_x(va_list ap, t_word *lkd_list)
 {
 	if (ft_strstr(lkd_list->content, "ll") != NULL)
 		return (convert_into_hexa(va_arg(ap, long long)));
@@ -26,7 +26,8 @@ char		*get_option_x(va_list ap, t_word *lkd_list)
 		return (convert_into_hexa(va_arg(ap, unsigned int)));
 }
 
-char	*handle_return_x(t_word *lkd_list, char *to_remplace, char *spaces, char *prec)
+char	*handle_return_x(t_word *lkd_list, char *to_remplace,
+	char *spaces, char *prec)
 {
 	char	*tmp;
 	int		sharp;
@@ -44,7 +45,7 @@ char	*handle_return_x(t_word *lkd_list, char *to_remplace, char *spaces, char *p
 	return (to_remplace);
 }
 
-int		detect_prec(char *str)
+int		detect_prec(char *str,int mode)
 {
 	int i;
 
@@ -53,12 +54,16 @@ int		detect_prec(char *str)
 	{
 		if (str[i] == '.')
 		{
-			if (!ft_isdigit(str[i + 1]))
+			if (!ft_isdigit(str[i + 1] && mode == 0))
+				return (-1);
+			if (ft_isdigit(str[i - 1] && mode == 1))
+				return (0);
+			else
 				return (-1);
 		}
 		++i;
 	}
-	return (0);
+	return (1);
 }
 
 char	*percent_x(t_word *lkd_list, va_list ap, short option)
@@ -73,18 +78,26 @@ char	*percent_x(t_word *lkd_list, va_list ap, short option)
 	prec = NULL;
 	spaces = NULL;
 	to_remplace = get_option_x(ap, lkd_list);
-	if (ft_strcmp(to_remplace, "0") == 0 && (ft_strstr(lkd_list->content, ".0") ||  detect_prec(lkd_list->content) == -1))
+	if (ft_strcmp(to_remplace, "0") == 0 && (ft_strstr(lkd_list->content, ".0")
+	|| detect_prec(lkd_list->content, 0) == -1))
 	{
-		free(to_remplace);
-		lkd_list->is_malloc = 0;
 		lkd_list->content = "";
-		return (0);
+		if (detect_prec(lkd_list->content, 1) != -1)
+		{
+			free(to_remplace);
+			lkd_list->is_malloc = 0;
+			return (0);
+		}
 	}
 	if ((i = ft_strchr(lkd_list->content, '.')) != -1)
 		prec = precision(lkd_list->content, to_remplace, i, 0);
-	if ((ft_isdigit(lkd_list->content[1]) || ft_isdigit(lkd_list->content[2]) || lkd_list->content[1] == '-' || lkd_list->content[2] == '-') && prec == NULL)
+	if ((ft_isdigit(lkd_list->content[1]) || ft_isdigit(lkd_list->content[2])
+	|| lkd_list->content[1] == '-' || lkd_list->content[2] == '-')
+	&& prec == NULL)
 		spaces = add_space(lkd_list->content, to_remplace);
-	else if ((ft_isdigit(lkd_list->content[1]) || ft_isdigit(lkd_list->content[2]) || lkd_list->content[1] == '-' || lkd_list->content[2] == '-') && prec != NULL)
+	else if ((ft_isdigit(lkd_list->content[1]) ||
+	ft_isdigit(lkd_list->content[2]) || lkd_list->content[1] == '-'
+	|| lkd_list->content[2] == '-') && prec != NULL)
 		spaces = add_space(lkd_list->content, prec);
 	zero_x = add_zero_x(lkd_list->content, to_remplace, prec, spaces);
 	free(lkd_list->content);
