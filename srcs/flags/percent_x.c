@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 11:23:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/02 19:48:13 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/02 21:52:34 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ char	*percent_x(t_word *lkd_list, va_list ap, short option)
 	zero_x = add_zero_x(lkd_list->content, to_remplace, prec, spaces);
 	free(lkd_list->content);
 	free(to_remplace);
+	free(prec);
 	if (option == 1)
 		return (zero_x);
 	lkd_list->content = zero_x;

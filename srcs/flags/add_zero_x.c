@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/26 22:32:14 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/02 20:16:21 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/02 21:52:24 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ char	*add_zero_x(char *content, char *to_remplace, char *prec, char *spaces)
 		if (spaces != NULL)
 			return (spaces);
 		else if (prec != NULL)
-			return (prec);
+			return (ft_strdup(prec));
 		else
 			return (ft_strdup(to_remplace));
 	}
