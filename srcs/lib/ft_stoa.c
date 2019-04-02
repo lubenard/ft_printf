@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 18:36:28 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/19 16:48:11 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/02 16:28:19 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,12 @@ inline static int		ft_len(int long n)
 	return (i);
 }
 
-inline static char*		nzero_short(char *str)
+char					*ft_stoa(short n)
 {
-	str[0] = '0';
-	return (str);
-}
-
-char						*ft_stoa(short n)
-{
-	long int nbr;
-	int neg;
-	int i;
-	char* result;
+	long int	nbr;
+	int			neg;
+	int			i;
+	char		*result;
 
 	nbr = n;
 	i = 0;
@@ -54,7 +48,7 @@ char						*ft_stoa(short n)
 		++i;
 	}
 	if (n == 0)
-		return (nzero_short(result));
+		return (nzero(result));
 	while (nbr != 0)
 	{
 		result[ft_len(n) - i + neg - 1] = (nbr % 10) + '0';
@@ -64,23 +58,13 @@ char						*ft_stoa(short n)
 	return (result);
 }
 
-int							correct_values(short n)
+char					*ft_sstoa(short n)
 {
-	if (n > 127)
-		return (SCHAR_MIN + (n - (SCHAR_MIN * -1)));
-	else if (n < -128)
-		return (SCHAR_MAX - ((n * -1) - SCHAR_MAX - 2));
-	return(n);
-}
+	long int	nbr;
+	int			neg;
+	int			i;
+	char		*result;
 
-char						*ft_sstoa(short n)
-{
-	long int nbr;
-	int neg;
-	int i;
-	char* result;
-
-	n  = correct_values(n);
 	nbr = n;
 	i = 0;
 	neg = (nbr < 0) ? 1 : 0;
@@ -93,7 +77,7 @@ char						*ft_sstoa(short n)
 		++i;
 	}
 	if (n == 0)
-		return (nzero_short(result));
+		return (nzero(result));
 	while (nbr != 0)
 	{
 		result[ft_len(n) - i + neg - 1] = (nbr % 10) + '0';

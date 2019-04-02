@@ -6,7 +6,7 @@
 #    By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 17:01:46 by lubenard          #+#    #+#              #
-#    Updated: 2019/03/27 18:15:44 by lubenard         ###   ########.fr        #
+#    Updated: 2019/04/02 17:28:14 by lubenard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,10 +38,9 @@ SRC = srcs/ft_printf.c \
 	  srcs/flags/percent_p.c \
 	  srcs/flags/percent_o.c \
 	  srcs/flags/percent_u.c \
-	  srcs/flags/percent_X_maj.c \
+	  srcs/flags/percent_x_maj.c \
 	  srcs/flags/add_space.c \
 	  srcs/flags/precision.c \
-	  srcs/flags/brackets.c \
 	  srcs/flags/add_zero_x.c
 
 OBJ = $(SRC:.c=.o)
@@ -55,7 +54,7 @@ all:  $(NAME)
 $(NAME): $(OBJ)
 	@printf "\033[33mCompilation de $(NAME)...\033[0m"
 	@ar rc $(NAME) $(OBJ)
-	@$(CC) -g3 -o ft_printf main2.c libftprintf.a
+	@$(CC) -g3 -o ft_printf main.c libftprintf.a
 	@printf "\033[32m[✓]\033[0m\n"
 
 %.o : %.c

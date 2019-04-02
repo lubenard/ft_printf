@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 20:01:12 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/01 15:47:48 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/02 16:26:43 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char		*get_option_d(va_list ap, t_word *lkd_list)
 	if (ft_strstr(lkd_list->content, "ll") != NULL)
 		return (ft_itoa_long(va_arg(ap, long long)));
 	else if (ft_strstr(lkd_list->content, "hh") != NULL)
-		return (ft_sstoa((unsigned char)va_arg(ap, int)));
+		return (ft_sstoa((char)va_arg(ap, int)));
 	else if (ft_strchr(lkd_list->content, 'l') != -1)
 		return (ft_itoa_long(va_arg(ap, long int)));
 	else if (ft_strchr(lkd_list->content, 'h') != -1)
@@ -66,6 +66,12 @@ int			percent_di(t_word *lkd_list, va_list ap)
 	struct_di.prec = NULL;
 	struct_di.tmp = NULL;
 	to_remplace = get_option_d(ap, lkd_list);
+	if (ft_strcmp(to_remplace, "0") == 0 && (ft_strstr(lkd_list->content, ".0") ||  detect_prec(lkd_list->content) == -1))
+	{
+		lkd_list->is_malloc = 0;
+		lkd_list->content = "";
+		return (0);
+	}
 	if (ft_strchr(lkd_list->content, '+') != -1 && to_remplace[0] != '-')
 		struct_di.tmp = ft_strjoin("+", to_remplace);
 	else if (ft_strchr(lkd_list->content, ' ') != -1 && to_remplace[0] != '-')

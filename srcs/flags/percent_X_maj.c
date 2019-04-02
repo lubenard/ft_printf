@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 17:12:59 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/25 17:14:16 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/02 16:37:15 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		percent_x_maj(t_word *lkd_list, va_list ap)
 	while (to_remplace[j])
 	{
 		if (to_remplace[j] > 96 && to_remplace[j] < 123)
-				to_remplace[j] -= 32;
+			to_remplace[j] -= 32;
 		++j;
 	}
 	lkd_list->content = to_remplace;

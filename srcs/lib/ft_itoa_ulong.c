@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_long.c                                     :+:      :+:    :+:   */
+/*   ft_itoa_ulong.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 18:36:28 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/11 17:13:01 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/02 16:18:22 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-inline static int		ft_len(int long n)
+inline static int	ft_len(int long n)
 {
 	int i;
 
@@ -29,18 +29,18 @@ inline static int		ft_len(int long n)
 	return (i);
 }
 
-inline static char*		nzero(char *str)
+char				*nzero(char *str)
 {
 	str[0] = '0';
 	return (str);
 }
 
-char						*ft_itoa_ulong(unsigned long long n)
+char				*ft_itoa_ulong(unsigned long long n)
 {
-	long int nbr;
-	int neg;
-	int i;
-	char* result;
+	long int	nbr;
+	int			neg;
+	int			i;
+	char		*result;
 
 	nbr = n;
 	i = 0;

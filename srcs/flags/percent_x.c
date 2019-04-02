@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 11:23:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/01 18:04:32 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/02 19:48:13 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ int		detect_prec(char *str)
 	return (0);
 }
 
-
 char	*percent_x(t_word *lkd_list, va_list ap, short option)
 {
 	char	*to_remplace;
@@ -76,6 +75,7 @@ char	*percent_x(t_word *lkd_list, va_list ap, short option)
 	to_remplace = get_option_x(ap, lkd_list);
 	if (ft_strcmp(to_remplace, "0") == 0 && (ft_strstr(lkd_list->content, ".0") ||  detect_prec(lkd_list->content) == -1))
 	{
+		free(to_remplace);
 		lkd_list->is_malloc = 0;
 		lkd_list->content = "";
 		return (0);
@@ -88,6 +88,7 @@ char	*percent_x(t_word *lkd_list, va_list ap, short option)
 		spaces = add_space(lkd_list->content, prec);
 	zero_x = add_zero_x(lkd_list->content, to_remplace, prec, spaces);
 	free(lkd_list->content);
+	free(to_remplace);
 	if (option == 1)
 		return (zero_x);
 	lkd_list->content = zero_x;

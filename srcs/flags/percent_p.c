@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 20:01:46 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/20 16:18:18 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/02 16:46:55 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 ** Then add 0x before
 ** https://repl.it/repls/ValidBestFlashdrives
 */
+
 void	free_elem_p(char *to_remplace, char *prec, char *spaces)
 {
 	if (prec != NULL || spaces != NULL)

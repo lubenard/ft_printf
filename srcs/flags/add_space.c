@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 14:58:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/29 11:14:01 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/02 18:29:13 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,17 +75,10 @@ int		detect_zero(char *str)
 	if (str[0] == '-')
 	{
 		if (str[1] == '0')
-		{
-			free(str);
 			return (1);
-		}
 	}
 	else if (str[0] == '0')
-	{
-		free(str);
 		return (1);
-	}
-	free(str);
 	return (0);
 }
 
@@ -101,8 +94,14 @@ char	*add_space(char *str, char *to_remplace)
 		minus = 1;
 	length = ft_atoi(sub);
 	if (minus == 0 && detect_zero(sub) == 1)
+	{
+		free(sub);
 		return (join_str(to_remplace, length, minus, '0'));
+	}
 	else
+	{
+		free(sub);
 		return (join_str(to_remplace, length, minus, ' '));
+	}
 	return (NULL);
 }

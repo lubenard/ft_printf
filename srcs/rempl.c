@@ -6,7 +6,7 @@
 /*   By: luca <lubenard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 23:33:55 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/01 14:35:30 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/02 14:54:41 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,5 @@ int		remplacage(t_word *lkd_list, va_list ap)
 		percent_o(lkd_list, ap);
 	else if (lkd_list->content[ft_strlen(lkd_list->content) - 1] == 'u')
 		percent_u(lkd_list, ap);
-	//else if (lkd_list->content[ft_strlen(lkd_list->content) - 1] == '}')
-	//	brackets(lkd_list);
 	return (0);
 }

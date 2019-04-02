@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/26 22:32:14 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/01 15:04:39 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/02 20:16:21 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*change_minus(char *str)
 {
-	int i;
-	char tmp;
+	int		i;
+	char	tmp;
 
 	i = 0;
 	while (str[i])
@@ -26,7 +26,7 @@ char	*change_minus(char *str)
 			str[0] = '-';
 			str[i] = tmp;
 		}
-	++i;
+		++i;
 	}
 	return (str);
 }
@@ -81,6 +81,7 @@ int		check_null(char *prec, char *spaces, char *to_remplace)
 	}
 	else if (prec != NULL)
 	{
+		free(to_remplace);
 		if (ft_strcmp(prec, "0") == 0)
 			return (-1);
 	}
@@ -94,21 +95,22 @@ int		check_null(char *prec, char *spaces, char *to_remplace)
 
 char	*add_zero_x(char *content, char *to_remplace, char *prec, char *spaces)
 {
-	if (ft_strchr(content, '#') == -1 || check_null(prec, spaces, to_remplace) == -1)
+	if (ft_strchr(content, '#') == -1 ||
+		check_null(prec, spaces, to_remplace) == -1)
 	{
 		if (spaces != NULL)
 			return (spaces);
 		else if (prec != NULL)
-			return(prec);
+			return (prec);
 		else
-			return(to_remplace);
+			return (ft_strdup(to_remplace));
 	}
 	if (spaces != NULL && check_spaces(spaces) == 0)
 		return (ft_strjoin("0x", spaces));
 	else if (prec != NULL && check_spaces(prec) == 0)
 		return (ft_strjoin("0x", prec));
-	else if  (!spaces && !prec && check_spaces(to_remplace) == 0)
-		return(ft_strjoin("0x", to_remplace));
+	else if (!spaces && !prec && check_spaces(to_remplace) == 0)
+		return (ft_strjoin("0x", to_remplace));
 	else if (spaces != NULL && check_spaces(spaces) == -1)
 		return (insert_spaces(spaces));
 	else if (prec != NULL && check_spaces(spaces) == -1)

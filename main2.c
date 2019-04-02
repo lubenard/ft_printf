@@ -6,11 +6,12 @@
 /*   By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 18:42:29 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/01 17:51:47 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/02 17:46:25 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "srcs/ft_printf.h"
+#include <limits.h>
 
 int main(void)
 {
@@ -39,10 +40,13 @@ int main(void)
 
 	//printf("'@moulitest: '%#.x' '%#.0x''\n", 0, 0);
 	//ft_printf("'@moulitest: '%#.x' '%#.0x''\n", 0, 0);
-	printf("%lu\n", -42);
-	ft_printf("%lu\n", -42);
+	//printf("%lu\n", -42);
+	//ft_printf("%lu\n", -42);
 	//printf("Vrai %.0o\n", 0);
 	//ft_printf("Mien %.0o\n", 0);
+
+	printf("Vrai : |%lld|\n", (long long)LLONG_MIN);
+    ft_printf("Mine : |%lld|\n", (long long)LLONG_MIN);
 
 
 	//printf("Vrai : |%ho|\n", (short)-127);

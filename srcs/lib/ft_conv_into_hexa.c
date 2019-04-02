@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 11:39:56 by lubenard          #+#    #+#             */
-/*   Updated: 2019/03/27 18:28:32 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/02 19:44:15 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*convert_into_hexa(unsigned long value)
 	if (value == 0)
 	{
 		ret[0] = '0';
-		return(ret);
+		return (ret);
 	}
 	while (value != 0)
 	{
