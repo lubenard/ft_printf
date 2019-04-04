@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 14:43:35 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/02 23:49:16 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/04 19:51:24 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,10 @@ int						percent_o(t_word *lkd_list, va_list ap)
 	to_remplace = convert_in_octal(value);
 	if ((i = ft_strchr(lkd_list->content, '.')) != -1)
 		prec = precision(lkd_list->content, to_remplace, i, 0);
-	if ((ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-')
+	if (((ft_isdigit(lkd_list->content[1]) || ft_isdigit(lkd_list->content[2])) || (lkd_list->content[1] == '-') || lkd_list->content[2] == '-' )
 			&& prec == NULL)
-		spaces = add_space(lkd_list->content, to_remplace);
-	else if ((ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-')
+			spaces = add_space(lkd_list->content, to_remplace);
+	else if (((ft_isdigit(lkd_list->content[1]) || ft_isdigit(lkd_list->content[2])) || (lkd_list->content[1] == '-' || lkd_list->content[2] == '-' ))
 			&& prec != NULL)
 		spaces = add_space(lkd_list->content, prec);
 	return (handle_return_o(lkd_list, prec, spaces, to_remplace));

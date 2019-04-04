@@ -6,7 +6,7 @@
 /*   By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 18:42:29 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/02 17:46:25 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/04 19:05:42 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,10 @@ int main(void)
 	//printf("Vrai %.0o\n", 0);
 	//ft_printf("Mien %.0o\n", 0);
 
-	printf("Vrai : |%lld|\n", (long long)LLONG_MIN);
-    ft_printf("Mine : |%lld|\n", (long long)LLONG_MIN);
-
+//	printf("Vrai : |%lld|\n", (long long)LLONG_MIN);
+//  ft_printf("Mine : |%lld|\n", (long long)LLONG_MIN);
+	printf("Vrai '%#6o'\n", 2500);
+	ft_printf("Mien '%#6o'\n", 2500);
 
 	//printf("Vrai : |%ho|\n", (short)-127);
     //ft_printf("Mine : |%ho|\n", (short)-127);
