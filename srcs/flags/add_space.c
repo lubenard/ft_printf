@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 14:58:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/02 18:29:13 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/05 11:56:18 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,16 @@ char	*extract_number(char *str)
 
 	e = 0;
 	i = 0;
-	while (!ft_isdigit(str[i]) && str[i] != '-' && str[i])
+	while (!ft_isdigit(str[i]) && str[i])
+	{
+		if (str[i] == '.')
+			return (ft_strdup("0"));
 		++i;
+	}
 	e = i;
-	if (str[e] == '-')
-		++e;
 	while (ft_isdigit(str[e]) && str[e])
 		++e;
-	ret = ft_strsub(str, i, e);
+	ret = ft_strsub(str, i, e - 1);
 	return (ret);
 }
 
@@ -90,7 +92,7 @@ char	*add_space(char *str, char *to_remplace)
 
 	minus = 0;
 	sub = extract_number(str);
-	if (sub[0] == '-')
+	if (ft_strchr(str, '-') > 0)
 		minus = 1;
 	length = ft_atoi(sub);
 	if (minus == 0 && detect_zero(sub) == 1)

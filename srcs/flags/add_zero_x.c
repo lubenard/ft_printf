@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/26 22:32:14 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/02 21:52:24 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/05 12:21:03 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,72 @@ int		check_spaces(char *str)
 	if (str[0] == '0' && str[1] == '0')
 		return (-1);
 	return (0);
+}
+
+char	*insert_zero(char *to_remplace, char *prec, char *spaces)
+{
+	int i;
+	char *tmp;
+
+	i = 0;
+	if (spaces != NULL)
+	{
+		if (spaces[0] == ' ')
+		{
+			while (spaces[i + 1] == ' ')
+				++i;
+			spaces[i] = '0';
+		}
+		else
+		{
+			tmp = ft_strdup(spaces);
+			free(spaces);
+			spaces = ft_strjoin("0", tmp);
+			free(tmp);
+		}
+		if (spaces[ft_strlen(spaces) - 1] == ' ')
+			spaces[ft_strlen(spaces) - 1] = '\0';
+		return (spaces);
+	}
+	else if (prec != NULL)
+	{
+		if (prec[0] == ' ')
+		{
+			while (prec[i + 1] == ' ')
+				++i;
+			prec[i] = '0';
+		}
+		else
+		{
+			tmp = ft_strdup(spaces);
+			free(spaces);
+			spaces = ft_strjoin("0", tmp);
+			free(tmp);
+		}
+		if (prec[ft_strlen(prec)] == ' ')
+			prec[ft_strlen(prec) - 1] = '\0';
+		return (prec);
+	}
+	else if (spaces != NULL && prec != NULL)
+	{
+		if (to_remplace[0] == ' ')
+		{
+			while (to_remplace[i + 1] == ' ')
+				++i;
+			to_remplace[i] = '0';
+		}
+		else
+		{
+			tmp = ft_strdup(spaces);
+			free(spaces);
+			spaces = ft_strjoin("0", tmp);
+			free(tmp);
+		}
+		if (to_remplace[ft_strlen(to_remplace)] == ' ')
+			to_remplace[ft_strlen(to_remplace) - 1] = '\0';
+		return (to_remplace);
+	}
+	return (NULL);
 }
 
 char	*insert_spaces(char *str)
@@ -105,6 +171,8 @@ char	*add_zero_x(char *content, char *to_remplace, char *prec, char *spaces)
 		else
 			return (ft_strdup(to_remplace));
 	}
+	if (content[ft_strlen(content) - 1] == 'o')
+		return (insert_zero(to_remplace, prec, spaces));
 	if (spaces != NULL && check_spaces(spaces) == 0)
 		return (ft_strjoin("0x", spaces));
 	else if (prec != NULL && check_spaces(prec) == 0)
