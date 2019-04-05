@@ -6,7 +6,7 @@
 /*   By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 16:57:06 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/02 16:43:07 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/05 20:50:54 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		percent_percent(t_word *lkd_list)
 		return (0);
 	to_remplace[0] = '%';
 	to_remplace[1] = '\0';
-	if (ft_isdigit(lkd_list->content[1])
+	if ((ft_strcmp(extract_number(lkd_list->content), "0") != 0)
 		|| lkd_list->content[1] == '-')
 	{
 		tmp = ft_strdup(to_remplace);

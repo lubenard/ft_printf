@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 14:58:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/05 11:56:18 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/05 22:45:15 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,14 @@ char	*join_str(char *to_remplace, int length, int minus, char fill)
 		length *= -1;
 	if (!(to_join = ft_strnew(length - length_remplace)))
 		return (NULL);
+	//printf("length - length_remplace = %d\n", length-length_remplace);
 	to_join = ft_fill(to_join, fill, length - length_remplace);
 	if (minus == 1)
 		tmp = ft_strjoin(to_remplace, to_join);
 	else
 		tmp = ft_strjoin(to_join, to_remplace);
 	free(to_join);
+	//printf("Bruh = %s\n", tmp);
 	return (tmp);
 }
 
@@ -95,13 +97,16 @@ char	*add_space(char *str, char *to_remplace)
 	if (ft_strchr(str, '-') > 0)
 		minus = 1;
 	length = ft_atoi(sub);
+	//printf("length = %d, minus = %d sub = %s\n", length, minus, sub);
 	if (minus == 0 && detect_zero(sub) == 1)
 	{
+	//	printf("Je passe par la\n");
 		free(sub);
 		return (join_str(to_remplace, length, minus, '0'));
 	}
 	else
 	{
+		//printf("Ou par ici\n");
 		free(sub);
 		return (join_str(to_remplace, length, minus, ' '));
 	}

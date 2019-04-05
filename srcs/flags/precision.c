@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:56:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/02 19:45:31 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/05 21:16:34 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,14 @@ char	*precision(char *content, char *to_remplace, int i, int mode)
 	sub = ft_strsub(content, j, i - k);
 	length = ft_atoi(sub);
 	if (mode == 1)
+	{
+		//printf("Precisio mode 1\n");
 		return (mode_1(to_remplace, length, sub));
+	}
 	else if (mode == 0)
+	{
+		//printf("precision mode 0\n");
 		return (mode_0(to_remplace, length, sub));
+	}
 	return (NULL);
 }

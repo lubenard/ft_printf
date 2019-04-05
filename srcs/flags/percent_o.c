@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 14:43:35 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/05 11:32:49 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/05 22:11:01 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ unsigned long long		get_option_o(va_list ap, t_word *lkd_list)
 	else if (ft_strchr(lkd_list->content, 'l') != -1)
 		return (va_arg(ap, unsigned long));
 	else if (ft_strchr(lkd_list->content, 'h') != -1)
-		return ((short)va_arg(ap, int));
+		return ((unsigned short)va_arg(ap, int));
 	return (va_arg(ap, unsigned int));
 }
 

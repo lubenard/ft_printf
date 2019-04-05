@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 20:01:12 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/02 23:45:18 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/05 22:43:10 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,19 @@ int			handle_ret_di(t_percent_di struct_di, t_word *lkd_list,
 		char *to_remplace)
 {
 	free(lkd_list->content);
-	if (struct_di.tmp != NULL)
-	{
-		if (struct_di.spaces != NULL)
-			free(struct_di.spaces);
-		free(to_remplace);
-		lkd_list->content = change_minus(struct_di.tmp);
-	}
-	else if (struct_di.spaces != NULL)
+	if (struct_di.spaces != NULL)
 	{
 		if (struct_di.prec != NULL)
 			free(struct_di.prec);
 		free(to_remplace);
 		lkd_list->content = change_minus(struct_di.spaces);
+	}
+	else if (struct_di.tmp != NULL)
+	{
+		if (struct_di.spaces != NULL)
+			free(struct_di.spaces);
+		free(to_remplace);
+		lkd_list->content = change_minus(struct_di.tmp);
 	}
 	else if (struct_di.prec != NULL)
 	{
@@ -74,23 +74,40 @@ int			percent_di(t_word *lkd_list, va_list ap)
 		lkd_list->content = "";
 		return (0);
 	}
-	if (ft_strchr(lkd_list->content, '+') != -1 && to_remplace[0] != '-')
-		struct_di.tmp = ft_strjoin("+", to_remplace);
-	else if (ft_strchr(lkd_list->content, ' ') != -1 && to_remplace[0] != '-')
-		struct_di.tmp = ft_strjoin(" ", to_remplace);
-	if ((i = ft_strchr(lkd_list->content, '.')) != -1 && struct_di.tmp != NULL)
-		struct_di.prec = precision(lkd_list->content, struct_di.tmp, i, 0);
-	else if ((i = ft_strchr(lkd_list->content, '.')) != -1)
+	if ((i = ft_strchr(lkd_list->content, '.')) != -1)
 		struct_di.prec = precision(lkd_list->content, to_remplace, i, 0);
+
+	if (ft_strchr(lkd_list->content, '+') != -1 && to_remplace[0] != '-' && struct_di.prec != NULL)
+		struct_di.tmp = ft_strjoin("+", struct_di.prec);
+	else if (ft_strchr(lkd_list->content, ' ') != -1 && to_remplace[0] != '-' && struct_di.prec != NULL)
+		struct_di.tmp = ft_strjoin(" ", struct_di.prec);
+	else if (ft_strchr(lkd_list->content, '+') != -1 && to_remplace[0] != '-' && struct_di.prec == NULL)
+		struct_di.tmp = ft_strjoin("+", to_remplace);
+	else if (ft_strchr(lkd_list->content, ' ') != -1 && to_remplace[0] != '-' && struct_di.prec == NULL)
+		struct_di.tmp = ft_strjoin(" ", to_remplace);
+
+
+	//printf("tmp = %s, to_remplace = %s, prec = %s spaces = %s\n", struct_di.tmp, to_remplace, struct_di.prec, struct_di.spaces);
+
 	if ((ft_isdigit(lkd_list->content[1]) ||
 	lkd_list->content[1] == '-' || lkd_list->content[1] == '+')
-		&& struct_di.prec == NULL)
+		&& struct_di.prec == NULL && struct_di.tmp == NULL)
+	{
+	//	printf("Here i am\n");
 		struct_di.spaces = add_space(lkd_list->content, to_remplace);
+	}
 	else if ((ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-')
 		&& struct_di.prec != NULL)
+	{
+	//	printf("Je suis ici\n");
 		struct_di.spaces = add_space(lkd_list->content, struct_di.prec);
-	else if ((ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-')
+	}
+	else if ((ft_strcmp(extract_number(lkd_list->content), "0") != 0 || ft_strchr(lkd_list->content, '-'))
 		&& struct_di.tmp != NULL)
+	{
+	//	printf("Je rentre la\n");
 		struct_di.spaces = add_space(lkd_list->content, struct_di.tmp);
+	}
+
 	return (handle_ret_di(struct_di, lkd_list, to_remplace));
 }

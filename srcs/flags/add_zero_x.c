@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/26 22:32:14 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/05 12:21:03 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/05 22:43:35 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ int		check_spaces(char *str)
 		if (str[i++] == ' ')
 			return (-1);
 	}
-	if (str[0] == '0' && str[1] == '0')
-		return (-1);
+	//if (str[0] == '0' && str[1] == '0')
+	//	return (-1);
 	return (0);
 }
 
@@ -171,17 +171,18 @@ char	*add_zero_x(char *content, char *to_remplace, char *prec, char *spaces)
 		else
 			return (ft_strdup(to_remplace));
 	}
+	//printf("to_remplace = %s spaces = %s prec = %s\n", to_remplace, spaces, prec);
 	if (content[ft_strlen(content) - 1] == 'o')
 		return (insert_zero(to_remplace, prec, spaces));
 	if (spaces != NULL && check_spaces(spaces) == 0)
 		return (ft_strjoin("0x", spaces));
-	else if (prec != NULL && check_spaces(prec) == 0)
+	else if (prec != NULL && spaces == NULL && check_spaces(prec) == 0)
 		return (ft_strjoin("0x", prec));
 	else if (!spaces && !prec && check_spaces(to_remplace) == 0)
 		return (ft_strjoin("0x", to_remplace));
 	else if (spaces != NULL && check_spaces(spaces) == -1)
 		return (insert_spaces(spaces));
-	else if (prec != NULL && check_spaces(spaces) == -1)
+	else if (prec != NULL && check_spaces(prec) == -1)
 		return (insert_spaces(prec));
 	else if (!spaces && !prec && check_spaces(to_remplace) == -1)
 		return (insert_spaces(to_remplace));
