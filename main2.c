@@ -6,7 +6,7 @@
 /*   By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 18:42:29 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/05 23:15:06 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/06 18:23:03 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,23 +92,26 @@ int main(void)
 	printf("|%#5x|\n", 42);
 	ft_printf("|%#5x|\n", 42);*/
 	printf("-----24-------\n");
-	printf("|%#05x|\n", 42);
+	printf("|%#05x|\n", 42);       // <-----------
 	ft_printf("|%#05x|\n", 42);
-	//printf("-----25-------\n");
-	//printf("|%#.05x|\n", 42);
-	//ft_printf("|%#.05x|\n", 42);
-	printf("-----26-------\n");
-	printf("|%#08o|\n", 42);
-	ft_printf("|%#08o|\n", 42);
-	printf("-----27-------\n");
-	printf("|%+05d|\n", 42);
-	ft_printf("|%+05d|\n", 42);
-	printf("-----28-------\n");
-	printf("|%0+5d|\n", -42);
-	ft_printf("|%0+5d|\n", -42);
-	printf("-----29-------\n");
-	printf("|%0+5d|\n", 42);
-	ft_printf("|%0+5d|\n", 42);
+	printf("-----24-------\n");
+	printf("|%#07x|\n", 42);       // <-----------
+	ft_printf("|%#05x|\n", 42);
+	/*printf("-----25-------\n");
+	printf("|%#.05x|\n", 42);
+	ft_printf("|%#.05x|\n", 42);*/
+	//printf("-----26-------\n");
+	//printf("|%#08o|\n", 42);
+	//ft_printf("|%#08o|\n", 42);
+	//printf("-----27-------\n");
+	//printf("|%+05d|\n", 42);
+	//ft_printf("|%+05d|\n", 42);     <--------
+	//printf("-----28-------\n");
+	//printf("|%0+5d|\n", -42);
+	//ft_printf("|%0+5d|\n", -42);
+	//printf("-----29-------\n");
+	//printf("|%0+5d|\n", 42);
+	//ft_printf("|%0+5d|\n", 42);
 	/*printf("-----30-------\n");
 	printf("|%#10.05x|\n", 42);
 	ft_printf("|%#10.05x|\n", 42);
@@ -130,15 +133,15 @@ int main(void)
 	printf("-----36-------\n");
 	printf("%% |%2.11u|\n", 18);
 	ft_printf("%% |%2.11u|\n", 18);*/
-	printf("-----37-------\n");
-	printf("|%07.5d|,|%d|\n",150789, 17);
-	ft_printf("|%07.5d|,|%d|\n",150789, 17);
-	//printf("-----38-------\n");
-	//printf("|%00.05d| \n", 7);
-	//ft_printf("|%00.05d| \n", 7);
-	printf("-----39-------\n");
-	printf("|%05.2d|\n", 7);
-	ft_printf("|%05.2d|\n", 7);
+	//printf("-----37-------\n");
+	//printf("|%07.5d|,|%d|\n",150789, 17);      <-----------
+	//ft_printf("|%07.5d|,|%d|\n",150789, 17);
+	/*printf("-----38-------\n");
+	printf("|%00.05d| \n", 7);
+	ft_printf("|%00.05d| \n", 7);*/
+	//printf("-----39-------\n");
+	//printf("|%05.2d|\n", 7);          <------------
+	//ft_printf("|%05.2d|\n", 7);
 	/*printf("-----40-------\n");
 	printf("|%5%|\n");
 	ft_printf("|%5%|\n");
@@ -174,10 +177,10 @@ int main(void)
 	ft_printf("|%12s| is a string\n", "this");
 	printf("-----50-------\n");
 	printf("|%#.x| |%#.0x|\n", 0, 0);
-	ft_printf("|%#.x| |%#.0x|\n", 0, 0);*/
+	ft_printf("|%#.x| |%#.0x|\n", 0, 0);
 	printf("-----51-------\n");
 	printf("|%5.x| |%5.0x|\n", 0, 0);
-	ft_printf("|%5.x| |%5.0x|\n", 0, 0);
+	ft_printf("|%5.x| |%5.0x|\n", 0, 0);*/
 	printf("--------------\n");
 	/*printf("-----52-------\n");
 	printf("|%.x| |%.0x|\n", 0, 0);
@@ -190,7 +193,7 @@ int main(void)
 	ft_printf("mien printf avec + d '%+ d'\n", -42);
 
 	printf("vrai printf avec +  d '%+  d'\n", -42);
-	ft_printf("mien printf avec +  d '%+  d'\n", -42);*/
+	ft_printf("mien printf avec +  d '%+  d'\n", -42);
 
 	printf("vrai printf avec #0x '%#0x'\n", 0);
 	ft_printf("mien printf avec #0x '%#0x'\n", 0);
@@ -198,7 +201,7 @@ int main(void)
 	printf("vrai printf avec 0x '%0x'\n", 0);
 	ft_printf("mien printf avec 0x '%0x'\n", 0);
 
-	/*printf("vrai printf avec #x '%#x'\n", 42);
+	printf("vrai printf avec #x '%#x'\n", 42);
 	ft_printf("mien printf avec #x '%#x'\n", 42);
 
 	printf("vrai printf avec #x '%#8x'\n", 42);
@@ -241,6 +244,15 @@ int main(void)
 	ft_printf("mien printf avec -.2s '%-.2s'\n", "");
 
 	printf("vrai printf avec ho '%ho'\n", (short)-127);
-    ft_printf("mien printf avec ho '%ho'\n", (short)-127);*/
+    ft_printf("mien printf avec ho '%ho'\n", (short)-127);
+
+    printf("%lu", (long)-42);
+	ft_printf("%lu", (long)-42);*/
+
+	//printf("|%c|\n",0);                   <--------------
+	//ft_printf("|%c|\n",0);
+
+	//ft_printf("@moulitest: %.5u", 42);
+
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 11:23:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/05 22:44:11 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/06 18:32:06 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,10 +82,13 @@ char	*percent_x(t_word *lkd_list, va_list ap, short option)
 	if (ft_strcmp(to_remplace, "0") == 0 && (ft_strstr(lkd_list->content, ".0")
 	|| detect_prec(lkd_list->content, 0) == -1))
 	{
-		lkd_list->content = "";
-		if (detect_prec(lkd_list->content, 1) != -1)
+		free(to_remplace);
+		to_remplace = ft_strdup("");
+		if (ft_strcmp(extract_number(lkd_list->content), "0") == 0)
 		{
+			//printf("je rentre la\n");
 			free(to_remplace);
+			lkd_list->content = "";
 			lkd_list->is_malloc = 0;
 			return (0);
 		}

@@ -6,7 +6,7 @@
 /*   By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:07 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/05 21:51:31 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/06 16:12:19 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -429,5 +429,7 @@ int main(void)
     ft_printf("mien printf avec ho '%ho'\n", (short)-127);
     printf("vrai avec '%#8x'\n", 50);
     ft_printf("mien avec '%#8x'\n", 50);
+    printf("%lu\n", (long)-42);
+	ft_printf("%lu\n", (long)-42);
 	return (0);
 }

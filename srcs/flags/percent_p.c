@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 20:01:46 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/02 16:46:55 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/06 17:58:34 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,12 @@
 ** https://repl.it/repls/ValidBestFlashdrives
 */
 
-void	free_elem_p(char *to_remplace, char *prec, char *spaces)
-{
-	if (prec != NULL || spaces != NULL)
-		free(to_remplace);
-	if (prec != NULL)
-		free(prec);
-}
-
-void	handle_return(t_word *lkd_list, char *prec,
+void	handle_return(t_word *lkd_list,
 		char *to_remplace, char *spaces)
 {
 	free(lkd_list->content);
 	if (spaces != NULL)
 		lkd_list->content = spaces;
-	else if (prec != NULL && spaces == NULL)
-		lkd_list->content = prec;
 	else
 		lkd_list->content = to_remplace;
 }
@@ -56,24 +46,24 @@ int		percent_p(t_word *lkd_list, va_list ap)
 	char				*to_remplace;
 	unsigned long		value;
 	int					i;
-	char				*prec;
 	char				*spaces;
+	char				*tmp;
 
-	prec = NULL;
 	spaces = NULL;
 	value = va_arg(ap, unsigned long);
 	if (null_arg(value, lkd_list) == 0)
 		return (0);
 	to_remplace = conv_in_hexa_p(value);
 	if ((i = ft_strchr(lkd_list->content, '.')) != -1)
-		prec = precision(lkd_list->content, to_remplace, i, 0);
-	if ((ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-')
-			&& prec == NULL)
+	{
+		tmp = to_remplace;
+		free(to_remplace);
+		to_remplace = precision(lkd_list->content, tmp, i, 0);
+	}
+	if (ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-')
 		spaces = add_space(lkd_list->content, to_remplace);
-	else if ((ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-')
-			&& prec != NULL)
-		spaces = add_space(lkd_list->content, prec);
-	handle_return(lkd_list, prec, to_remplace, spaces);
-	free_elem_p(to_remplace, prec, spaces);
+	handle_return(lkd_list, to_remplace, spaces);
+	if (spaces != NULL)
+		free(to_remplace);
 	return (0);
 }

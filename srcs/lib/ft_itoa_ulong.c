@@ -6,21 +6,19 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 18:36:28 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/02 16:18:22 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/06 14:35:50 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-inline static int	ft_len(int long n)
+inline static int	ft_len(unsigned long n)
 {
 	int i;
 
 	i = 0;
 	if (n == 0)
 		return (1);
-	if (n < 0)
-		n = -n;
 	while (n != 0)
 	{
 		++i;
@@ -37,27 +35,19 @@ char				*nzero(char *str)
 
 char				*ft_itoa_ulong(unsigned long long n)
 {
-	long int	nbr;
-	int			neg;
-	int			i;
-	char		*result;
+	unsigned long	nbr;
+	int				i;
+	char			*result;
 
 	nbr = n;
 	i = 0;
-	neg = (nbr < 0) ? 1 : 0;
-	result = ft_strnew((size_t)ft_len(nbr) + neg);
-	if (nbr < 0)
-	{
-		i = -1;
-		nbr = -nbr;
-		result[0] = '-';
-		++i;
-	}
+	if (!(result = ft_strnew((size_t)ft_len(nbr))))
+			return (NULL);
 	if (n == 0)
 		return (nzero(result));
 	while (nbr != 0)
 	{
-		result[ft_len(n) - i + neg - 1] = (nbr % 10) + '0';
+		result[ft_len(n) - i - 1] = (nbr % 10) + '0';
 		nbr /= 10;
 		++i;
 	}

@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 14:58:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/05 22:45:15 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/06 18:32:38 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,32 @@ char	*join_str(char *to_remplace, int length, int minus, char fill)
 		tmp = ft_strjoin(to_join, to_remplace);
 	free(to_join);
 	//printf("Bruh = %s\n", tmp);
+	return (tmp);
+}
+
+char	*join_str2(char *to_remplace, int length, int minus, char fill)
+{
+	int		length_remplace;
+	char	*to_join;
+	char	*tmp;
+	char	firstchar;
+
+	firstchar = to_remplace[0];
+	to_remplace[0] = '0';
+	length_remplace = ft_strlen(to_remplace);
+	if (length - length_remplace < 0)
+		length *= -1;
+	if (!(to_join = ft_strnew(length - length_remplace)))
+		return (NULL);
+	//printf("length - length_remplace = %d\n", length-length_remplace);
+	to_join = ft_fill(to_join, fill, length - length_remplace);
+	if (minus == 1)
+		tmp = ft_strjoin(to_remplace, to_join);
+	else
+		tmp = ft_strjoin(to_join, to_remplace);
+	free(to_join);
+	//printf("Bruh = %s\n", tmp);
+	tmp[0] = firstchar;
 	return (tmp);
 }
 
@@ -97,12 +123,16 @@ char	*add_space(char *str, char *to_remplace)
 	if (ft_strchr(str, '-') > 0)
 		minus = 1;
 	length = ft_atoi(sub);
-	//printf("length = %d, minus = %d sub = %s\n", length, minus, sub);
+	if (length == 0)
+		return (ft_strdup(to_remplace));
+//	printf("length = %d, minus = %d sub = %s\n", length, minus, sub);
 	if (minus == 0 && detect_zero(sub) == 1)
 	{
-	//	printf("Je passe par la\n");
+//		printf(" >>>>>>> %c\n", to_remplace[0]);
 		free(sub);
-		return (join_str(to_remplace, length, minus, '0'));
+		//if ((to_remplace[0] == '-' || to_remplace[0] == '+') && str[ft_strlen(str) - 1] == 'd')
+		//	return (join_str2(to_remplace, length, minus, '0'));
+			return (join_str(to_remplace, length, minus, '0'));
 	}
 	else
 	{

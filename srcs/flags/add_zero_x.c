@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/26 22:32:14 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/05 22:43:35 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/06 18:33:50 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,7 +175,10 @@ char	*add_zero_x(char *content, char *to_remplace, char *prec, char *spaces)
 	if (content[ft_strlen(content) - 1] == 'o')
 		return (insert_zero(to_remplace, prec, spaces));
 	if (spaces != NULL && check_spaces(spaces) == 0)
+	{
+		//printf("Bruh je suis la\n");
 		return (ft_strjoin("0x", spaces));
+	}
 	else if (prec != NULL && spaces == NULL && check_spaces(prec) == 0)
 		return (ft_strjoin("0x", prec));
 	else if (!spaces && !prec && check_spaces(to_remplace) == 0)
