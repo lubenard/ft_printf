@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 20:01:12 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/06 17:38:01 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/08 12:46:50 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,19 +94,19 @@ int			percent_di(t_word *lkd_list, va_list ap)
 		&& struct_di.prec == NULL && struct_di.tmp == NULL)
 	{
 	//	printf("Here i am\n");
-		struct_di.spaces = add_space(lkd_list->content, to_remplace);
+		struct_di.spaces = add_space(lkd_list, to_remplace);
 	}
 	else if ((ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-')
 		&& struct_di.prec != NULL)
 	{
 	//	printf("Je suis ici\n");
-		struct_di.spaces = add_space(lkd_list->content, struct_di.prec);
+		struct_di.spaces = add_space(lkd_list, struct_di.prec);
 	}
 	else if ((ft_strcmp(extract_number(lkd_list->content), "0") != 0 || ft_strchr(lkd_list->content, '-'))
 		&& struct_di.tmp != NULL)
 	{
 	//	printf("Je rentre la\n");
-		struct_di.spaces = add_space(lkd_list->content, struct_di.tmp);
+		struct_di.spaces = add_space(lkd_list, struct_di.tmp);
 	}
 		if (ft_strchr(lkd_list->content, '+') != -1 && to_remplace[0] != '-' && struct_di.prec != NULL)
 		struct_di.tmp = ft_strjoin("+", struct_di.prec);

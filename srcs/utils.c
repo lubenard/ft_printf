@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:25:11 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/06 12:01:58 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/08 12:02:16 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,17 @@ int		ft_strlen(const char *str)
 int		ft_putstr(int fd, t_word *lkd_list)
 {
 	int		len;
+	int		i;
 
+	i = 0;
 	len = ft_strlen(lkd_list->content);
-	write(fd, lkd_list->content, len);
+	if (lkd_list->null_char == 1)
+	{
+		while (i < lkd_list->manual_len)
+			write(1, &lkd_list->content[i++], 1);
+	}
+	else
+		write(fd, lkd_list->content, len);
 	if (lkd_list->manual_len != -1)
 		return (lkd_list->manual_len);
 	return (len);

@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 11:23:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/06 18:32:06 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/08 12:48:11 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,11 +98,11 @@ char	*percent_x(t_word *lkd_list, va_list ap, short option)
 	if ((ft_isdigit(lkd_list->content[1]) || ft_isdigit(lkd_list->content[2])
 	|| lkd_list->content[1] == '-' || lkd_list->content[2] == '-')
 	&& prec == NULL)
-		spaces = add_space(lkd_list->content, to_remplace);
+		spaces = add_space(lkd_list, to_remplace);
 	else if ((ft_isdigit(lkd_list->content[1]) ||
 	ft_isdigit(lkd_list->content[2]) || lkd_list->content[1] == '-'
 	|| lkd_list->content[2] == '-') && prec != NULL)
-		spaces = add_space(lkd_list->content, prec);
+		spaces = add_space(lkd_list, prec);
 	zero_x = add_zero_x(lkd_list->content, to_remplace, prec, spaces);
 	//printf("zero_x = '%s', to_remplace = '%s' , prec = '%s' spaces = '%s'\n", zero_x, to_remplace, prec, spaces);
 	free(lkd_list->content);

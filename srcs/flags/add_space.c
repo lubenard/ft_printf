@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 14:58:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/06 18:32:38 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/08 13:21:14 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,17 +112,19 @@ int		detect_zero(char *str)
 	return (0);
 }
 
-char	*add_space(char *str, char *to_remplace)
+char	*add_space(t_word *lkd_list, char *to_remplace)
 {
 	char	*sub;
 	int		length;
 	int		minus;
 
 	minus = 0;
-	sub = extract_number(str);
-	if (ft_strchr(str, '-') > 0)
+	sub = extract_number(lkd_list->content);
+	if (ft_strchr(lkd_list->content, '-') > 0)
 		minus = 1;
 	length = ft_atoi(sub);
+	if (lkd_list->null_char == 1)
+		length--;
 	if (length == 0)
 		return (ft_strdup(to_remplace));
 //	printf("length = %d, minus = %d sub = %s\n", length, minus, sub);

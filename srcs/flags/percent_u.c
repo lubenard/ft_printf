@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 14:38:58 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/06 17:29:17 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/08 12:47:57 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,20 @@ char			*get_option_u(va_list ap, t_word *lkd_list)
 	return (ft_itoa_ulong(negative_number(va_arg(ap, unsigned int))));
 }
 
-int				handle_ret_u(t_word *lkd_list, char *spaces,
+int				handle_ret_u(t_word *lkd_list, char *spaces, char *prec,
 		char *to_remplace)
 {
 	if (spaces != NULL)
 	{
+		if (prec)
+			free(prec);
 		free(to_remplace);
 		lkd_list->content = spaces;
+	}
+	else if (prec != NULL)
+	{
+		free(to_remplace);
+		lkd_list->content = prec;
 	}
 	else
 		lkd_list->content = to_remplace;
@@ -50,19 +57,20 @@ int				percent_u(t_word *lkd_list, va_list ap)
 	int					i;
 	char				*to_remplace;
 	char				*spaces;
-	char				*tmp;
+	char				*prec;
 
 	i = 0;
 	spaces = NULL;
+	prec = NULL;
 	to_remplace = get_option_u(ap, lkd_list);
 	if ((i = ft_strchr(lkd_list->content, '.')) != -1)
-	{
-		tmp = to_remplace;
-		free(to_remplace);
-		to_remplace = precision(lkd_list->content, tmp, i, 0);
-	}
-	if (ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-')
-		spaces = add_space(lkd_list->content, to_remplace);
+		prec = precision(lkd_list->content, to_remplace, i, 0);
+	if ((ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-')
+		&& prec != NULL)
+		spaces = add_space(lkd_list, prec);
+	else if ((ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-')
+		&& prec == NULL)
+		spaces = add_space(lkd_list, to_remplace);
 	free(lkd_list->content);
-	return (handle_ret_u(lkd_list, spaces, to_remplace));
+	return (handle_ret_u(lkd_list, spaces, prec, to_remplace));
 }
