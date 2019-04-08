@@ -6,7 +6,7 @@
 /*   By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:07 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/06 16:12:19 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/08 17:59:48 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,8 +130,8 @@ int main(void)
 	ft_printf("%X\n", 1000);
 	printf("%hX\n", test7);
 	ft_printf("%hX\n", test7);
-	printf("%hhX", test3);
-	ft_printf("%hhX", test3);
+	printf("%hhX\n", test3);
+	ft_printf("%hhX\n", test3);
 	printf("%lX\n", test8);
 	ft_printf("%lX\n", test8);
 	printf("%llX\n", test9);
@@ -411,8 +411,8 @@ int main(void)
 	ft_printf("mien printf avec -#08.15x '%#-08.15x'\n", 42);
 	printf("vrai printf avec #-08x '%#-08x'\n", 42);
 	ft_printf("mien printf avec #-08x '%#-08x'\n", 42);
-	printf("'@moulitest: '%#.x' '%#.0x''\n", 0, 0);
-	ft_printf("'@moulitest: '%#.x' '%#.0x''\n", 0, 0);
+	printf("@moulitest: '%#.x' '%#.0x'\n", 0, 0);
+	ft_printf("@moulitest: '%#.x' '%#.0x'\n", 0, 0);
 	printf("vrai printf avec lu '%lu'\n", -42);
 	ft_printf("mien printf avec lu '%lu'\n", -42);
 	printf("vrai printf avec .0o '%.0o'\n", 0);

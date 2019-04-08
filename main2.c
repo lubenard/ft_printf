@@ -6,7 +6,7 @@
 /*   By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 18:42:29 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/08 17:31:36 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/08 18:04:39 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -250,13 +250,16 @@ int main(void)
 	ft_printf("%lu", (long)-42);
 
 	printf("|%c|\n",0);
-	ft_printf("|%c|\n",0);*/
+	ft_printf("|%c|\n",0);
 
 	printf("Vrai: '%5.d' '%5.0d'\n", 0, 0);
 	ft_printf("Mien: '%5.d' '%5.0d'\n", 0, 0);
 
 	printf("vrai: '%5.o' '%5.0o'\n", 0, 0);
-	ft_printf("mien: '%5.o' '%5.0o'\n", 0, 0);
+	ft_printf("mien: '%5.o' '%5.0o'\n", 0, 0);*/
+
+	printf("vrai: '%03.2d'\n", 1);
+	ft_printf("mien: '%03.2d'\n", 1);
 
 	//ft_printf("@moulitest: %.5u", 42);
 	//printf("%hu, %hu\n", 0, USHRT_MAX);
