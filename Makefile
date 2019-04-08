@@ -6,7 +6,7 @@
 #    By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 17:01:46 by lubenard          #+#    #+#              #
-#    Updated: 2019/04/05 18:37:53 by lubenard         ###   ########.fr        #
+#    Updated: 2019/04/08 16:25:14 by lubenard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,9 +44,7 @@ SRC = srcs/ft_printf.c \
 	  srcs/flags/add_zero_x.c
 
 OBJ = $(SRC:.c=.o)
-
 CC = clang
-
 CFLAGS = -g3 -c -Wall -Wextra -Werror 
 
 all:  $(NAME)
@@ -75,3 +73,5 @@ fclean: clean
 	@printf "\033[32m[✓]\033[0m\n"
 
 re: fclean all
+
+.PHONY: all, clean, fclean, re

@@ -6,13 +6,13 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 18:36:28 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/02 16:28:19 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/08 17:15:04 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-inline static int		ft_len(int long n)
+inline static int		ft_len(short n)
 {
 	int i;
 
@@ -31,8 +31,8 @@ inline static int		ft_len(int long n)
 
 char					*ft_stoa(short n)
 {
-	long int	nbr;
-	int			neg;
+	int			nbr;
+	short		neg;
 	int			i;
 	char		*result;
 

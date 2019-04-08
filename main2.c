@@ -6,7 +6,7 @@
 /*   By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 18:42:29 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/08 13:30:37 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/08 17:31:36 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,28 +90,28 @@ int main(void)
 	ft_printf("|%#o|\n", 42);
 	printf("-----23-------\n");
 	printf("|%#5x|\n", 42);
-	ft_printf("|%#5x|\n", 42);*/
+	ft_printf("|%#5x|\n", 42);
 	printf("-----24-------\n");
-	printf("|%#05x|\n", 42);       // <-----------
+	printf("|%#05x|\n", 42);
 	ft_printf("|%#05x|\n", 42);
 	printf("-----24-------\n");
-	printf("|%#07x|\n", 42);       // <-----------
-	ft_printf("|%#05x|\n", 42);
-	/*printf("-----25-------\n");
+	printf("|%#07x|\n", 42);
+	ft_printf("|%#07x|\n", 42);
+	printf("-----25-------\n");
 	printf("|%#.05x|\n", 42);
 	ft_printf("|%#.05x|\n", 42);*/
-	//printf("-----26-------\n");
-	//printf("|%#08o|\n", 42);
-	//ft_printf("|%#08o|\n", 42);
-	//printf("-----27-------\n");
-	//printf("|%+05d|\n", 42);
-	//ft_printf("|%+05d|\n", 42);     <--------
-	//printf("-----28-------\n");
-	//printf("|%0+5d|\n", -42);
-	//ft_printf("|%0+5d|\n", -42);
-	//printf("-----29-------\n");
-	//printf("|%0+5d|\n", 42);
-	//ft_printf("|%0+5d|\n", 42);
+	printf("-----26-------\n");
+	printf("|%#08o|\n", 42);
+	ft_printf("|%#08o|\n", 42);
+	printf("-----27-------\n");
+	printf("|%+05d|\n", 42);
+	ft_printf("|%+05d|\n", 42);  //   <--------
+	printf("-----28-------\n");
+	printf("|%0+5d|\n", -42);
+	ft_printf("|%0+5d|\n", -42);
+	printf("-----29-------\n");
+	printf("|%0+5d|\n", 42);
+	ft_printf("|%0+5d|\n", 42);
 	/*printf("-----30-------\n");
 	printf("|%#10.05x|\n", 42);
 	ft_printf("|%#10.05x|\n", 42);
@@ -133,15 +133,15 @@ int main(void)
 	printf("-----36-------\n");
 	printf("%% |%2.11u|\n", 18);
 	ft_printf("%% |%2.11u|\n", 18);*/
-	//printf("-----37-------\n");
-	//printf("|%07.5d|,|%d|\n",150789, 17);      <-----------
-	//ft_printf("|%07.5d|,|%d|\n",150789, 17);
+	printf("-----37-------\n");
+	printf("|%07.5d|,|%d|\n",150789, 17);   //   <-----------
+	ft_printf("|%07.5d|,|%d|\n",150789, 17);
 	/*printf("-----38-------\n");
 	printf("|%00.05d| \n", 7);
 	ft_printf("|%00.05d| \n", 7);*/
-	//printf("-----39-------\n");
-	//printf("|%05.2d|\n", 7);          <------------
-	//ft_printf("|%05.2d|\n", 7);
+	printf("-----39-------\n");
+	printf("|%05.2d|\n", 7);     //     <------------
+	ft_printf("|%05.2d|\n", 7);
 	/*printf("-----40-------\n");
 	printf("|%5%|\n");
 	ft_printf("|%5%|\n");
@@ -247,12 +247,20 @@ int main(void)
     ft_printf("mien printf avec ho '%ho'\n", (short)-127);
 
     printf("%lu", (long)-42);
-	ft_printf("%lu", (long)-42);*/
+	ft_printf("%lu", (long)-42);
 
-	//printf("|%c|\n",0);                   <--------------
-	//ft_printf("|%c|\n",0);
+	printf("|%c|\n",0);
+	ft_printf("|%c|\n",0);*/
+
+	printf("Vrai: '%5.d' '%5.0d'\n", 0, 0);
+	ft_printf("Mien: '%5.d' '%5.0d'\n", 0, 0);
+
+	printf("vrai: '%5.o' '%5.0o'\n", 0, 0);
+	ft_printf("mien: '%5.o' '%5.0o'\n", 0, 0);
 
 	//ft_printf("@moulitest: %.5u", 42);
+	//printf("%hu, %hu\n", 0, USHRT_MAX);
+	//ft_printf("%hu, %hu\n", 0, USHRT_MAX);
 
 	return (0);
 }

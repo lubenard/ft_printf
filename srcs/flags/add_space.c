@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 14:58:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/08 13:21:14 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/08 15:37:39 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,33 +114,27 @@ int		detect_zero(char *str)
 
 char	*add_space(t_word *lkd_list, char *to_remplace)
 {
-	char	*sub;
-	int		length;
 	int		minus;
 
 	minus = 0;
-	sub = extract_number(lkd_list->content);
 	if (ft_strchr(lkd_list->content, '-') > 0)
 		minus = 1;
-	length = ft_atoi(sub);
 	if (lkd_list->null_char == 1)
-		length--;
-	if (length == 0)
+		lkd_list->spaces--;
+	if (lkd_list->spaces == 0)
 		return (ft_strdup(to_remplace));
-//	printf("length = %d, minus = %d sub = %s\n", length, minus, sub);
-	if (minus == 0 && detect_zero(sub) == 1)
+//	printf("length = %d, minus = %d sub = %s\n", lkd_list->spaces, minus, lkd_list->spaces_char);
+	if (minus == 0 && detect_zero(lkd_list->spaces_char) == 1)
 	{
 //		printf(" >>>>>>> %c\n", to_remplace[0]);
-		free(sub);
 		//if ((to_remplace[0] == '-' || to_remplace[0] == '+') && str[ft_strlen(str) - 1] == 'd')
 		//	return (join_str2(to_remplace, length, minus, '0'));
-			return (join_str(to_remplace, length, minus, '0'));
+			return (join_str(to_remplace, lkd_list->spaces, minus, '0'));
 	}
 	else
 	{
 		//printf("Ou par ici\n");
-		free(sub);
-		return (join_str(to_remplace, length, minus, ' '));
+		return (join_str(to_remplace, lkd_list->spaces, minus, ' '));
 	}
 	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/08 12:45:43 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/08 15:30:35 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ typedef struct	s_word
 	char			*content;
 	short			is_malloc;
 	long			manual_len;
-	int				null_char;
+	short			null_char;
+	char			*spaces_char;
+	int				spaces;
 	struct s_word	*next;
 }				t_word;
 /*
@@ -42,7 +44,6 @@ int				remplacage(t_word *lkd_list, va_list ap);
 char			*join_str(char *to_remplace, int length, int minus, char fill);
 char			*rev(char *str);
 char			*join_str_neg(char *to_remplace, int length);
-char			*add_zero_x(char *content, char *to_remplace, char *prec, char *spaces);
 char			*change_minus(char *str);
 int				detect_prec(char *str, int mode);
 char			*nzero(char *str);
@@ -90,4 +91,7 @@ int				percent_u(t_word *lkd_list, va_list ap);
 char			*add_space(t_word *lkd_list, char *to_remplace);
 char			*precision(char *content, char *to_remplace, int i, int mode);
 int				brackets(t_word *lkd_list);
+char			*add_zero_x(t_word *lkd_list, char *to_remplace,
+		char *prec, char *spaces);
+
 #endif

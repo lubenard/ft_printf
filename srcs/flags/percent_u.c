@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 14:38:58 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/08 12:47:57 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/08 17:13:16 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ char			*get_option_u(va_list ap, t_word *lkd_list)
 	if (ft_strstr(lkd_list->content, "ll") != 0)
 		return (ft_itoa_ulong(va_arg(ap, unsigned long long)));
 	else if (ft_strstr(lkd_list->content, "hh") != 0)
-		return (ft_itoa_ulong((unsigned char)va_arg(ap, int)));
+		return (ft_sstoa((unsigned char)va_arg(ap, int)));
 	else if (ft_strchr(lkd_list->content, 'l') != -1)
 		return (ft_itoa_ulong(va_arg(ap, unsigned long)));
 	else if (ft_strchr(lkd_list->content, 'h') != -1)
-		return (ft_itoa_ulong((short)va_arg(ap, int)));
+		return (ft_stoa((short)va_arg(ap, int)));
 	return (ft_itoa_ulong(negative_number(va_arg(ap, unsigned int))));
 }
 

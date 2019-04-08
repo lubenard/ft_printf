@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 11:23:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/08 12:48:11 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/08 15:35:29 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ char	*percent_x(t_word *lkd_list, va_list ap, short option)
 	{
 		free(to_remplace);
 		to_remplace = ft_strdup("");
-		if (ft_strcmp(extract_number(lkd_list->content), "0") == 0)
+		if (lkd_list->spaces == 0)
 		{
 			//printf("je rentre la\n");
 			free(to_remplace);
@@ -103,7 +103,7 @@ char	*percent_x(t_word *lkd_list, va_list ap, short option)
 	ft_isdigit(lkd_list->content[2]) || lkd_list->content[1] == '-'
 	|| lkd_list->content[2] == '-') && prec != NULL)
 		spaces = add_space(lkd_list, prec);
-	zero_x = add_zero_x(lkd_list->content, to_remplace, prec, spaces);
+	zero_x = add_zero_x(lkd_list, to_remplace, prec, spaces);
 	//printf("zero_x = '%s', to_remplace = '%s' , prec = '%s' spaces = '%s'\n", zero_x, to_remplace, prec, spaces);
 	free(lkd_list->content);
 	//	free(to_remplace);

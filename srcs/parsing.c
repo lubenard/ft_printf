@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 13:47:20 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/08 11:51:54 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/08 15:12:12 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ t_word		*new_maillon(void)
 	new_element->is_malloc = 1;
 	new_element->manual_len = -1;
 	new_element->null_char = 0;
+	new_element->spaces_char = NULL;
+	new_element->spaces = 0;
 	new_element->next = NULL;
 	return (new_element);
 }
@@ -64,6 +66,7 @@ void		free_lkd_lst(t_word *lkd_list)
 		lkd_list = lkd_list->next;
 		if (tmp->is_malloc == 1)
 			free(tmp->content);
+		free(tmp->spaces_char);
 		free(tmp);
 	}
 }
@@ -82,6 +85,8 @@ int			parsing(const char *str, va_list ap, int fd)
 	while ((str2 = splitting(str)) != NULL)
 	{
 		lkd_list->content = str2;
+		lkd_list->spaces_char = extract_number(str2);
+		lkd_list->spaces = ft_atoi(lkd_list->spaces_char);
 		if (str2[0] == '%' || str2[0] == '{')
 			remplacage(lkd_list, ap);
 		new_element = new_maillon();
