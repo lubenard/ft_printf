@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 14:43:35 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/08 18:15:37 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/09 16:58:32 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,20 +45,15 @@ int			handle_return_o(t_word *lkd_list, char *prec,
 		char *spaces, char *to_remplace)
 {
 	free(lkd_list->content);
+	lkd_list->content = add_zero_x(lkd_list, to_remplace, prec, spaces);
+	free(to_remplace);
 	if (spaces != NULL)
 	{
 		if (prec != NULL)
 			free(prec);
-		free(to_remplace);
-		lkd_list->content = spaces;
 	}
 	else if (prec != NULL)
-	{
-		free(to_remplace);
-		lkd_list->content = prec;
-	}
-	else
-		lkd_list->content = to_remplace;
+		free(prec);
 	return (0);
 }
 
@@ -103,7 +98,5 @@ int			percent_o(t_word *lkd_list, va_list ap)
 	|| ft_isdigit(lkd_list->content[2])) || ft_strchr(lkd_list->content, '-'))
 			&& prec != NULL)
 		spaces = add_space(lkd_list, prec);
-	lkd_list->content = add_zero_x(lkd_list, to_remplace, prec, spaces);
-	return (0);
-//	return (handle_return_o(lkd_list, prec, spaces, to_remplace));
+	return (handle_return_o(lkd_list, prec, spaces, to_remplace));
 }

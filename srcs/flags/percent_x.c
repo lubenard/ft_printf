@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 11:23:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/08 18:32:40 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/09 16:44:10 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,16 @@ char	*get_option_x(va_list ap, t_word *lkd_list)
 		return (convert_into_hexa(va_arg(ap, unsigned int)));
 }
 
-char	*handle_return_x(t_word *lkd_list, char *to_remplace,
-	char *spaces, char *prec)
+char	*handle_return_x(char *to_remplace, char *spaces, char *prec)
 {
-	char	*tmp;
-	int		sharp;
-
-	sharp = ft_strchr(lkd_list->content, '#');
-	tmp = NULL;
-	if (spaces != NULL || prec != NULL)
-	{
+		(void)spaces;
 		free(to_remplace);
 		if (spaces != NULL)
-			return (spaces);
-		else if (prec != NULL)
-			return (prec);
-	}
-	return (to_remplace);
+		{
+			if (prec)
+				free(prec);
+		}
+	return (NULL);
 }
 
 int		detect_prec(char *str, int mode)
@@ -75,6 +68,7 @@ int		handle_errors_x(t_word *lkd_list, char **to_remplace)
 		*to_remplace = ft_strdup("");
 		if (lkd_list->spaces == 0)
 		{
+			free(lkd_list->content);
 			free(*to_remplace);
 			lkd_list->content = "";
 			lkd_list->is_malloc = 0;
@@ -114,5 +108,5 @@ char	*percent_x(t_word *lkd_list, va_list ap, short option)
 	if (option == 1)
 		return (zero_x);
 	lkd_list->content = zero_x;
-	return (NULL);
+	return (handle_return_x(to_remplace,spaces, prec));
 }

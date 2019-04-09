@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/26 22:32:14 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/08 16:45:31 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/09 17:05:02 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,66 +48,30 @@ int		check_spaces(char *str)
 
 char	*insert_zero(char *to_remplace, char *prec, char *spaces)
 {
-	int i;
-	char *tmp;
+	int		i;
+	char	*tmp;
 
 	i = 0;
+	tmp = NULL;
 	if (spaces != NULL)
+		tmp = spaces;
+	else if (prec != NULL)
+		tmp = prec;
+	else if (spaces == NULL && prec == NULL)
+		tmp = to_remplace;
+	if (tmp)
 	{
-		if (spaces[0] == ' ')
+		if (tmp[0] == ' ')
 		{
 			while (spaces[i + 1] == ' ')
 				++i;
 			spaces[i] = '0';
 		}
 		else
-		{
-			tmp = ft_strdup(spaces);
-			free(spaces);
-			spaces = ft_strjoin("0", tmp);
-			free(tmp);
-		}
-		if (spaces[ft_strlen(spaces) - 1] == ' ')
-			spaces[ft_strlen(spaces) - 1] = '\0';
-		return (spaces);
-	}
-	else if (prec != NULL)
-	{
-		if (prec[0] == ' ')
-		{
-			while (prec[i + 1] == ' ')
-				++i;
-			prec[i] = '0';
-		}
-		else
-		{
-			tmp = ft_strdup(spaces);
-			free(spaces);
-			spaces = ft_strjoin("0", tmp);
-			free(tmp);
-		}
-		if (prec[ft_strlen(prec)] == ' ')
-			prec[ft_strlen(prec) - 1] = '\0';
-		return (prec);
-	}
-	else if (spaces != NULL && prec != NULL)
-	{
-		if (to_remplace[0] == ' ')
-		{
-			while (to_remplace[i + 1] == ' ')
-				++i;
-			to_remplace[i] = '0';
-		}
-		else
-		{
-			tmp = ft_strdup(spaces);
-			free(spaces);
-			spaces = ft_strjoin("0", tmp);
-			free(tmp);
-		}
-		if (to_remplace[ft_strlen(to_remplace)] == ' ')
-			to_remplace[ft_strlen(to_remplace) - 1] = '\0';
-		return (to_remplace);
+			tmp = ft_strjoin("0", spaces);
+		if (tmp[ft_strlen(tmp) - 1] == ' ')
+			tmp[ft_strlen(tmp) - 1] = '\0';
+		return (tmp);
 	}
 	return (NULL);
 }
@@ -147,7 +111,6 @@ int		check_null(char *prec, char *spaces, char *to_remplace)
 	}
 	else if (prec != NULL)
 	{
-		free(to_remplace);
 		if (ft_strcmp(prec, "0") == 0)
 			return (-1);
 	}
@@ -165,7 +128,7 @@ char	*add_zero_x(t_word *lkd_list, char *to_remplace, char *prec, char *spaces)
 		check_null(prec, spaces, to_remplace) == -1)
 	{
 		if (spaces != NULL)
-			return (spaces);
+			return (ft_strdup(spaces));
 		else if (prec != NULL)
 			return (ft_strdup(prec));
 		else

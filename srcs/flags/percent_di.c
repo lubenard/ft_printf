@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 20:01:12 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/08 17:29:45 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/09 14:07:10 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int			handle_ret_di(t_percent_di struct_di, t_word *lkd_list,
 	{
 		if (struct_di.prec != NULL)
 			free(struct_di.prec);
+		if (struct_di.tmp != NULL)
+			free(struct_di.tmp);
 		free(to_remplace);
 		lkd_list->content = change_minus(struct_di.spaces);
 	}
@@ -108,20 +110,13 @@ int			percent_di(t_word *lkd_list, va_list ap)
 	//	printf("Je suis ici\n");
 		struct_di.spaces = add_space(lkd_list, struct_di.prec);
 	}
-	else if ((ft_strcmp(extract_number(lkd_list->content), "0") != 0 || ft_strchr(lkd_list->content, '-'))
+	else if ((lkd_list->spaces > 0 || ft_strchr(lkd_list->content, '-'))
 		&& struct_di.tmp != NULL)
 	{
 	//	printf("Je rentre la\n");
 		struct_di.spaces = add_space(lkd_list, struct_di.tmp);
 	}
-		if (ft_strchr(lkd_list->content, '+') != -1 && to_remplace[0] != '-' && struct_di.prec != NULL)
-		struct_di.tmp = ft_strjoin("+", struct_di.prec);
-	else if (ft_strchr(lkd_list->content, ' ') != -1 && to_remplace[0] != '-' && struct_di.prec != NULL)
-		struct_di.tmp = ft_strjoin(" ", struct_di.prec);
-	else if (ft_strchr(lkd_list->content, '+') != -1 && to_remplace[0] != '-' && struct_di.prec == NULL)
-		struct_di.tmp = ft_strjoin("+", to_remplace);
-	else if (ft_strchr(lkd_list->content, ' ') != -1 && to_remplace[0] != '-' && struct_di.prec == NULL)
-		struct_di.tmp = ft_strjoin(" ", to_remplace);
-		//printf("tmp = %s, to_remplace = %s, prec = %s spaces = %s\n", struct_di.tmp, to_remplace, struct_di.prec, struct_di.spaces);
+
+	//printf("tmp = %s, to_remplace = %s, prec = %s spaces = %s\n", struct_di.tmp, to_remplace, struct_di.prec, struct_di.spaces);
 	return (handle_ret_di(struct_di, lkd_list, to_remplace));
 }
