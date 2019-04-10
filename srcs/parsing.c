@@ -85,10 +85,12 @@ int			parsing(const char *str, va_list ap, int fd)
 	while ((str2 = splitting(str)) != NULL)
 	{
 		lkd_list->content = str2;
-		lkd_list->spaces_char = extract_number(str2);
-		lkd_list->spaces = ft_atoi(lkd_list->spaces_char);
 		if (str2[0] == '%')
+		{
+			lkd_list->spaces_char = extract_number(str2);
+			lkd_list->spaces = ft_atoi(lkd_list->spaces_char);
 			remplacage(lkd_list, ap);
+		}
 		new_element = new_maillon();
 		lkd_list->next = new_element;
 		if (lkd_list->content != NULL)
