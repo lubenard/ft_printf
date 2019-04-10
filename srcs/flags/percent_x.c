@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 11:23:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/09 16:44:10 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/10 17:07:40 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,9 @@ char	*handle_return_x(char *to_remplace, char *spaces, char *prec)
 		(void)spaces;
 		free(to_remplace);
 		if (spaces != NULL)
-		{
-			if (prec)
-				free(prec);
-		}
+			free(spaces);
+		if (prec != NULL)
+			free(prec);
 	return (NULL);
 }
 
@@ -105,8 +104,9 @@ char	*percent_x(t_word *lkd_list, va_list ap, short option)
 	zero_x = add_zero_x(lkd_list, to_remplace, prec, spaces);
 	//printf("zero_x = '%s', to_remplace = '%s' , prec = '%s' spaces = '%s'\n", zero_x, to_remplace, prec, spaces);
 	free(lkd_list->content);
+	handle_return_x(to_remplace,spaces, prec);
 	if (option == 1)
 		return (zero_x);
 	lkd_list->content = zero_x;
-	return (handle_return_x(to_remplace,spaces, prec));
+	return (0);
 }

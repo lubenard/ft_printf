@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/26 22:32:14 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/09 17:05:02 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/10 17:01:32 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,12 @@ char	*insert_zero(char *to_remplace, char *prec, char *spaces)
 	{
 		if (tmp[0] == ' ')
 		{
-			while (spaces[i + 1] == ' ')
+			while (tmp[i + 1] == ' ')
 				++i;
-			spaces[i] = '0';
+			tmp[i] = '0';
+			if (tmp[ft_strlen(tmp) - 1] == ' ')
+				tmp[ft_strlen(tmp) - 1] = '\0';
+			return (ft_strdup(tmp));
 		}
 		else
 			tmp = ft_strjoin("0", spaces);
@@ -93,13 +96,14 @@ char	*insert_spaces(char *str)
 		str = ft_strjoin("0x", str);
 		str[ft_strlen(str) - 1] = '\0';
 		str[ft_strlen(str) - 1] = '\0';
+		return (str);
 	}
 	else if (str[0] == '0' && str[1] == '0')
 	{
 		str[0] = '0';
 		str[1] = 'x';
 	}
-	return (str);
+	return (ft_strdup(str));
 }
 
 int		check_null(char *prec, char *spaces, char *to_remplace)

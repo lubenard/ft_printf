@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 20:01:12 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/09 14:07:10 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/10 18:12:01 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ int			handle_ret_di(t_percent_di struct_di, t_word *lkd_list,
 	}
 	else if (struct_di.tmp != NULL)
 	{
-		if (struct_di.spaces != NULL)
-			free(struct_di.spaces);
+		if (struct_di.prec != NULL)
+			free(struct_di.prec);
 		free(to_remplace);
 		lkd_list->content = change_minus(struct_di.tmp);
 	}
@@ -74,9 +74,13 @@ int			percent_di(t_word *lkd_list, va_list ap)
 	|| detect_prec(lkd_list->content, 0) == -1))
 	{
 		if (lkd_list->spaces > 0)
+		{
+			free(to_remplace);
 			to_remplace = ft_strdup("");
+		}
 		else
 		{
+			free(lkd_list->content);
 			lkd_list->is_malloc = 0;
 			lkd_list->content = "";
 			return (0);

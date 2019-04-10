@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:25:11 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/08 12:02:16 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/10 17:56:07 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,24 +31,6 @@ char	*rev(char *str)
 	}
 	free(str);
 	return (rev_str);
-}
-
-int		ft_strcchr(const char *str, const char *to_found)
-{
-	int i;
-	int e;
-
-	e = 0;
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == to_found[e])
-			e++;
-		if (to_found[e] == '\0')
-			return (i - e + 1);
-		i++;
-	}
-	return (-1);
 }
 
 int		ft_strlen(const char *str)

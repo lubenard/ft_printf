@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 21:41:36 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/09 15:44:36 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/10 17:24:24 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int		check_null_s(t_word *lkd_list, char *to_remplace)
 {
 	if (!to_remplace)
 	{
+		free(lkd_list->content);
 		lkd_list->is_malloc = 0;
 		lkd_list->content = "(null)";
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: luca <lubenard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 23:33:55 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/02 14:54:41 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/10 18:17:26 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ int		remplacage(t_word *lkd_list, va_list ap)
 	else if (lkd_list->content[ft_strlen(lkd_list->content) - 1] == 'p')
 		percent_p(lkd_list, ap);
 	else if (lkd_list->content[ft_strlen(lkd_list->content) - 1] == 'd'
-	|| lkd_list->content[ft_strlen(lkd_list->content) - 1] == 'i')
+	|| lkd_list->content[ft_strlen(lkd_list->content) - 1] == 'i'
+	|| lkd_list->content[ft_strlen(lkd_list->content) - 1] == 'f')
 		percent_di(lkd_list, ap);
 	else if (lkd_list->content[ft_strlen(lkd_list->content) - 1] == 'o')
 		percent_o(lkd_list, ap);

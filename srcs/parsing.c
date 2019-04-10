@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 13:47:20 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/08 15:12:12 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/10 18:22:07 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ char		*splitting(const char *str)
 	e = 0;
 	while (str[i] != '\0')
 	{
-		if (str[i] != '%' && str[i] != '{')
+		if (str[i] != '%')
 		{
-			while (str[i + e] != '%' && str[i + e] != '{' && str[i + e] != '\0')
+			while (str[i + e] != '%' && str[i + e] != '\0')
 				++e;
 			i += e;
 			return (ft_strsub(str, i - e, e));
@@ -30,7 +30,7 @@ char		*splitting(const char *str)
 		else
 		{
 			++i;
-			while (ft_strchr("cspdiouxX}%", str[i + e]) == -1)
+			while (ft_strchr("cspdiouxX%", str[i + e]) == -1)
 				++e;
 			i += e + 1;
 			return (ft_strsub(str, i - e - 2, e + 2));
@@ -87,7 +87,7 @@ int			parsing(const char *str, va_list ap, int fd)
 		lkd_list->content = str2;
 		lkd_list->spaces_char = extract_number(str2);
 		lkd_list->spaces = ft_atoi(lkd_list->spaces_char);
-		if (str2[0] == '%' || str2[0] == '{')
+		if (str2[0] == '%')
 			remplacage(lkd_list, ap);
 		new_element = new_maillon();
 		lkd_list->next = new_element;
