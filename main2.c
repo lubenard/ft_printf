@@ -265,7 +265,7 @@ int main(void)
 	// printf("|%+4.5d|\n", 42);
 	// ft_printf("|%+4.5d|\n", 42);
 
-	ft_printf("test teube printf\n");
+	ft_printf("%o\n", 1000);
 
 	//ft_printf("@moulitest: %.5u", 42);
 	//printf("%hu, %hu\n", 0, USHRT_MAX);

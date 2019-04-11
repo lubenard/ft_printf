@@ -14,6 +14,8 @@
 
 int		remplacage(t_word *lkd_list, va_list ap)
 {
+	lkd_list->spaces_char = extract_number(lkd_list->content);
+	lkd_list->spaces = ft_atoi(lkd_list->spaces_char);
 	if (lkd_list->content[ft_strlen(lkd_list->content) - 1] == 's')
 		percent_s(lkd_list, ap);
 	else if (lkd_list->content[ft_strlen(lkd_list->content) - 1] == 'c')

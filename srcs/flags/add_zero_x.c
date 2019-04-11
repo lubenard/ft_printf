@@ -131,6 +131,8 @@ char	*add_zero_x(t_word *lkd_list, char *to_remplace, char *prec, char *spaces)
 	if (ft_strchr(lkd_list->content, '#') == -1 ||
 		check_null(prec, spaces, to_remplace) == -1)
 	{
+		if (lkd_list->content[ft_strlen(lkd_list->content) - 1] == 'o')
+			free(lkd_list->content);
 		if (spaces != NULL)
 			return (ft_strdup(spaces));
 		else if (prec != NULL)
@@ -140,7 +142,10 @@ char	*add_zero_x(t_word *lkd_list, char *to_remplace, char *prec, char *spaces)
 	}
 	//printf("to_remplace = %s spaces = %s prec = %s\n", to_remplace, spaces, prec);
 	if (lkd_list->content[ft_strlen(lkd_list->content) - 1] == 'o')
+	{
+		free(lkd_list->content);
 		return (insert_zero(to_remplace, prec, spaces));
+	}
 	if (spaces && check_spaces(spaces) == 0)
 		return (ft_strjoin("0x", spaces));
 	else if (prec && !spaces && check_spaces(prec) == 0)

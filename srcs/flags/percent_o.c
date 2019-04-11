@@ -44,7 +44,6 @@ char		*get_option_o(va_list ap, t_word *lkd_list)
 int			handle_return_o(t_word *lkd_list, char *prec,
 		char *spaces, char *to_remplace)
 {
-	free(lkd_list->content);
 	lkd_list->content = add_zero_x(lkd_list, to_remplace, prec, spaces);
 	free(to_remplace);
 	if (spaces != NULL)

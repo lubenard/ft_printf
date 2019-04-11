@@ -89,7 +89,7 @@ char	*extract_number(char *str)
 	i = 0;
 	while (!ft_isdigit(str[i]) && str[i])
 	{
-		if (str[i] == '.')
+		if (str[i] == '.' || str[i + 1] == '\0')
 			return (ft_strdup("0"));
 		++i;
 	}
