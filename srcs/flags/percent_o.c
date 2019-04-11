@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 14:43:35 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/10 18:00:22 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/11 17:57:05 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,8 @@ int			handle_return_o(t_word *lkd_list, char *prec,
 	lkd_list->content = add_zero_x(lkd_list, to_remplace, prec, spaces);
 	free(to_remplace);
 	if (spaces != NULL)
-	{
-		if (prec != NULL)
-			free(prec);
 		free(spaces);
-	}
-	else if (prec != NULL)
+	if (prec != NULL)
 		free(prec);
 	return (0);
 }
@@ -73,6 +69,7 @@ int			handle_errors_o(t_word *lkd_list, char **to_remplace)
 			free(lkd_list->content);
 			lkd_list->is_malloc = 0;
 			lkd_list->content = "0\0";
+			free(*to_remplace);
 			return (1);
 		}
 	}

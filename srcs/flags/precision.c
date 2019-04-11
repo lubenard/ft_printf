@@ -6,11 +6,32 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:56:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/06 18:06:15 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/11 16:02:29 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
+
+int		detect_prec(char *str, int mode)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '.')
+		{
+			if (!ft_isdigit(str[i + 1] && mode == 0))
+				return (-1);
+			if (ft_isdigit(str[i - 1] && mode == 1))
+				return (0);
+			else
+				return (-1);
+		}
+		++i;
+	}
+	return (1);
+}
 
 char	*reduce_str(char *to_remplace, int length)
 {

@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 11:23:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/10 17:07:40 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/11 16:02:44 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,36 +26,24 @@ char	*get_option_x(va_list ap, t_word *lkd_list)
 		return (convert_into_hexa(va_arg(ap, unsigned int)));
 }
 
-char	*handle_return_x(char *to_remplace, char *spaces, char *prec)
+char	*handle_return_x(t_word *lkd_list, char *to_remplace,
+	char *spaces, char *prec)
 {
-		(void)spaces;
-		free(to_remplace);
-		if (spaces != NULL)
-			free(spaces);
-		if (prec != NULL)
-			free(prec);
+	free(lkd_list->content);
+	free(to_remplace);
+	if (spaces != NULL)
+		free(spaces);
+	if (prec != NULL)
+		free(prec);
 	return (NULL);
 }
 
-int		detect_prec(char *str, int mode)
+char	*return_x(t_word *lkd_list, char *zero_x, int option)
 {
-	int i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == '.')
-		{
-			if (!ft_isdigit(str[i + 1] && mode == 0))
-				return (-1);
-			if (ft_isdigit(str[i - 1] && mode == 1))
-				return (0);
-			else
-				return (-1);
-		}
-		++i;
-	}
-	return (1);
+	if (option == 1)
+		return (zero_x);
+	lkd_list->content = zero_x;
+	return (0);
 }
 
 int		handle_errors_x(t_word *lkd_list, char **to_remplace)
@@ -102,11 +90,6 @@ char	*percent_x(t_word *lkd_list, va_list ap, short option)
 	|| lkd_list->content[2] == '-') && prec != NULL)
 		spaces = add_space(lkd_list, prec);
 	zero_x = add_zero_x(lkd_list, to_remplace, prec, spaces);
-	//printf("zero_x = '%s', to_remplace = '%s' , prec = '%s' spaces = '%s'\n", zero_x, to_remplace, prec, spaces);
-	free(lkd_list->content);
-	handle_return_x(to_remplace,spaces, prec);
-	if (option == 1)
-		return (zero_x);
-	lkd_list->content = zero_x;
-	return (0);
+	handle_return_x(lkd_list, to_remplace, spaces, prec);
+	return (return_x(lkd_list, zero_x, option));
 }
