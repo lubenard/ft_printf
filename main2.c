@@ -6,7 +6,7 @@
 /*   By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 18:42:29 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/10 18:08:59 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/11 18:10:04 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int main(void)
 {
 
-	printf("------1------\n");
+	/*printf("------1------\n");
 	printf("|%s|\n", "this is a string");
 	ft_printf("|%s|\n", "this is a string");
 	printf("------2-------\n");
@@ -96,7 +96,7 @@ int main(void)
 	ft_printf("|%#05x|\n", 42);
 	printf("-----24-------\n");
 	printf("|%#07x|\n", 42);
-	ft_printf("|%#07x|\n", 42);
+	ft_printf("|%#07x|\n", 42);*/
 	printf("-----25-------\n");
 	printf("|%#.05x|\n", 42);
 	ft_printf("|%#.05x|\n", 42);
@@ -112,7 +112,7 @@ int main(void)
 	printf("-----29-------\n");
 	printf("|%0+5d|\n", 42);
 	ft_printf("|%0+5d|\n", 42);
-	printf("-----30-------\n");
+	/*printf("-----30-------\n");
 	printf("|%#10.05x|\n", 42);
 	ft_printf("|%#10.05x|\n", 42);
 	printf("-----31-------\n");
@@ -132,17 +132,17 @@ int main(void)
 	ft_printf("|% %|\n");
 	printf("-----36-------\n");
 	printf("%% |%2.11u|\n", 18);
-	ft_printf("%% |%2.11u|\n", 18);
+	ft_printf("%% |%2.11u|\n", 18);*/
 	printf("-----37-------\n");
 	printf("|%07.5d|,|%d|\n",150789, 17);   //   <-----------
 	ft_printf("|%07.5d|,|%d|\n",150789, 17);
-	printf("-----38-------\n");
+	/*printf("-----38-------\n");
 	printf("|%00.05d| \n", 7);
-	ft_printf("|%00.05d| \n", 7);
+	ft_printf("|%00.05d| \n", 7);*/
 	printf("-----39-------\n");
 	printf("|%05.2d|\n", 7);     //     <------------
 	ft_printf("|%05.2d|\n", 7);
-	printf("-----40-------\n");
+	/*printf("-----40-------\n");
 	printf("|%5%|\n");
 	ft_printf("|%5%|\n");
 	printf("-----41-------\n");
@@ -214,7 +214,7 @@ int main(void)
 	ft_printf("mien printf avec #6o '%2o'\n", 542);
 
 	printf("vrai printf avec lu '%lu'\n", -42);
-	ft_printf("mien printf avec lu '%lu'\n", -42);
+	ft_printf("mien printf avec lu '%lu'\n", -42);*/
 
 	printf("vrai printf avec -#08.15x '%#-08.15x'\n", 42);
 	ft_printf("mien printf avec -#08.15x '%#-08.15x'\n", 42);
@@ -222,7 +222,7 @@ int main(void)
 	printf("vrai printf avec #-08x '%#-08x'\n", 42);
 	ft_printf("mien printf avec #-08x '%#-08x'\n", 42);
 
-	printf("'@moulitest: '%#.x' '%#.0x''\n", 0, 0);
+	/*printf("'@moulitest: '%#.x' '%#.0x''\n", 0, 0);
 	ft_printf("'@moulitest: '%#.x' '%#.0x''\n", 0, 0);
 	
 	printf("vrai printf avec lu '%lu'\n", -42);
@@ -264,7 +264,7 @@ int main(void)
 
 	ft_printf("@moulitest: %.5u", 42);
 	printf("%hu, %hu\n", 0, USHRT_MAX);
-	ft_printf("%hu, %hu\n", 0, USHRT_MAX);
+	ft_printf("%hu, %hu\n", 0, USHRT_MAX);*/
 
 	return (0);
 }
