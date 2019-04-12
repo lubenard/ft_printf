@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 14:58:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/12 15:28:41 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/12 23:28:12 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,7 +146,8 @@ char	*add_space(t_word *lkd_list, char *to_remplace)
 //	printf("length = %d, minus = %d sub = %s\n", lkd_list->spaces, minus, lkd_list->spaces_char);
 //	printf("detect zero = %d\n", detect_zero(lkd_list));
 
-	if (minus == 0 && detect_zero(lkd_list) == 1)
+	//printf("detect prec == %d\n", detect_prec(lkd_list->content, 0));
+	if (minus == 0 && detect_zero(lkd_list) == 1 && detect_prec(lkd_list->content, 0) != -1)
 	{
 		return (join_str(to_remplace, lkd_list->spaces, minus, '0'));
 	}

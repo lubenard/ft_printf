@@ -6,7 +6,7 @@
 /*   By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 18:42:29 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/12 17:03:23 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/12 23:29:01 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int main(void)
 {
 
-	/*printf("------1------\n");
+	printf("------1------\n");
 	printf("|%s|\n", "this is a string");
 	ft_printf("|%s|\n", "this is a string");
 	printf("------2-------\n");
@@ -132,17 +132,17 @@ int main(void)
 	ft_printf("|% %|\n");
 	printf("-----36-------\n");
 	printf("%% |%2.11u|\n", 18);
-	ft_printf("%% |%2.11u|\n", 18);*/
+	ft_printf("%% |%2.11u|\n", 18);
 	printf("-----37-------\n");
-	printf("|%07.5d|,|%d|\n",150789, 17);   //   <-----------
-	ft_printf("|%07.5d|,|%d|\n",150789, 17);
-	/*printf("-----38-------\n");
+	printf("|%07.5d|\n",150789);   //   <-----------
+	ft_printf("|%07.5d|\n",150789);
+	printf("-----38-------\n");
 	printf("|%00.05d| \n", 7);
-	ft_printf("|%00.05d| \n", 7);*/
+	ft_printf("|%00.05d| \n", 7);
 	printf("-----39-------\n");
 	printf("|%05.2d|\n", 7);     //     <------------
 	ft_printf("|%05.2d|\n", 7);
-	/*printf("-----40-------\n");
+	printf("-----40-------\n");
 	printf("|%5%|\n");
 	ft_printf("|%5%|\n");
 	printf("-----41-------\n");
@@ -264,7 +264,7 @@ int main(void)
 
 	ft_printf("@moulitest: %.5u", 42);
 	printf("%hu, %hu\n", 0, USHRT_MAX);
-	ft_printf("%hu, %hu\n", 0, USHRT_MAX);*/
+	ft_printf("%hu, %hu\n", 0, USHRT_MAX);
 
 	return (0);
 }
