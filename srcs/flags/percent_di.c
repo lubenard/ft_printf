@@ -6,12 +6,11 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 20:01:12 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/11 18:01:16 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/12 12:23:47 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
-#include "percent_di.h"
 
 char		*get_option_d(va_list ap, t_word *lkd_list)
 {

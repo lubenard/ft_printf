@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/08 15:30:35 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/12 10:37:31 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,13 @@ typedef struct	s_word
 	int				spaces;
 	struct s_word	*next;
 }				t_word;
+
+typedef struct		s_percent_di
+{
+	char	*prec;
+	char	*spaces;
+	char	*tmp;
+}					t_percent_di;
 /*
 ** Printf functions
 */

@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/26 22:32:14 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/10 17:01:32 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/12 11:02:40 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,18 @@ char	*change_minus(char *str)
 {
 	int		i;
 	char	tmp;
-
+	int		e;
+	//printf("Je rentre la\n");
 	i = 0;
+	e = 0;
 	while (str[i])
 	{
-		if (str[i] == '-' && i > 0 && str[i] != ' ')
+		if ((str[i] == '-' || str[i] == '+') && i > 0)
 		{
-			tmp = str[0];
-			str[0] = '-';
+			while (str[e] == ' ')
+				e++;
+			tmp = str[e];
+			str[e] = (str[i] == '-') ? '-' : '+';
 			str[i] = tmp;
 		}
 		++i;

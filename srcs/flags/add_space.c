@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 14:58:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/08 15:37:39 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/12 12:27:20 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,22 +93,40 @@ char	*extract_number(char *str)
 			return (ft_strdup("0"));
 		++i;
 	}
+	//printf("Je suis sur le charactere %c et str vaut %s\n", str[i], str);
+	if (str[i + 1] == '+' || str[i + 1] == '-' || str[i+1] == '#' || str[i+1] == ' ')
+		i += 2;
+	//printf("Je suis sur le charactere %c et str vaut %s\n", str[i], str);
 	e = i;
 	while (ft_isdigit(str[e]) && str[e])
+	{
+	//	printf("je decide d'avancer\n");
 		++e;
+	}
 	ret = ft_strsub(str, i, e - 1);
+	//printf("ret = %s\n", ret);
 	return (ret);
 }
 
-int		detect_zero(char *str)
+int		detect_zero(t_word *lkd_list)
 {
-	if (str[0] == '-')
+	int i;
+
+	i = 0;
+	while (lkd_list->content[i])
 	{
-		if (str[1] == '0')
+		if (lkd_list->content[i] == '0' && lkd_list->spaces < 10 && lkd_list->content[i-1] != '.')
 			return (1);
+		else
+		{
+			if (lkd_list->content[i] == '0' && ft_isdigit(lkd_list->content[i - 1]) == 0
+			&& lkd_list->content[i + 1] > '0' && lkd_list->content[i+1] < '9')
+			{
+				return (1);
+			}
+		}
+		i++;
 	}
-	else if (str[0] == '0')
-		return (1);
 	return (0);
 }
 
@@ -124,7 +142,7 @@ char	*add_space(t_word *lkd_list, char *to_remplace)
 	if (lkd_list->spaces == 0)
 		return (ft_strdup(to_remplace));
 //	printf("length = %d, minus = %d sub = %s\n", lkd_list->spaces, minus, lkd_list->spaces_char);
-	if (minus == 0 && detect_zero(lkd_list->spaces_char) == 1)
+	if (minus == 0 && detect_zero(lkd_list) == 1)
 	{
 //		printf(" >>>>>>> %c\n", to_remplace[0]);
 		//if ((to_remplace[0] == '-' || to_remplace[0] == '+') && str[ft_strlen(str) - 1] == 'd')
