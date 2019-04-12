@@ -6,7 +6,7 @@
 /*   By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:07 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/08 17:59:48 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/12 16:45:21 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -217,8 +217,8 @@ int main(void)
 	ft_printf("zero positif '%010d'\n", 1000);
 	printf("zero negatif '%010d'\n", -1000);
 	ft_printf("zero negatif '%010d'\n", -1000);
-	printf("zero negatif '%010.06d'\n", -1000);
-	ft_printf("zero negatif '%10.06d'\n", -1000);
+	printf("zero negatif '%010.6d'\n", -1000);
+	ft_printf("zero negatif '%10.6d'\n", -1000);
 	printf("zero + prec '%-010d'\n", -1000);
 	ft_printf("zero + prec '%-010d'\n", -1000);
 	printf("----------------------------------\n");
@@ -796,5 +796,14 @@ int main(void)
 	ft_printf("%llu\n", 4999999999);
 	printf("@moulitest: %.5u\n", 42);
 	ft_printf("@moulitest: %.5u\n", 42);
+	printf("--------------------Leaks 42fc---------------");
+	ft_printf("%jd\\n\n", 9223372036854775807);
+    ft_printf("%zd\\n\n", 4294967295);
+    ft_printf("%\\n\n");
+    ft_printf("%U\\n\n", 4294967295);
+    ft_printf("%S\\n\n", L"ݗݜशব");
+    ft_printf("%C\\n\n", 15000);
+    ft_printf("%-05d\n", -42);
+    ft_printf("%p\\n\n", &ft_printf);
 	return (0);
 }

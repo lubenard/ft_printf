@@ -6,7 +6,7 @@
 /*   By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 18:42:29 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/12 12:29:36 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/12 17:03:23 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,16 +96,16 @@ int main(void)
 	ft_printf("|%#05x|\n", 42);
 	printf("-----24-------\n");
 	printf("|%#07x|\n", 42);
-	ft_printf("|%#07x|\n", 42);*/
+	ft_printf("|%#07x|\n", 42);
 	printf("-----25-------\n");
-	printf("|%#.05x|\n", 42);
-	ft_printf("|%#.05x|\n", 42);
+	printf("|%#.05x|\n", 42);          
+	ft_printf("|%#.05x|\n", 42);      //   <--------
 	printf("-----26-------\n");
 	printf("|%#08o|\n", 42);
 	ft_printf("|%#08o|\n", 42);
-	/*printf("-----27-------\n");
+	printf("-----27-------\n");
 	printf("|%+05d|\n", 42);
-	ft_printf("|%+05d|\n", 42);  //   <--------
+	ft_printf("|%+05d|\n", 42);  
 	printf("-----28-------\n");
 	printf("|%0+5d|\n", -42);
 	ft_printf("|%0+5d|\n", -42);
@@ -214,12 +214,12 @@ int main(void)
 	ft_printf("mien printf avec #6o '%2o'\n", 542);
 
 	printf("vrai printf avec lu '%lu'\n", -42);
-	ft_printf("mien printf avec lu '%lu'\n", -42);*/
+	ft_printf("mien printf avec lu '%lu'\n", -42);
 
-	printf("vrai printf avec -#08.15x '%#-08.15x'\n", 42);
+	printf("vrai printf avec -#08.15x '%#-08.15x'\n", 42);       //<----------------------------------
 	ft_printf("mien printf avec -#08.15x '%#-08.15x'\n", 42);
 
-	/*printf("vrai printf avec #-08x '%#-08x'\n", 42);
+	printf("vrai printf avec #-08x '%#-08x'\n", 42);
 	ft_printf("mien printf avec #-08x '%#-08x'\n", 42);
 
 	printf("'@moulitest: '%#.x' '%#.0x''\n", 0, 0);

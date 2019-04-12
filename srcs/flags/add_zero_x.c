@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/26 22:32:14 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/12 11:02:40 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/12 17:10:30 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,10 @@ int		check_spaces(char *str)
 		if (str[i++] == ' ')
 			return (-1);
 	}
-	if (str[0] == '0' && str[1] == '0')
-		return (-1);
 	return (0);
 }
 
-char	*insert_zero(char *to_remplace, char *prec, char *spaces)
+char	*insert_zero(t_word *lkd_list, char *to_remplace, char *prec, char *spaces)
 {
 	int		i;
 	char	*tmp;
@@ -63,6 +61,8 @@ char	*insert_zero(char *to_remplace, char *prec, char *spaces)
 		tmp = prec;
 	else if (spaces == NULL && prec == NULL)
 		tmp = to_remplace;
+	if (ft_strlen(tmp) >= lkd_list->spaces && check_spaces(tmp) == 0)
+		return (ft_strdup(tmp));
 	if (tmp)
 	{
 		if (tmp[0] == ' ')
@@ -83,7 +83,7 @@ char	*insert_zero(char *to_remplace, char *prec, char *spaces)
 	return (NULL);
 }
 
-char	*insert_spaces(char *str)
+char	*insert_spaces(int spaces, char *str)
 {
 	int i;
 
@@ -102,10 +102,10 @@ char	*insert_spaces(char *str)
 		str[ft_strlen(str) - 1] = '\0';
 		return (str);
 	}
-	else if (str[0] == '0' && str[1] == '0')
+	else if (ft_strlen(str) >= spaces && check_spaces(str) == 0)
 	{
-		str[0] = '0';
-		str[1] = 'x';
+		ft_strjoin("0x", str);
+		return (str);
 	}
 	return (ft_strdup(str));
 }
@@ -148,7 +148,7 @@ char	*add_zero_x(t_word *lkd_list, char *to_remplace, char *prec, char *spaces)
 	if (lkd_list->content[ft_strlen(lkd_list->content) - 1] == 'o')
 	{
 		free(lkd_list->content);
-		return (insert_zero(to_remplace, prec, spaces));
+		return (insert_zero(lkd_list, to_remplace, prec, spaces));
 	}
 	if (spaces && check_spaces(spaces) == 0)
 		return (ft_strjoin("0x", spaces));
@@ -157,10 +157,10 @@ char	*add_zero_x(t_word *lkd_list, char *to_remplace, char *prec, char *spaces)
 	else if (!spaces && !prec && check_spaces(to_remplace) == 0)
 		return (ft_strjoin("0x", to_remplace));
 	else if (spaces && check_spaces(spaces) == -1)
-		return (insert_spaces(spaces));
+		return (insert_spaces(lkd_list->spaces, spaces));
 	else if (prec && check_spaces(prec) == -1)
-		return (insert_spaces(prec));
+		return (insert_spaces(lkd_list->spaces, prec));
 	else if (!spaces && !prec && check_spaces(to_remplace) == -1)
-		return (insert_spaces(to_remplace));
+		return (insert_spaces(lkd_list->spaces, to_remplace));
 	return (NULL);
 }
