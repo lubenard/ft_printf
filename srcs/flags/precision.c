@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:56:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/15 15:30:48 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/15 17:28:03 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		detect_prec(char *str, int mode)
 		{
 			//printf("ce truc vaut %c et vaut  %c\n", str[i + 1], str[i - 1]);
 			//printf("ft_isdigit(+1) = %d et -1 = %d\n", ft_isdigit(str[i+ 1]), ft_isdigit(str[i- 1]));
-			if (!ft_isdigit(str[i + 1])&& mode == 0)
+			if (ft_isdigit(str[i + 1]) == 0 && mode == 0)
 				return (-1);
 			if (ft_isdigit(str[i - 1]) && mode == 1)
 				return (0);
@@ -83,6 +83,24 @@ char	*mode_0(char *to_remplace, int length, char *sub)
 		tmp = join_str(to_remplace, length, 0, '0');
 	free(sub);
 	return (tmp);
+}
+
+int		extract_prec(char *content, int i)
+{
+	char	*sub;
+	int		length;
+	int		k;
+	int		j;
+
+	j = i + 1;
+	i++;
+	k = i;
+	while (content[i] > 47 && content[i] < 58)
+		++i;
+	sub = ft_strsub(content, j, i - k);
+	length = ft_atoi(sub);
+	free(sub);
+	return (length);
 }
 
 char	*precision(char *content, char *to_remplace, int i, int mode)

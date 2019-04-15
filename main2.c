@@ -6,7 +6,7 @@
 /*   By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 18:42:29 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/15 15:36:44 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/15 17:01:02 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -265,6 +265,13 @@ int main(void)
 	ft_printf("@moulitest: %.5u", 42);
 	printf("%hu, %hu\n", 0, USHRT_MAX);
 	ft_printf("%hu, %hu\n", 0, USHRT_MAX);
+
+	printf("-----21-------\n");
+	printf("|%00.3d|\n", -12);
+	ft_printf("|%00.3d|\n", -12);
+	printf("-----21-------\n");
+	printf("|%10.5d|\n", -1);
+	ft_printf("|%10.5d|\n", -1);
 
 	return (0);
 }

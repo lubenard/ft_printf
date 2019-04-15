@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/26 22:32:14 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/15 15:38:25 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/15 15:42:55 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ char	*insert_zero(t_word *lkd_list, char *to_remplace, char *prec, char *spaces)
 		tmp = to_remplace;
 	if (ft_strlen(tmp) == lkd_list->spaces && check_spaces(tmp) == 0)
 		return (ft_strdup(tmp));
-	//printf("Je suis la\n");
 	if (tmp)
 	{
 		if (tmp[0] == ' ')
@@ -77,7 +76,6 @@ char	*insert_zero(t_word *lkd_list, char *to_remplace, char *prec, char *spaces)
 		}
 		else
 			tmp = ft_strjoin("0", spaces);
-		//printf("Here we are\n");
 		if (tmp[ft_strlen(tmp) - 1] == ' ')
 			tmp[ft_strlen(tmp) - 1] = '\0';
 		return (tmp);

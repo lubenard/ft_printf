@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 13:47:20 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/10 18:22:07 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/15 18:20:54 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ t_word		*new_maillon(void)
 	new_element->null_char = 0;
 	new_element->spaces_char = NULL;
 	new_element->spaces = 0;
+	new_element->is_neg = 0;
 	new_element->next = NULL;
 	return (new_element);
 }

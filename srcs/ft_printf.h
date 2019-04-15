@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/12 10:37:31 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/15 18:40:55 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 # define MAX_INT64 (9223372036854775807LL)
 # include <limits.h>
 
-#include <stdio.h>
-
 typedef struct	s_word
 {
 	char			*content;
@@ -30,14 +28,15 @@ typedef struct	s_word
 	char			*spaces_char;
 	int				spaces;
 	struct s_word	*next;
+	short			is_neg;
 }				t_word;
 
-typedef struct		s_percent_di
+typedef struct	s_percent_di
 {
-	char	*prec;
-	char	*spaces;
-	char	*tmp;
-}					t_percent_di;
+	char		*prec;
+	char		*spaces;
+	char		*tmp;
+}				t_percent_di;
 /*
 ** Printf functions
 */
@@ -55,6 +54,8 @@ char			*change_minus(char *str);
 int				detect_prec(char *str, int mode);
 char			*nzero(char *str);
 char			*extract_number(char *str);
+int				extract_prec(char *content, int j);
+int				detect_zero(t_word *lkd_list);
 /*
 ** Libft functions
 */

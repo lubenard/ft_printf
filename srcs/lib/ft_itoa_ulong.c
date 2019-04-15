@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 18:36:28 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/06 14:35:50 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/15 18:43:29 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char				*ft_itoa_ulong(unsigned long long n)
 	nbr = n;
 	i = 0;
 	if (!(result = ft_strnew((size_t)ft_len(nbr))))
-			return (NULL);
+		return (NULL);
 	if (n == 0)
 		return (nzero(result));
 	while (nbr != 0)
