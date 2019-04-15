@@ -6,7 +6,7 @@
 /*   By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 18:42:29 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/12 23:29:01 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/15 15:36:44 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int main(void)
 	printf("-----21-------\n");
 	printf("|%03.2d|\n", -1);
 	ft_printf("|%03.2d|\n", -1);
-	printf("-----22-------\n");
+	printf("-----22-------\n");   //   <-----------
 	printf("|%#o|\n", 42);
 	ft_printf("|%#o|\n", 42);
 	printf("-----23-------\n");
@@ -99,7 +99,7 @@ int main(void)
 	ft_printf("|%#07x|\n", 42);
 	printf("-----25-------\n");
 	printf("|%#.05x|\n", 42);          
-	ft_printf("|%#.05x|\n", 42);      //   <--------
+	ft_printf("|%#.05x|\n", 42);      
 	printf("-----26-------\n");
 	printf("|%#08o|\n", 42);
 	ft_printf("|%#08o|\n", 42);
@@ -134,13 +134,13 @@ int main(void)
 	printf("%% |%2.11u|\n", 18);
 	ft_printf("%% |%2.11u|\n", 18);
 	printf("-----37-------\n");
-	printf("|%07.5d|\n",150789);   //   <-----------
+	printf("|%07.5d|\n",150789);
 	ft_printf("|%07.5d|\n",150789);
 	printf("-----38-------\n");
 	printf("|%00.05d| \n", 7);
 	ft_printf("|%00.05d| \n", 7);
 	printf("-----39-------\n");
-	printf("|%05.2d|\n", 7);     //     <------------
+	printf("|%05.2d|\n", 7);
 	ft_printf("|%05.2d|\n", 7);
 	printf("-----40-------\n");
 	printf("|%5%|\n");
@@ -216,7 +216,7 @@ int main(void)
 	printf("vrai printf avec lu '%lu'\n", -42);
 	ft_printf("mien printf avec lu '%lu'\n", -42);
 
-	printf("vrai printf avec -#08.15x '%#-08.15x'\n", 42);       //<----------------------------------
+	printf("vrai printf avec -#08.15x '%#-08.15x'\n", 42);
 	ft_printf("mien printf avec -#08.15x '%#-08.15x'\n", 42);
 
 	printf("vrai printf avec #-08x '%#-08x'\n", 42);

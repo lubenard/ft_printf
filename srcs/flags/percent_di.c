@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 20:01:12 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/12 23:29:31 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/15 14:43:20 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,19 +108,19 @@ int			percent_di(t_word *lkd_list, va_list ap)
 	lkd_list->content[1] == '-' || lkd_list->content[1] == '+')
 		&& struct_di.prec == NULL && struct_di.tmp == NULL)
 	{
-		//printf("Here i am\n");
+	//	printf("Here i am\n");
 		struct_di.spaces = add_space(lkd_list, to_remplace);
 	}
 	else if ((lkd_list->spaces > 0 || ft_strchr(lkd_list->content, '-'))
 		&& struct_di.tmp != NULL)
 	{
-		//printf("Here we go\n");
+	//	printf("Here we go\n");
 		struct_di.spaces = add_space(lkd_list, struct_di.tmp);
 	}
 	else if ((ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-')
 		&& struct_di.prec != NULL)
 	{
-		//printf("Je suis ici\n");
+	//	printf("Je suis ici\n");
 		struct_di.spaces = add_space(lkd_list, struct_di.prec);
 	}
 	//printf("tmp = %s, to_remplace = %s, prec = %s spaces = %s\n", struct_di.tmp, to_remplace, struct_di.prec, struct_di.spaces);

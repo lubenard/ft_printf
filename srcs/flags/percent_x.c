@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 11:23:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/12 17:01:40 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/15 14:20:37 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,15 @@ char	*percent_x(t_word *lkd_list, va_list ap, short option)
 	|| lkd_list->content[2] == '-') && prec != NULL)
 		spaces = add_space(lkd_list, prec);
 	//printf("to_remplace = %s prec = %s spaces = %s\n", to_remplace, prec, spaces);
+	if (ft_strchr(lkd_list->content, '#') != -1 && spaces)
+	{
+		if (spaces[0] == '0' && spaces[1] == '0')
+		{
+			spaces[0] = ' ';
+			spaces[1] = ' ';
+		}
+	}
+
 
 	zero_x = add_zero_x(lkd_list, to_remplace, prec, spaces);
 	//printf("Zero_x %s to_remplace = %s prec = %s spaces = %s\n", zero_x, to_remplace, prec, spaces);

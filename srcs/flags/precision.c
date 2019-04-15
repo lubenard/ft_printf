@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:56:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/12 15:24:05 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/15 15:30:48 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,11 @@ int		detect_prec(char *str, int mode)
 	{
 		if (str[i] == '.')
 		{
-			if (!ft_isdigit(str[i + 1] && mode == 0))
+			//printf("ce truc vaut %c et vaut  %c\n", str[i + 1], str[i - 1]);
+			//printf("ft_isdigit(+1) = %d et -1 = %d\n", ft_isdigit(str[i+ 1]), ft_isdigit(str[i- 1]));
+			if (!ft_isdigit(str[i + 1])&& mode == 0)
 				return (-1);
-			if (ft_isdigit(str[i - 1] && mode == 1))
+			if (ft_isdigit(str[i - 1]) && mode == 1)
 				return (0);
 			else
 				return (-1);
