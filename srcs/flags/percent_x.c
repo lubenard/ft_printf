@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 11:23:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/15 14:20:37 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/16 17:53:23 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,18 @@ int		handle_errors_x(t_word *lkd_list, char **to_remplace)
 	return (0);
 }
 
+void	handle_errors_x2(t_word *lkd_list, char **spaces)
+{
+	if (ft_strchr(lkd_list->content, '#') != -1 && *spaces)
+	{
+		if ((*spaces)[0] == '0' && (*spaces)[1] == '0')
+		{
+			(*spaces)[0] = ' ';
+			(*spaces)[1] = ' ';
+		}
+	}
+}
+
 char	*percent_x(t_word *lkd_list, va_list ap, short option)
 {
 	char	*to_remplace;
@@ -73,7 +85,6 @@ char	*percent_x(t_word *lkd_list, va_list ap, short option)
 	char	*spaces;
 	char	*zero_x;
 
-	i = 0;
 	prec = NULL;
 	spaces = NULL;
 	to_remplace = get_option_x(ap, lkd_list);
@@ -81,7 +92,6 @@ char	*percent_x(t_word *lkd_list, va_list ap, short option)
 		return (0);
 	if ((i = ft_strchr(lkd_list->content, '.')) != -1)
 		prec = precision(lkd_list->content, to_remplace, i, 0);
-	//printf("precision = %s\n", prec);
 	if ((ft_isdigit(lkd_list->content[1]) || ft_isdigit(lkd_list->content[2])
 	|| lkd_list->content[1] == '-' || lkd_list->content[2] == '-')
 	&& prec == NULL)
@@ -90,19 +100,8 @@ char	*percent_x(t_word *lkd_list, va_list ap, short option)
 	ft_isdigit(lkd_list->content[2]) || lkd_list->content[1] == '-'
 	|| lkd_list->content[2] == '-') && prec != NULL)
 		spaces = add_space(lkd_list, prec);
-	//printf("to_remplace = %s prec = %s spaces = %s\n", to_remplace, prec, spaces);
-	if (ft_strchr(lkd_list->content, '#') != -1 && spaces)
-	{
-		if (spaces[0] == '0' && spaces[1] == '0')
-		{
-			spaces[0] = ' ';
-			spaces[1] = ' ';
-		}
-	}
-
-
+	handle_errors_x2(lkd_list, &spaces);
 	zero_x = add_zero_x(lkd_list, to_remplace, prec, spaces);
-	//printf("Zero_x %s to_remplace = %s prec = %s spaces = %s\n", zero_x, to_remplace, prec, spaces);
 	handle_return_x(lkd_list, to_remplace, spaces, prec);
 	return (return_x(lkd_list, zero_x, option));
 }

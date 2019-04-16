@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:56:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/16 16:20:22 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/16 17:43:15 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,26 +81,6 @@ char	*mode_0(char *to_remplace, int length, char *sub)
 		tmp = join_str(to_remplace, length, 0, '0');
 	free(sub);
 	return (tmp);
-}
-
-int		extract_prec(char *content, int i)
-{
-	char	*sub;
-	int		length;
-	int		k;
-	int		j;
-
-	j = i + 1;
-	i++;
-	k = i;
-	if (i == -1)
-		i = ft_strchr(content, '.');
-	while (content[i] > 47 && content[i] < 58)
-		++i;
-	sub = ft_strsub(content, j, i - k);
-	length = ft_atoi(sub);
-	free(sub);
-	return (length);
 }
 
 char	*precision(char *content, char *to_remplace, int i, int mode)

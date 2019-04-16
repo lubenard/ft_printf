@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 14:58:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/16 14:18:55 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/16 17:38:54 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,30 +30,6 @@ char	*join_str(char *to_remplace, int length, int minus, char fill)
 	else
 		tmp = ft_strjoin(to_join, to_remplace);
 	free(to_join);
-	return (tmp);
-}
-
-char	*join_str2(char *to_remplace, int length, int minus, char fill)
-{
-	int		length_remplace;
-	char	*to_join;
-	char	*tmp;
-	char	firstchar;
-
-	firstchar = to_remplace[0];
-	to_remplace[0] = fill;
-	length_remplace = ft_strlen(to_remplace);
-	if (length - length_remplace < 0)
-		length *= -1;
-	if (!(to_join = ft_strnew(length - length_remplace)))
-		return (NULL);
-	to_join = ft_fill(to_join, fill, length - length_remplace);
-	if (minus == 1)
-		tmp = ft_strjoin(to_remplace, to_join);
-	else
-		tmp = ft_strjoin(to_join, to_remplace);
-	free(to_join);
-	tmp[0] = firstchar;
 	return (tmp);
 }
 
@@ -90,7 +66,8 @@ char	*extract_number(char *str)
 			return (ft_strdup("0"));
 		++i;
 	}
-	if (str[i + 1] == '+' || str[i + 1] == '-' || str[i + 1] == '#' || str[i + 1] == ' ')
+	if (str[i + 1] == '+' || str[i + 1] == '-'
+	|| str[i + 1] == '#' || str[i + 1] == ' ')
 		i += 2;
 	e = i;
 	while (ft_isdigit(str[e]) && str[e])
@@ -135,7 +112,8 @@ char	*add_space(t_word *lkd_list, char *to_remplace)
 		lkd_list->spaces--;
 	if (lkd_list->spaces == 0 && lkd_list->is_neg == 0)
 		return (ft_strdup(to_remplace));
-	if (minus == 0 && detect_zero(lkd_list) == 1 && detect_prec(lkd_list->content, 0) != -1)
+	if (minus == 0 && detect_zero(lkd_list) == 1
+	&& detect_prec(lkd_list->content, 0) != -1 && lkd_list->null_char == 0)
 		return (join_str(to_remplace, lkd_list->spaces, minus, '0'));
 	else
 		return (join_str(to_remplace, lkd_list->spaces, minus, ' '));

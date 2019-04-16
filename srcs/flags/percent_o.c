@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 14:43:35 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/16 15:42:20 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/16 17:41:33 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,27 +59,20 @@ int			handle_errors_o(t_word *lkd_list, char **to_remplace)
 {
 	if (ft_strcmp(*to_remplace, "0") == 0)
 	{
+		free(*to_remplace);
 		if ((ft_strstr(lkd_list->content, ".0")
 		|| detect_prec(lkd_list->content, 0) == -1)
 		&& ft_strchr(lkd_list->content, '#') == -1)
-		{
-			free(*to_remplace);
 			*to_remplace = ft_strdup("");
-		}
 		else if ((!ft_strstr(lkd_list->content, ".0")
 		|| detect_prec(lkd_list->content, 0) != -1)
-		&& ft_strchr(lkd_list->content, '#') != -1
-		&& lkd_list->spaces > 0)
-		{
-			free(*to_remplace);
+		&& ft_strchr(lkd_list->content, '#') != -1 && lkd_list->spaces > 0)
 			*to_remplace = ft_strdup("");
-		}
 		else
 		{
 			free(lkd_list->content);
 			lkd_list->is_malloc = 0;
 			lkd_list->content = "0\0";
-			free(*to_remplace);
 			return (1);
 		}
 	}
@@ -109,6 +102,5 @@ int			percent_o(t_word *lkd_list, va_list ap)
 	|| ft_isdigit(lkd_list->content[2])) || ft_strchr(lkd_list->content, '-'))
 			&& prec != NULL)
 		spaces = add_space(lkd_list, prec);
-	//printf("spaces = %s prec = %s\n",spaces, prec);
 	return (handle_return_o(lkd_list, prec, spaces, to_remplace));
 }

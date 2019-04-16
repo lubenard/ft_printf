@@ -6,34 +6,11 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/26 22:32:14 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/16 16:25:02 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/16 18:06:24 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
-
-char	*change_minus(char *str)
-{
-	int		i;
-	char	tmp;
-	int		e;
-
-	i = 0;
-	e = 0;
-	while (str[i])
-	{
-		if ((str[i] == '-' || str[i] == '+') && i > 0)
-		{
-			while (str[e] == ' ')
-				e++;
-			tmp = str[e];
-			str[e] = (str[i] == '-') ? '-' : '+';
-			str[i] = tmp;
-		}
-		++i;
-	}
-	return (str);
-}
 
 int		check_spaces(char *str)
 {
@@ -48,7 +25,8 @@ int		check_spaces(char *str)
 	return (0);
 }
 
-char	*insert_zero(t_word *lkd_list, char *to_remplace, char *prec, char *spaces)
+char	*insert_zero(t_word *lkd_list, char *to_remplace,
+		char *prec, char *spaces)
 {
 	int		i;
 	char	*tmp;
@@ -132,7 +110,8 @@ int		check_null(char *prec, char *spaces, char *to_remplace)
 	return (0);
 }
 
-char	*add_zero_x(t_word *lkd_list, char *to_remplace, char *prec, char *spaces)
+char	*add_zero_x(t_word *lkd_list, char *to_remplace,
+		char *prec, char *spaces)
 {
 	if (ft_strchr(lkd_list->content, '#') == -1 ||
 		check_null(prec, spaces, to_remplace) == -1)
@@ -146,15 +125,13 @@ char	*add_zero_x(t_word *lkd_list, char *to_remplace, char *prec, char *spaces)
 		else
 			return (ft_strdup(to_remplace));
 	}
-	//printf("to_remplace = %s spaces = %s prec = %s\n", to_remplace, spaces, prec);
 	if (lkd_list->content[ft_strlen(lkd_list->content) - 1] == 'o')
 	{
 		free(lkd_list->content);
-		//printf("je rentre la\n");
 		return (insert_zero(lkd_list, to_remplace, prec, spaces));
 	}
 	if (spaces && check_spaces(spaces) == 0)
-			return (ft_strjoin("0x", spaces));
+		return (ft_strjoin("0x", spaces));
 	else if (prec && !spaces && check_spaces(prec) == 0)
 		return (ft_strjoin("0x", prec));
 	else if (!spaces && !prec && check_spaces(to_remplace) == 0)

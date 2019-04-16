@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 20:01:46 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/16 16:36:48 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/16 17:40:00 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 ** Then add 0x before
 ** https://repl.it/repls/ValidBestFlashdrives
 */
-char	 *change_sign(char *str)
+
+char		*change_sign(char *str)
 {
 	int i;
 	int e;
@@ -38,7 +39,7 @@ char	 *change_sign(char *str)
 	return (str);
 }
 
-void	handle_return(t_word *lkd_list,
+void		handle_return(t_word *lkd_list,
 		char *to_remplace, char *spaces)
 {
 	if (spaces != NULL)
@@ -50,7 +51,7 @@ void	handle_return(t_word *lkd_list,
 		lkd_list->content = change_sign(to_remplace);
 }
 
-int		null_arg(int value, t_word *lkd_list)
+int			null_arg(int value, t_word *lkd_list)
 {
 	if (value == 0)
 	{
@@ -62,7 +63,7 @@ int		null_arg(int value, t_word *lkd_list)
 	return (1);
 }
 
-int		percent_p(t_word *lkd_list, va_list ap)
+int			percent_p(t_word *lkd_list, va_list ap)
 {
 	char				*to_remplace;
 	unsigned long		value;

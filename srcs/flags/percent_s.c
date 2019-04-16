@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 21:41:36 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/16 15:38:19 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/16 17:42:13 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char	*check_null_s(t_word *lkd_list, char **to_remplace)
 		&& lkd_list->spaces == 0)
 			*to_remplace = "";
 		else if ((!ft_strstr(lkd_list->content, ".0")
-		|| detect_prec(lkd_list->content, 0) != -1) 
+		|| detect_prec(lkd_list->content, 0) != -1)
 		&& lkd_list->spaces == 0)
 		{
 			free(lkd_list->content);
