@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 21:41:36 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/10 17:24:24 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/16 15:38:19 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,26 @@ void	handle_return_s(t_word *lkd_list, char *spaces,
 		lkd_list->content = to_remplace;
 }
 
-int		check_null_s(t_word *lkd_list, char *to_remplace)
+char	*check_null_s(t_word *lkd_list, char **to_remplace)
 {
-	if (!to_remplace)
+	if (!*to_remplace)
 	{
-		free(lkd_list->content);
-		lkd_list->is_malloc = 0;
-		lkd_list->content = "(null)";
-		return (0);
+		*to_remplace = "(null)";
+		if ((ft_strstr(lkd_list->content, ".0")
+		|| detect_prec(lkd_list->content, 0) == -1)
+		&& lkd_list->spaces == 0)
+			*to_remplace = "";
+		else if ((!ft_strstr(lkd_list->content, ".0")
+		|| detect_prec(lkd_list->content, 0) != -1) 
+		&& lkd_list->spaces == 0)
+		{
+			free(lkd_list->content);
+			lkd_list->is_malloc = 0;
+			lkd_list->content = "(null)";
+			return (NULL);
+		}
 	}
-	return (1);
+	return ("OK");
 }
 
 int		percent_s(t_word *lkd_list, va_list ap)
@@ -56,7 +66,7 @@ int		percent_s(t_word *lkd_list, va_list ap)
 	spaces = NULL;
 	lkd_list->is_malloc = 0;
 	to_remplace = va_arg(ap, char *);
-	if (check_null_s(lkd_list, to_remplace) == 0)
+	if (check_null_s(lkd_list, &to_remplace) == NULL)
 		return (0);
 	if ((i = ft_strchr(lkd_list->content, '.')) != -1)
 		prec = precision(lkd_list->content, to_remplace, i, 1);

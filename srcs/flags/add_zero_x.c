@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/26 22:32:14 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/15 15:42:55 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/16 16:25:02 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*change_minus(char *str)
 	int		i;
 	char	tmp;
 	int		e;
-	//printf("Je rentre la\n");
+
 	i = 0;
 	e = 0;
 	while (str[i])
@@ -62,6 +62,8 @@ char	*insert_zero(t_word *lkd_list, char *to_remplace, char *prec, char *spaces)
 	else if (spaces == NULL && prec == NULL)
 		tmp = to_remplace;
 	if (ft_strlen(tmp) == lkd_list->spaces && check_spaces(tmp) == 0)
+		return (ft_strdup(tmp));
+	if (prec && ft_strlen(prec) == extract_prec(lkd_list->content, -1))
 		return (ft_strdup(tmp));
 	if (tmp)
 	{

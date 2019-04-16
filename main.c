@@ -6,7 +6,7 @@
 /*   By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:40:07 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/12 16:45:21 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/16 15:52:11 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,14 @@ int main(void)
 	char *test11 = NULL;
 	char *test12 = 0x0;
 	int test13 = INT_MAX;
+	char *str = NULL;
 
 	printf("VRAI PRINTF:\n");
 	printf("-----Test normaux-----\n");
 	printf("test printf\n");
 	ft_printf("test printf\n");
-//	printf("\0");
-//	ft_printf("\0");
+	printf("\0");
+	ft_printf("\0");
 	printf("");
 	ft_printf("");
 	printf("-----Test %%c-----\n");
@@ -180,12 +181,12 @@ int main(void)
 	printf("Pourcent pourcent : '%-10%'\n");
 	ft_printf("Pourcent pourcent : '%-10%'\n");
 	printf("-----Test precision-----\n");
-//	printf("Pourcent c: '%.10c'\n", 'o');
-//	ft_printf("Pourcent c: '%.10c'\n", 'o');
+	printf("Pourcent c: '%.10c'\n", 'o');
+	ft_printf("Pourcent c: '%.10c'\n", 'o');
 	printf("Pourcent s: '%.10s'\n", "hohohohohohohoho");
 	ft_printf("Pourcent s: '%.10s'\n", "hohohohohohohoho");
-//	printf("Pourcent p: '%.20p'\n", test6);
-//	ft_printf("Pourcent p: '%.20p'\n", test6);
+	printf("Pourcent p: '%.20p'\n", test6);
+	ft_printf("Pourcent p: '%.20p'\n", test6);
 	printf("Pourcent d: '%.10d'\n", 42);
 	ft_printf("Pourcent d: '%.10d'\n", 42);
 	printf("Pourcent o: '%.10o' \n", 1000);
@@ -431,6 +432,24 @@ int main(void)
     ft_printf("mien avec '%#8x'\n", 50);
     printf("%lu\n", (long)-42);
 	ft_printf("%lu\n", (long)-42);
+	printf("|%.0s|\n",str);
+	ft_printf("|%.0s|\n\n",str);
+	printf("|%55.0s|\n",str);
+	ft_printf("|%55.0s|\n\n",str);
+	printf("|%-55.10s|\n",str);
+	ft_printf("|%-55.10s|\n\n",str);
+	printf("|%55.10s|\n",str);
+	ft_printf("|%55.10s|\n\n",str);
+	printf("|%#.8x|\n",42424242);
+	ft_printf("|%#.8x|\n\n",42424242);
+	printf("|%#12.2o|\n", 0);					
+	ft_printf("|%#12.2o|\n", 0);
+	printf("|%#10.8o|\n", 424242);
+	ft_printf("|%#10.8o|\n", 424242);
+	printf("Vrai PRINTF : |%10c|\n", 0);
+	ft_printf("Mien PRINTF : |%10c|\n\n", 0);
+	printf("Vrai PRINTF : |%.0c|\n", 0);
+	ft_printf("Mien PRINTF : |%.0c|\n\n", 0);
 	printf("--------------Basic test 42 fc--------------------\n");  		   
 	printf("");
 	ft_printf("");
@@ -698,12 +717,12 @@ int main(void)
 	ft_printf("%-05d\n", -42);
 	printf("%hd\n", 32767);
 	ft_printf("%hd\n", 32767);
-	//printf("%hd\n", −32768);
-	//ft_printf("%hd\n", −32768);
+	printf("%hd\n", -32768);
+	ft_printf("%hd\n", -32768);
 	printf("%hd\n", 32768);
 	ft_printf("%hd\n", 32768);
-	//printf("%hd\n", −32769);
-	//ft_printf("%hd\n", −32769);
+	printf("%hd\n", -32769);
+	ft_printf("%hd\n", -32769);
 	printf("%hhd\n", 127);
 	ft_printf("%hhd\n", 127);
 	printf("%hhd\n", 128);

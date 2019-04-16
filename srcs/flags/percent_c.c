@@ -6,11 +6,13 @@
 /*   By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 16:57:06 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/09 15:54:39 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/16 14:31:59 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
+
+#include <stdio.h>
 
 int		percent_c(t_word *lkd_list, va_list ap)
 {

@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 20:01:46 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/08 12:47:24 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/16 16:36:48 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,36 @@
 ** Then add 0x before
 ** https://repl.it/repls/ValidBestFlashdrives
 */
+char	 *change_sign(char *str)
+{
+	int i;
+	int e;
+
+	i = 0;
+	e = 0;
+	while (str[i] == ' ')
+		i++;
+	if (str[i + 2] == '0')
+	{
+		while (str[i + e] != 'x')
+			e++;
+		str[i + e] = '0';
+		str[i + 1] = 'x';
+		return (str);
+	}
+	return (str);
+}
 
 void	handle_return(t_word *lkd_list,
 		char *to_remplace, char *spaces)
 {
+	if (spaces != NULL)
+		free(to_remplace);
 	free(lkd_list->content);
 	if (spaces != NULL)
-		lkd_list->content = spaces;
+		lkd_list->content = change_sign(spaces);
 	else
-		lkd_list->content = to_remplace;
+		lkd_list->content = change_sign(to_remplace);
 }
 
 int		null_arg(int value, t_word *lkd_list)
@@ -56,14 +77,13 @@ int		percent_p(t_word *lkd_list, va_list ap)
 	to_remplace = conv_in_hexa_p(value);
 	if ((i = ft_strchr(lkd_list->content, '.')) != -1)
 	{
-		tmp = to_remplace;
+		tmp = ft_strdup(to_remplace);
 		free(to_remplace);
 		to_remplace = precision(lkd_list->content, tmp, i, 0);
+		free(tmp);
 	}
 	if (ft_isdigit(lkd_list->content[1]) || lkd_list->content[1] == '-')
 		spaces = add_space(lkd_list, to_remplace);
 	handle_return(lkd_list, to_remplace, spaces);
-	if (spaces != NULL)
-		free(to_remplace);
 	return (0);
 }

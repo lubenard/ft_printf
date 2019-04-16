@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:56:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/15 17:28:03 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/16 16:20:22 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ int		detect_prec(char *str, int mode)
 	{
 		if (str[i] == '.')
 		{
-			//printf("ce truc vaut %c et vaut  %c\n", str[i + 1], str[i - 1]);
-			//printf("ft_isdigit(+1) = %d et -1 = %d\n", ft_isdigit(str[i+ 1]), ft_isdigit(str[i- 1]));
 			if (ft_isdigit(str[i + 1]) == 0 && mode == 0)
 				return (-1);
 			if (ft_isdigit(str[i - 1]) && mode == 1)
@@ -95,6 +93,8 @@ int		extract_prec(char *content, int i)
 	j = i + 1;
 	i++;
 	k = i;
+	if (i == -1)
+		i = ft_strchr(content, '.');
 	while (content[i] > 47 && content[i] < 58)
 		++i;
 	sub = ft_strsub(content, j, i - k);
@@ -118,6 +118,8 @@ char	*precision(char *content, char *to_remplace, int i, int mode)
 		++i;
 	sub = ft_strsub(content, j, i - k);
 	length = ft_atoi(sub);
+	if (content[ft_strlen(content) - 1] == 'p')
+		length += 2;
 	if (mode == 1)
 		return (mode_1(to_remplace, length, sub));
 	else if (mode == 0)
