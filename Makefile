@@ -6,7 +6,7 @@
 #    By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 17:01:46 by lubenard          #+#    #+#              #
-#    Updated: 2019/04/10 18:31:06 by lubenard         ###   ########.fr        #
+#    Updated: 2019/04/17 17:50:42 by lubenard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,8 @@ SRC = srcs/ft_printf.c \
 	  srcs/flags/percent_x_maj.c \
 	  srcs/flags/add_space.c \
 	  srcs/flags/precision.c \
-	  srcs/flags/add_zero_x.c
+	  srcs/flags/add_zero_x.c \
+	  srcs/flags/useless.c
 
 OBJ = $(SRC:.c=.o)
 CC = clang

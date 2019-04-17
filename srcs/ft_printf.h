@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/15 18:40:55 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/17 16:47:59 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,11 @@ char			*precision(char *content, char *to_remplace, int i, int mode);
 int				brackets(t_word *lkd_list);
 char			*add_zero_x(t_word *lkd_list, char *to_remplace,
 		char *prec, char *spaces);
+/*
+** Useless Functions
+** (Forced to move them to another fiile because of Norme)
+*/
+char			*return_x(t_word *lkd_list, char  *zero_x, int option);
+int				check_spaces(char *str);
 
 #endif

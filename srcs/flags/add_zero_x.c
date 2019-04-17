@@ -6,24 +6,11 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/26 22:32:14 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/16 18:06:24 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/17 17:45:58 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
-
-int		check_spaces(char *str)
-{
-	int i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i++] == ' ')
-			return (-1);
-	}
-	return (0);
-}
 
 char	*insert_zero(t_word *lkd_list, char *to_remplace,
 		char *prec, char *spaces)
@@ -110,8 +97,8 @@ int		check_null(char *prec, char *spaces, char *to_remplace)
 	return (0);
 }
 
-char	*add_zero_x(t_word *lkd_list, char *to_remplace,
-		char *prec, char *spaces)
+char	*handle_errors_0_x(t_word *lkd_list, char *spaces,
+	char *prec, char *to_remplace)
 {
 	if (ft_strchr(lkd_list->content, '#') == -1 ||
 		check_null(prec, spaces, to_remplace) == -1)
@@ -125,6 +112,18 @@ char	*add_zero_x(t_word *lkd_list, char *to_remplace,
 		else
 			return (ft_strdup(to_remplace));
 	}
+	return (NULL);
+}
+
+char	*add_zero_x(t_word *lkd_list, char *to_remplace,
+		char *prec, char *spaces)
+{
+	char *tmp;
+
+	if ((tmp = handle_errors_0_x(lkd_list, spaces, prec, to_remplace)))
+		return (tmp);
+	else
+		free(tmp);
 	if (lkd_list->content[ft_strlen(lkd_list->content) - 1] == 'o')
 	{
 		free(lkd_list->content);

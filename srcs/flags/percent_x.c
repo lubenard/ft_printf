@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 11:23:03 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/16 17:53:23 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/17 15:42:08 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,6 @@ char	*handle_return_x(t_word *lkd_list, char *to_remplace,
 	if (prec != NULL)
 		free(prec);
 	return (NULL);
-}
-
-char	*return_x(t_word *lkd_list, char *zero_x, int option)
-{
-	if (option == 1)
-		return (zero_x);
-	lkd_list->content = zero_x;
-	return (0);
 }
 
 int		handle_errors_x(t_word *lkd_list, char **to_remplace)
