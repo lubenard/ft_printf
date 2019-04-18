@@ -6,7 +6,7 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 00:11:51 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/17 16:47:59 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/18 13:00:40 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,11 @@ char			*add_zero_x(t_word *lkd_list, char *to_remplace,
 ** Useless Functions
 ** (Forced to move them to another fiile because of Norme)
 */
-char			*return_x(t_word *lkd_list, char  *zero_x, int option);
+char			*return_x(t_word *lkd_list, char *zero_x, int option);
 int				check_spaces(char *str);
+t_percent_di	initialise_struct_di(void);
+void			handle_ret_di2(t_percent_di *struct_di,
+	t_word *lkd_list, char *to_remplace, int i);
+int				check_null(char *prec, char *spaces, char *to_remplace);
 
 #endif

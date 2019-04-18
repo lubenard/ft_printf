@@ -6,7 +6,7 @@
 #    By: lubenard <lubenard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 17:01:46 by lubenard          #+#    #+#              #
-#    Updated: 2019/04/17 17:50:42 by lubenard         ###   ########.fr        #
+#    Updated: 2019/04/18 13:07:57 by lubenard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,14 +46,13 @@ SRC = srcs/ft_printf.c \
 
 OBJ = $(SRC:.c=.o)
 CC = clang
-CFLAGS = -g3 -c -Wall -Wextra -Werror
+CFLAGS = -c -Wall -Wextra -Werror
 
 all:  $(NAME)
 
 $(NAME): $(OBJ)
 	@printf "\033[33mCompilation de $(NAME)...\033[0m"
-	@ar rc $(NAME) $(OBJ)
-	@$(CC) -g3 -o ft_printf main2.c libftprintf.a
+	@ar rcs $(NAME) $(OBJ)
 	@printf "\033[32m[✓]\033[0m\n"
 
 %.o : %.c
@@ -62,15 +61,13 @@ $(NAME): $(OBJ)
 	@printf "\033[32m[✓]\033[0m\n"
 
 clean:
-	@printf "\033[31mFclean du projet...\033[0m"
+	@printf "\033[31mClean du projet...\033[0m"
 	@rm -f $(OBJ)
 	@printf "\033[32m[✓]\033[0m\n"
 
 fclean: clean
 	@printf "\033[31mFclean du projet...\033[0m"
 	@rm -f $(NAME)
-	@rm -rf ft_printf.dSYM
-	@rm -f ft_printf
 	@printf "\033[32m[✓]\033[0m\n"
 
 re: fclean all

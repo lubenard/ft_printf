@@ -6,30 +6,14 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/26 22:32:14 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/17 23:27:23 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/18 13:05:18 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-char	*insert_zero(t_word *lkd_list, char *to_remplace,
-		char *prec, char *spaces)
+char	*insert_zero2(char *tmp, char *spaces, int i)
 {
-	int		i;
-	char	*tmp;
-
-	i = 0;
-	tmp = NULL;
-	if (spaces != NULL)
-		tmp = spaces;
-	else if (prec != NULL)
-		tmp = prec;
-	else if (spaces == NULL && prec == NULL)
-		tmp = to_remplace;
-	if (ft_strlen(tmp) == lkd_list->spaces && check_spaces(tmp) == 0)
-		return (ft_strdup(tmp));
-	if (prec && ft_strlen(prec) == extract_prec(lkd_list->content, -1))
-		return (ft_strdup(tmp));
 	if (tmp)
 	{
 		if (tmp[0] == ' ')
@@ -47,6 +31,30 @@ char	*insert_zero(t_word *lkd_list, char *to_remplace,
 			tmp[ft_strlen(tmp) - 1] = '\0';
 		return (tmp);
 	}
+	return (NULL);
+}
+
+char	*insert_zero(t_word *lkd_list, char *to_remplace,
+		char *prec, char *spaces)
+{
+	int		i;
+	char	*tmp;
+	char	*tmp2;
+
+	i = 0;
+	tmp = NULL;
+	if (spaces != NULL)
+		tmp = spaces;
+	else if (prec != NULL)
+		tmp = prec;
+	else if (spaces == NULL && prec == NULL)
+		tmp = to_remplace;
+	if (ft_strlen(tmp) == lkd_list->spaces && check_spaces(tmp) == 0)
+		return (ft_strdup(tmp));
+	if (prec && ft_strlen(prec) == extract_prec(lkd_list->content, -1))
+		return (ft_strdup(tmp));
+	if ((tmp2 = insert_zero2(tmp, spaces, i)) != NULL)
+		return (tmp2);
 	return (NULL);
 }
 
@@ -75,26 +83,6 @@ char	*insert_spaces(int spaces, char *str)
 		return (str);
 	}
 	return (ft_strdup(str));
-}
-
-int		check_null(char *prec, char *spaces, char *to_remplace)
-{
-	if (spaces != NULL)
-	{
-		if (ft_strcmp(spaces, "0") == 0)
-			return (-1);
-	}
-	else if (prec != NULL)
-	{
-		if (ft_strcmp(prec, "0") == 0)
-			return (-1);
-	}
-	else if (to_remplace != NULL)
-	{
-		if (ft_strcmp(to_remplace, "0") == 0)
-			return (-1);
-	}
-	return (0);
 }
 
 char	*handle_errors_0_x(t_word *lkd_list, char *spaces,

@@ -6,13 +6,11 @@
 /*   By: lubenard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 20:01:12 by lubenard          #+#    #+#             */
-/*   Updated: 2019/04/17 23:15:47 by lubenard         ###   ########.fr       */
+/*   Updated: 2019/04/18 12:34:35 by lubenard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
-
-#include <stdio.h>
 
 char		*get_option_d(va_list ap, t_word *lkd_list)
 {
@@ -60,7 +58,7 @@ int			handle_ret_di(t_percent_di *struct_di, t_word *lkd_list,
 
 int			handle_errors_di(t_word *lkd_list, char **to_remplace)
 {
-if (ft_strcmp(*to_remplace, "0") == 0
+	if (ft_strcmp(*to_remplace, "0") == 0
 	&& (ft_strstr(lkd_list->content, ".0")
 	|| detect_prec(lkd_list->content, 0) == -1))
 	{
@@ -81,17 +79,8 @@ if (ft_strcmp(*to_remplace, "0") == 0
 	return (1);
 }
 
-t_percent_di	initialise_struct_di(void)
-{
-	t_percent_di struct_di;
-
-	struct_di.spaces = NULL;
-	struct_di.prec = NULL;
-	struct_di.tmp = NULL;
-	return (struct_di);
-}
-
-void		handle_plus_di(t_percent_di *struct_di, t_word *lkd_list, char *to_remplace)
+void		handle_plus_di(t_percent_di *struct_di,
+	t_word *lkd_list, char *to_remplace)
 {
 	if (struct_di->prec && ft_strchr(lkd_list->content, '+') != -1
 	&& ft_strchr(struct_di->prec, '-'))
@@ -105,17 +94,6 @@ void		handle_plus_di(t_percent_di *struct_di, t_word *lkd_list, char *to_remplac
 	else if (ft_strchr(lkd_list->content, ' ') != -1
 	&& ft_strchr(to_remplace, '-') && struct_di->prec == NULL)
 		struct_di->tmp = ft_strjoin(" ", to_remplace);
-}
-
-void		handle_ret_di2(t_percent_di *struct_di, t_word *lkd_list, char *to_remplace, int i)
-{
-	if (extract_prec(lkd_list->content, i) == ft_strlen(to_remplace)
-	&& extract_prec(lkd_list->content, i) != 0 && ft_strchr(lkd_list->content, '+') == -1)
-	{
-		lkd_list->is_neg = 1;
-		free(struct_di->spaces);
-		struct_di->spaces = ft_strjoin("0", struct_di->prec);
-	}
 }
 
 int			percent_di(t_word *lkd_list, va_list ap)
